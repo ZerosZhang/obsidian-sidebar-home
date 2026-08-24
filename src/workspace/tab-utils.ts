@@ -1,5 +1,5 @@
 import { Workspace, WorkspaceLeaf } from 'obsidian';
-import type SidebarHomePlugin from './main';
+import type SidebarHomePlugin from '../main';
 
 const _origOpenLinkText = Workspace.prototype.openLinkText;
 

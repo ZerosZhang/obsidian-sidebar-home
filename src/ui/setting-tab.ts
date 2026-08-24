@@ -1,8 +1,8 @@
 import { App, Notice, PluginSettingTab, Setting, TAbstractFile, TFile, TFolder } from 'obsidian';
-import type SidebarHomePlugin from './main';
-import type { QuickLink, MenuAreaKey, SidebarHomeSettings } from './settings';
-import { highlightColor } from './tts-highlight';
-import { generateEdgeTts } from './edge-tts';
+import type SidebarHomePlugin from '../main';
+import type { QuickLink, MenuAreaKey, SidebarHomeSettings } from '../settings';
+import { highlightColor } from '../tts/tts-highlight';
+import { generateEdgeTts } from '../tts/edge-tts';
 
 const MENU_AREA_LABELS: Record<MenuAreaKey, string> = {
 	'file-explorer': '文件资源管理器',

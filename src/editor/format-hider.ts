@@ -19,8 +19,8 @@ import {
 } from '@codemirror/view';
 import { Prec, RangeSetBuilder } from '@codemirror/state';
 import { syntaxTree } from '@codemirror/language';
-import type { SidebarHomeSettings } from './settings';
-import { DEFAULT_SETTINGS } from './settings';
+import type { SidebarHomeSettings } from '../settings';
+import { DEFAULT_SETTINGS } from '../settings';
 
 /** 模块级可变配置对象 */
 export const formattingConfig: SidebarHomeSettings = { ...DEFAULT_SETTINGS };

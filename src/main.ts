@@ -9,15 +9,15 @@ import {
 } from 'obsidian';
 import { EditorView } from '@codemirror/view';
 import type { MenuAreaKey } from './settings';
-import { SidebarHomeSettingTab } from './setting-tab';
-import { SidebarHomeView, VIEW_TYPE_SIDEBAR_HOME } from './sidebar-view';
+import { SidebarHomeSettingTab } from './ui/setting-tab';
+import { SidebarHomeView, VIEW_TYPE_SIDEBAR_HOME } from './ui/sidebar-view';
 import { DEFAULT_SETTINGS, type SidebarHomeSettings } from './settings';
-import { formattingConfig, createFormatHiderExtension } from './format-hider';
-import { spaceConfig, createWhitespaceExtension } from './whitespace-visible';
-import { TtsPlayer } from './tts-player';
-import { createTtsHighlightExtension, highlightColor } from './tts-highlight';
-import { formatMarkdown } from './format';
-import { patchOpenLinkText, registerFileExplorerHandler, patchCloseTabGoToPrev } from './tab-utils';
+import { formattingConfig, createFormatHiderExtension } from './editor/format-hider';
+import { spaceConfig, createWhitespaceExtension } from './editor/whitespace-visible';
+import { TtsPlayer } from './tts/tts-player';
+import { createTtsHighlightExtension, highlightColor } from './tts/tts-highlight';
+import { formatMarkdown } from './formatting/format';
+import { patchOpenLinkText, registerFileExplorerHandler, patchCloseTabGoToPrev } from './workspace/tab-utils';
 
 export default class SidebarHomePlugin extends Plugin {
 	settings: SidebarHomeSettings;

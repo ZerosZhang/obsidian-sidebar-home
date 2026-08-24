@@ -3,7 +3,7 @@
  */
 import { App, MarkdownView, Notice } from 'obsidian';
 import { EditorView } from '@codemirror/view';
-import type { SidebarHomeSettings } from './settings';
+import type { SidebarHomeSettings } from '../settings';
 import { cleanMarkdownForTts } from './markdown-cleaner';
 import { splitSentences, findSentenceOffsets } from './sentence-splitter';
 import { generateEdgeTts } from './edge-tts';

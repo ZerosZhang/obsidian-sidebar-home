@@ -18,8 +18,8 @@ import {
 	WidgetType,
 } from '@codemirror/view';
 import { RangeSetBuilder } from '@codemirror/state';
-import type { SidebarHomeSettings } from './settings';
-import { DEFAULT_SETTINGS } from './settings';
+import type { SidebarHomeSettings } from '../settings';
+import { DEFAULT_SETTINGS } from '../settings';
 
 export const spaceConfig: SidebarHomeSettings = { ...DEFAULT_SETTINGS };
 

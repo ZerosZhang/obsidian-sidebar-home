@@ -7,8 +7,8 @@ import {
 	TFolder,
 	WorkspaceLeaf,
 } from 'obsidian';
-import type SidebarHomePlugin from './main';
-import { type PlayState } from './tts-player';
+import type SidebarHomePlugin from '../main';
+import { type PlayState } from '../tts/tts-player';
 
 export const VIEW_TYPE_SIDEBAR_HOME = 'sidebar-home';
 
