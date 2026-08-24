@@ -27,7 +27,8 @@ npm run dev        # watch 模式（仅 esbuild，不做类型检查）
 npm run build      # 类型检查 + 生产打包（tsc --noEmit && esbuild）
 ```
 
-构建产物为 `main.js`。
+- TypeScript 源码位于 `src/`
+- 构建产物为根目录下的 `main.js`（已 gitignore，由构建生成）
 
 ## 自动发布
 
