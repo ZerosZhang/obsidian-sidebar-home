@@ -1,7 +1,7 @@
 {
 	"id": "sidebar-home",
 	"name": "Sidebar Home",
-	"version": "2.2.0",
+	"version": "2.2.1",
 	"minAppVersion": "0.15.0",
 	"description": "侧边栏主页，支持快速创建笔记、常用链接、状态概览，集成 Edge-TTS 语音朗读和 Markdown 格式化",
 	"author": "ZerosZhang",
