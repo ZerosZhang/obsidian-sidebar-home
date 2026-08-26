@@ -251,17 +251,20 @@ function cjkSpacing(text: string): string {
 function codeFenceLanguage(text: string, defaultLanguage: string): string {
 	if (!defaultLanguage) return text;
 	const lines = text.split('\n');
-	let inCodeBlock = false;
+	// 栈追踪嵌套代码块（obsidian-columns 的 ```col 嵌套语法）
+	// 有语言标识的行压栈，无语言的 ``` 行闭合栈顶；栈空时无语言 ``` 视为新开口
+	const stack: boolean[] = [];
 	for (let i = 0; i < lines.length; i++) {
 		const trimmed = lines[i].trim();
 		if (trimmed.startsWith('```')) {
-			if (!inCodeBlock && trimmed === '```') {
-				lines[i] = lines[i].replace('```', '```' + defaultLanguage);
-				inCodeBlock = true;
-			} else if (!inCodeBlock) {
-				inCodeBlock = true;
+			const lang = trimmed.slice(3).trim();
+			if (lang) {
+				stack.push(true);
+			} else if (stack.length > 0) {
+				stack.pop();
 			} else {
-				inCodeBlock = false;
+				lines[i] = lines[i].replace('```', '```' + defaultLanguage);
+				stack.push(false);
 			}
 		}
 	}
@@ -579,3 +582,4 @@ function hasYamlTag(text: string, tag: string): boolean {
 function escapeRegex(str: string): string {
 	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
+
