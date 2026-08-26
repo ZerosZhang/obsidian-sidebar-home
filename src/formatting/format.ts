@@ -29,6 +29,9 @@ export function formatMarkdown(text: string, fileCreatedAt: number, settings: Fo
 		return `\u0000WIKI${wikiLinks.length - 1}\u0000`;
 	});
 
+	// 代码块默认语言（须在代码块占位保护之前执行，否则代码块已被替换为占位符）
+	if (settings.codeFenceLanguage) body = codeFenceLanguage(body, settings.codeFenceDefaultLanguage);
+
 	// 保护代码块内容，避免被格式化
 	const codeBlocks: string[] = [];
 	body = body.replace(/(`{3,}|~{3,})([\s\S]*?)\1/g, (match) => {
@@ -60,7 +63,6 @@ export function formatMarkdown(text: string, fileCreatedAt: number, settings: Fo
 	if (settings.headerIncrement) body = headerIncrement(body);
 	if (settings.headingsStartLine) body = headingsStartLine(body);
 	if (settings.cjkSpacing) body = cjkSpacing(body);
-	if (settings.codeFenceLanguage) body = codeFenceLanguage(body, settings.codeFenceDefaultLanguage);
 	if (settings.spaceAfterListMarkers) body = spaceAfterListMarkers(body);
 	if (settings.unorderedListStyle) body = unorderedListStyle(body);
 	if (settings.removeEmptyLinesBetweenListMarkers) body = removeEmptyLinesBetweenListMarkers(body);
