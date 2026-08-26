@@ -386,6 +386,24 @@ function removeLeadingSpaces(text: string): string {
 
 ---
 
+
+
+### 错误 21：codeFenceLanguage 破坏 obsidian-columns 嵌套代码块
+
+**做法**：codeFenceLanguage 用布尔状态（`inCodeBlock`）判断代码块开口/闭合。
+
+**问题**：obsidian-columns 插件的 ```` ```col ```` 嵌套语法被破坏——内层子块闭合的 ```` ``` ```` 被误判为"无语言开口"，被加上默认语言变成 ```` ```csharp ````。
+
+**原因**：```` ```col ```` 是嵌套代码块（外层 `col` 包内层 `col-md`），布尔状态机无法区分"有语言块自成一体"与"嵌套闭合"。有语言的行被当成开口/闭合切换状态后状态错位，内层的 ```` ``` ```` 被当成新开口。
+
+**解决**：改用栈追踪嵌套层级——有语言标识的行压栈，无语言的 ```` ``` ```` 行闭合栈顶；栈空时无语言的 ```` ``` ```` 才视为新的无语言开口并添加默认语言。
+
+**验证**：obsidian-columns 嵌套结构保持原样；普通无语言代码块仍加默认语言；已有语言块不覆盖；默认语言为空时不变。
+
+**教训**：代码块的开口/闭合配对必须理解嵌套。布尔状态机只适合无嵌套场景，遇到扩展语法（如 obsidian-columns）要改用栈。
+
+---
+
 ## 关键技术点
 
 ### YAML 隔离模式
@@ -443,4 +461,5 @@ WebSocket 接收帧后先解析 X-RequestId/Path headers，然后：
 - `Path:turn.end` → 标记 TTS 结束，合并所有音频块
 
 每个二进制帧前 128 字节是元数据 headers，之后为纯音频。使用 `Buffer.concat` 累积后生成 ArrayBuffer 传给 Web Audio API 播放。
+
 
