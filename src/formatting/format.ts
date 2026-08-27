@@ -39,6 +39,13 @@ export function formatMarkdown(text: string, fileCreatedAt: number, settings: Fo
 		return `\u0000CODE${codeBlocks.length - 1}\u0000`;
 	});
 
+	// 保护行内代码，避免被格式化（引号、中英文空格等所有规则均不触碰，须在代码块保护之后执行）
+	const inlineCodes: string[] = [];
+	body = body.replace(/(`+)([^`\n]*?)\1/g, (match) => {
+		inlineCodes.push(match);
+		return `\u0000CODEINLINE${inlineCodes.length - 1}\u0000`;
+	});
+
 	// 保护 <span> 标签及其内容，避免被格式化
 	const spanBlocks: string[] = [];
 	if (settings.protectSpanText) {
@@ -82,6 +89,9 @@ export function formatMarkdown(text: string, fileCreatedAt: number, settings: Fo
 
 	// 还原 span 块（外层先还原，其内容可能含内层占位符）
 	body = body.replace(/\u0000SPAN(\d+)\u0000/g, (_, i) => spanBlocks[parseInt(i)]);
+
+	// 还原行内代码
+	body = body.replace(/\u0000CODEINLINE(\d+)\u0000/g, (_, i) => inlineCodes[parseInt(i)]);
 
 	// 还原代码块
 	body = body.replace(/\u0000CODE(\d+)\u0000/g, (_, i) => codeBlocks[parseInt(i)]);
