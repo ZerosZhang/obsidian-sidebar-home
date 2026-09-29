@@ -1,12 +1,12 @@
 {
 	"name": "obsidian-sidebar-home",
-	"version": "2.2.3",
+	"version": "2.4.1",
 	"description": "侧边栏主页插件",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-		"version": "2.2.3"
+		"version": "2.4.1"
 	},
 	"keywords": [
 		"obsidian",
