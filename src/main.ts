@@ -18,6 +18,10 @@ import { TtsPlayer } from './tts/tts-player';
 import { createTtsHighlightExtension, highlightColor } from './tts/tts-highlight';
 import { formatMarkdown } from './formatting/format';
 import { patchOpenLinkText, registerFileExplorerHandler, patchCloseTabGoToPrev } from './workspace/tab-utils';
+import { excelConfig } from './preview/excel-config';
+import { refreshMountedPreviews, registerExcelPostProcessor } from './preview/excel-embed';
+import { createExcelLivePreviewExtension } from './preview/excel-live-preview';
+import { invalidateSpreadsheet } from './preview/excel-parser';
 
 export default class SidebarHomePlugin extends Plugin {
 	settings: SidebarHomeSettings;
@@ -51,6 +55,10 @@ export default class SidebarHomePlugin extends Plugin {
 		this.registerEditorExtension(createFormatHiderExtension());
 		this.registerEditorExtension(createWhitespaceExtension());
 		this.registerEditorExtension(createTtsHighlightExtension());
+
+		// Excel 内嵌预览：阅读模式走后处理器，实时预览走编辑器扩展
+		this.registerEditorExtension(createExcelLivePreviewExtension(this));
+		registerExcelPostProcessor(this);
 
 		// 添加命令：打开侧边栏主页
 		this.addCommand({
@@ -147,6 +155,18 @@ export default class SidebarHomePlugin extends Plugin {
 		this.registerEvent(this.app.vault.on('delete', debouncedRefresh));
 		this.registerEvent(this.app.vault.on('rename', debouncedRefresh));
 		this.registerEvent(this.app.vault.on('modify', debouncedRefresh));
+
+		// Excel 预览：文件变化时丢弃解析缓存并重绘引用它的预览
+		const handleSpreadsheetChange = (path: string) => {
+			invalidateSpreadsheet(path);
+			refreshMountedPreviews(path);
+		};
+		this.registerEvent(this.app.vault.on('modify', (file) => handleSpreadsheetChange(file.path)));
+		this.registerEvent(this.app.vault.on('delete', (file) => handleSpreadsheetChange(file.path)));
+		this.registerEvent(this.app.vault.on('rename', (file, oldPath) => {
+			handleSpreadsheetChange(oldPath);
+			handleSpreadsheetChange(file.path);
+		}));
 
 		// 记录鼠标位置（用于菜单位置调整）
 		this.registerDomEvent(document, 'mousemove', (evt) => {
@@ -362,6 +382,7 @@ export default class SidebarHomePlugin extends Plugin {
 	private syncConfig() {
 		Object.assign(formattingConfig, this.settings);
 		Object.assign(spaceConfig, this.settings);
+		Object.assign(excelConfig, this.settings);
 	}
 
 	private repaintAllEditors() {

@@ -103,6 +103,11 @@ export interface SidebarHomeSettings {
 	ttsEdgeVoice: string;
 	ttsSpeed: number;
 	ttsHighlightColor: string;
+	// Excel 预览
+	excelPreviewEnabled: boolean;
+	excelPreviewMaxRows: number;
+	excelPreviewMaxCols: number;
+	excelPreviewHeight: number;
 	// 格式化
 	format: FormatSettings;
 }
@@ -138,6 +143,11 @@ export const DEFAULT_SETTINGS: SidebarHomeSettings = {
 	ttsEdgeVoice: 'zh-CN-XiaoxiaoNeural',
 	ttsSpeed: 1.0,
 	ttsHighlightColor: '#FFFACD',
+	// Excel 预览
+	excelPreviewEnabled: true,
+	excelPreviewMaxRows: 100,
+	excelPreviewMaxCols: 20,
+	excelPreviewHeight: 400,
 	// 格式化
 	format: {
 		protectSpanText: true,

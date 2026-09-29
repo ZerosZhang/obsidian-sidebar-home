@@ -3,6 +3,7 @@ import type SidebarHomePlugin from '../main';
 import type { QuickLink, MenuAreaKey, SidebarHomeSettings } from '../settings';
 import { highlightColor } from '../tts/tts-highlight';
 import { generateEdgeTts } from '../tts/edge-tts';
+import { refreshMountedPreviews } from '../preview/excel-embed';
 
 const MENU_AREA_LABELS: Record<MenuAreaKey, string> = {
 	'file-explorer': '文件资源管理器',
@@ -67,6 +68,7 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 			{ label: '格式化' },
 			{ label: '样式隐藏' },
 			{ label: '语音朗读' },
+			{ label: 'Excel 预览' },
 		];
 
 		tabs.forEach((tab, index) => {
@@ -114,6 +116,12 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 			cls: `sh-settings-tab-panel${this.activeTab === 4 ? ' is-active' : ''}`,
 		});
 		this.renderTtsSettings(panel5);
+
+		// Tab 6: Excel 预览
+		const panel6 = content.createDiv({
+			cls: `sh-settings-tab-panel${this.activeTab === 5 ? ' is-active' : ''}`,
+		});
+		this.renderExcelSettings(panel6);
 	}
 
 	// ========== Tab 1: 基础设置 ==========
@@ -878,5 +886,59 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 
 	private updateHighlightStyle(color: string) {
 		highlightColor.value = color;
+	}
+
+	// ========== Tab 6: Excel 预览 ==========
+	private renderExcelSettings(container: HTMLElement) {
+		container.createEl('h2', { text: 'Excel 预览' });
+
+		new Setting(container)
+			.setName('启用 Excel 内嵌预览')
+			.setDesc('在笔记中用 ![[表格.xlsx]] 直接显示只读表格；点击文件名仍可用 Excel 打开。支持 .xlsx / .xlsm / .ods / .csv')
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.excelPreviewEnabled)
+				.onChange(async (value) => {
+					this.plugin.settings.excelPreviewEnabled = value;
+					await this.plugin.saveSettings();
+				}));
+
+		new Setting(container)
+			.setName('默认显示行数')
+			.setDesc('超出部分不渲染，避免大表拖慢笔记；需要时在预览框内点「显示全部行列」')
+			.addSlider(slider => slider
+				.setLimits(10, 500, 10)
+				.setValue(this.plugin.settings.excelPreviewMaxRows)
+				.setDynamicTooltip()
+				.onChange(async (value) => {
+					this.plugin.settings.excelPreviewMaxRows = value;
+					await this.plugin.saveSettings();
+					refreshMountedPreviews();
+				}));
+
+		new Setting(container)
+			.setName('默认显示列数')
+			.setDesc('超出部分不渲染')
+			.addSlider(slider => slider
+				.setLimits(5, 50, 1)
+				.setValue(this.plugin.settings.excelPreviewMaxCols)
+				.setDynamicTooltip()
+				.onChange(async (value) => {
+					this.plugin.settings.excelPreviewMaxCols = value;
+					await this.plugin.saveSettings();
+					refreshMountedPreviews();
+				}));
+
+		new Setting(container)
+			.setName('预览框高度')
+			.setDesc('表格区域的最大高度（像素），超出部分在框内滚动')
+			.addSlider(slider => slider
+				.setLimits(200, 1000, 50)
+				.setValue(this.plugin.settings.excelPreviewHeight)
+				.setDynamicTooltip()
+				.onChange(async (value) => {
+					this.plugin.settings.excelPreviewHeight = value;
+					await this.plugin.saveSettings();
+					refreshMountedPreviews();
+				}));
 	}
 }

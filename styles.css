@@ -576,3 +576,149 @@
 .tts-btn--start:hover {
 	opacity: 0.85;
 }
+
+/* ========== Excel 预览 ========== */
+.sh-excel-host {
+	display: block;
+	margin-top: 6px;
+}
+
+.sh-excel-preview {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 6px;
+	overflow: hidden;
+	background-color: var(--background-primary);
+}
+
+.sh-excel-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px;
+	padding: 4px 4px 0;
+	border-bottom: 1px solid var(--background-modifier-border);
+	background-color: var(--background-secondary);
+}
+
+.sh-excel-tab {
+	padding: 4px 10px;
+	font-size: 12px;
+	border: none;
+	border-radius: 4px 4px 0 0;
+	background-color: transparent;
+	color: var(--text-muted);
+	cursor: pointer;
+}
+
+.sh-excel-tab:hover {
+	background-color: var(--background-modifier-hover);
+	color: var(--text-normal);
+}
+
+.sh-excel-tab.is-active {
+	background-color: var(--background-primary);
+	color: var(--text-normal);
+	font-weight: 600;
+}
+
+/* 隐藏工作表仍可切换，仅视觉弱化 */
+.sh-excel-tab--hidden-sheet {
+	opacity: 0.55;
+	font-style: italic;
+}
+
+.sh-excel-scroll {
+	overflow: auto;
+	max-width: 100%;
+}
+
+/* 阅读模式下本表格位于 .markdown-rendered 之内，主题里 `.markdown-rendered table`
+   一类规则的选择器权重高于单类名，会盖掉 margin / border-spacing / padding，
+   因此这里统一提高权重并显式归零会导致横向溢出的属性 */
+.sh-excel-preview .sh-excel-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0;
+	font-size: 12px;
+	width: max-content;
+	min-width: 100%;
+}
+
+.sh-excel-preview .sh-excel-table th,
+.sh-excel-preview .sh-excel-table td {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 0;
+	padding: 3px 8px;
+	margin: 0;
+	max-width: 320px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: left;
+	vertical-align: top;
+}
+
+.sh-excel-preview .sh-excel-table th {
+	background-color: var(--background-secondary);
+	font-weight: 600;
+}
+
+.sh-excel-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 4px 8px;
+	font-size: 11px;
+	color: var(--text-muted);
+	border-top: 1px solid var(--background-modifier-border);
+	background-color: var(--background-secondary);
+}
+
+.sh-excel-count {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.sh-excel-actions {
+	display: flex;
+	flex-shrink: 0;
+	gap: 6px;
+}
+
+.sh-excel-expand,
+.sh-excel-fit {
+	padding: 2px 8px;
+	font-size: 11px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	background-color: var(--background-primary);
+	color: var(--text-normal);
+	cursor: pointer;
+}
+
+.sh-excel-expand:hover,
+.sh-excel-fit:hover {
+	background-color: var(--background-modifier-hover);
+	border-color: var(--interactive-accent);
+}
+
+.sh-excel-fit.is-active {
+	background-color: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border-color: var(--interactive-accent);
+}
+
+.sh-excel-expand--hidden {
+	display: none;
+}
+
+.sh-excel-notice {
+	padding: 8px 10px;
+	font-size: 12px;
+	color: var(--text-muted);
+}
+
+.sh-excel-notice--error {
+	color: var(--text-error);
+}
