@@ -4,6 +4,8 @@ import type { QuickLink, MenuAreaKey, SidebarHomeSettings } from '../settings';
 import { highlightColor } from '../tts/tts-highlight';
 import { generateEdgeTts } from '../tts/edge-tts';
 import { refreshMountedPreviews } from '../preview/excel-embed';
+import { openInSystemExplorer, pickFolder } from '../export/folder-picker';
+import { exportMarkdownFile } from '../export/export-runner';
 
 const MENU_AREA_LABELS: Record<MenuAreaKey, string> = {
 	'file-explorer': '文件资源管理器',
@@ -69,6 +71,7 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 			{ label: '样式隐藏' },
 			{ label: '语音朗读' },
 			{ label: 'Excel 预览' },
+			{ label: '导出' },
 		];
 
 		tabs.forEach((tab, index) => {
@@ -122,6 +125,12 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 			cls: `sh-settings-tab-panel${this.activeTab === 5 ? ' is-active' : ''}`,
 		});
 		this.renderExcelSettings(panel6);
+
+		// Tab 7: 导出
+		const panel7 = content.createDiv({
+			cls: `sh-settings-tab-panel${this.activeTab === 6 ? ' is-active' : ''}`,
+		});
+		this.renderExportSettings(panel7);
 	}
 
 	// ========== Tab 1: 基础设置 ==========
@@ -939,6 +948,73 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 					this.plugin.settings.excelPreviewHeight = value;
 					await this.plugin.saveSettings();
 					refreshMountedPreviews();
+				}));
+	}
+
+	// ========== Tab 7: 导出 ==========
+
+	private renderExportSettings(container: HTMLElement) {
+		container.createEl('h2', { text: '导出' });
+		container.createEl('p', {
+			text: '把当前文档导出到库外文件夹：正文存为 .md，引用的图片与其他文件统一放进资源子文件夹，链接改写为标准 Markdown 相对路径。',
+		});
+
+		new Setting(container)
+			.setName('导出目标文件夹')
+			.setDesc('库外绝对路径。留空则每次导出时弹出系统文件夹选择框。每篇文档会在其中建一个同名子文件夹')
+			.addText(text => text
+				.setPlaceholder('例如 D:\\导出')
+				.setValue(this.plugin.settings.exportTargetFolder)
+				.onChange(async (value) => {
+					this.plugin.settings.exportTargetFolder = value.trim();
+					await this.plugin.saveSettings();
+				}))
+			.addButton(btn => btn
+				.setButtonText('选择')
+				.onClick(async () => {
+					const picked = await pickFolder(this.plugin.settings.exportTargetFolder);
+					if (!picked) {
+						new Notice('未能获取文件夹路径，请手动填写');
+						return;
+					}
+					this.plugin.settings.exportTargetFolder = picked;
+					await this.plugin.saveSettings();
+					this.display();
+				}))
+			.addButton(btn => btn
+				.setButtonText('打开')
+				.onClick(() => {
+					const target = this.plugin.settings.exportTargetFolder.trim();
+					if (!target) {
+						new Notice('尚未设置导出目标文件夹');
+						return;
+					}
+					openInSystemExplorer(target);
+				}));
+
+		new Setting(container)
+			.setName('资源文件夹名')
+			.setDesc('导出包内存放图片与被引用文档的子文件夹名')
+			.addText(text => text
+				.setPlaceholder('assets')
+				.setValue(this.plugin.settings.exportAssetsFolder)
+				.onChange(async (value) => {
+					this.plugin.settings.exportAssetsFolder = value.trim() || 'assets';
+					await this.plugin.saveSettings();
+				}));
+
+		new Setting(container)
+			.setName('导出当前文档')
+			.setDesc('等同于命令面板中的「导出文档（Markdown + 资源）」')
+			.addButton(btn => btn
+				.setButtonText('立即导出')
+				.onClick(async () => {
+					const file = this.app.workspace.getActiveFile();
+					if (!file) {
+						new Notice('没有打开的文档');
+						return;
+					}
+					await exportMarkdownFile(this.plugin, file);
 				}));
 	}
 }

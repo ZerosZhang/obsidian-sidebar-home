@@ -108,6 +108,9 @@ export interface SidebarHomeSettings {
 	excelPreviewMaxRows: number;
 	excelPreviewMaxCols: number;
 	excelPreviewHeight: number;
+	// 导出
+	exportTargetFolder: string;
+	exportAssetsFolder: string;
 	// 格式化
 	format: FormatSettings;
 }
@@ -148,6 +151,9 @@ export const DEFAULT_SETTINGS: SidebarHomeSettings = {
 	excelPreviewMaxRows: 100,
 	excelPreviewMaxCols: 20,
 	excelPreviewHeight: 400,
+	// 导出
+	exportTargetFolder: '',
+	exportAssetsFolder: 'assets',
 	// 格式化
 	format: {
 		protectSpanText: true,

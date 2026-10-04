@@ -22,6 +22,8 @@ import { excelConfig } from './preview/excel-config';
 import { refreshMountedPreviews, registerExcelPostProcessor } from './preview/excel-embed';
 import { createExcelLivePreviewExtension } from './preview/excel-live-preview';
 import { invalidateSpreadsheet } from './preview/excel-parser';
+import { exportConfig } from './export/export-config';
+import { exportMarkdownFile } from './export/export-runner';
 
 export default class SidebarHomePlugin extends Plugin {
 	settings: SidebarHomeSettings;
@@ -117,6 +119,25 @@ export default class SidebarHomePlugin extends Plugin {
 				} catch (e) {
 					console.error('[Format] 格式化失败:', e);
 					new Notice(`格式化失败: ${e.message}`);
+				}
+			},
+		});
+
+		// 导出命令
+		this.addCommand({
+			id: 'export-markdown-with-assets',
+			name: '导出文档（Markdown + 资源）',
+			editorCallback: async (_editor, ctx) => {
+				const file = ctx.file ?? this.app.workspace.getActiveFile();
+				if (!file) {
+					new Notice('没有打开的文档');
+					return;
+				}
+				try {
+					await exportMarkdownFile(this, file);
+				} catch (e) {
+					console.error('[Export] 导出失败:', e);
+					new Notice(`导出失败: ${e.message}`);
 				}
 			},
 		});
@@ -383,6 +404,7 @@ export default class SidebarHomePlugin extends Plugin {
 		Object.assign(formattingConfig, this.settings);
 		Object.assign(spaceConfig, this.settings);
 		Object.assign(excelConfig, this.settings);
+		Object.assign(exportConfig, this.settings);
 	}
 
 	private repaintAllEditors() {
