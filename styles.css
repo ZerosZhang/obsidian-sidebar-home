@@ -5,6 +5,13 @@
 .sh-tag-underline { text-decoration: underline; }
 .sh-tag-highlight { background-color: var(--text-highlight-bg, yellow); }
 
+/* 隐藏 HTML 标签字形：不能用 display:none（CM6 mark 无效），用字号归零 + 透明色 */
+.markdown-source-view.mod-cm6 .sh-html-tag-hidden {
+	font-size: 0;
+	letter-spacing: 0;
+	color: transparent;
+}
+
 /* ========== 侧边栏主页容器 ========== */
 .sidebar-home-container {
 	padding: 12px 8px;
@@ -342,12 +349,16 @@
 .sh-settings-tab-bar {
 	display: flex;
 	gap: 0;
+	overflow-x: auto;
+	scrollbar-width: thin;
 	border-bottom: 1px solid var(--background-modifier-border);
 	margin-bottom: 16px;
 }
 
 .sh-settings-tab-btn {
-	padding: 8px 20px;
+	flex: 0 0 auto;
+	white-space: nowrap;
+	padding: 8px 14px;
 	font-size: 14px;
 	font-weight: 500;
 	color: var(--text-muted);

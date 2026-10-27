@@ -4,6 +4,8 @@
  * 在 Obsidian 实时预览模式下，通过 CodeMirror 6 装饰隐藏 Markdown
  * 格式化标记符号（**、*、==、~~、`）、转义符号（\）、标题符号（#）、
  * 以及 HTML 标签（<strong>、<del>、<font>、<mark> 等可配置列表）。
+ * HTML 标签用 mark 装饰 + CSS 隐藏字形（`.sh-html-tag-hidden`），不用 replace 装饰，
+ * 否则会和 Obsidian 自己的 `.cm-html-embed` 替换装饰重叠、连带把内容吞掉。
  *
  * 导出：
  *   - `formattingConfig` — 模块级可变配置，由 main.ts 在设置变更时写入。
@@ -37,6 +39,15 @@ const TAG_CLASS_MAP: Record<string, string> = {
 	'mark': 'sh-tag-highlight',
 	'u': 'sh-tag-underline',
 };
+
+/**
+ * HTML 标签隐藏用 mark 装饰，不能用 replace。
+ * Obsidian 实时预览自己就用 replace 装饰把整段内联 HTML 换成 `.cm-html-embed` widget，
+ * 我们再对标签文本套 replace 会与它重叠，CM6 构建行视图时重复吞掉文本，内容整体消失。
+ * mark 不参与替换区间计算，与 Obsidian 的装饰可以共存。
+ */
+const OPEN_TAG_DECO = Decoration.mark({ class: 'sh-html-tag-hidden', markerType: 'open' });
+const CLOSE_TAG_DECO = Decoration.mark({ class: 'sh-html-tag-hidden', markerType: 'close' });
 
 /** 从 hideHtmlTags 字段解析标签名列表，构建正则（缓存） */
 let htmlTagRegex: RegExp | null = null;
@@ -103,8 +114,8 @@ function buildDecorations(view: EditorView): DecorationSet {
 						found = true;
 						// 标签隐藏（仅 hideHtmlFormatting 开启时）
 						if (formattingConfig.hideHtmlFormatting) {
-							decoItems.push({ from: open.openIndex, to: open.openIndex + open.openLength, deco: Decoration.replace({ markerType: 'open' }) });
-							decoItems.push({ from: tm.index, to: tm.index + tm.length, deco: Decoration.replace({ markerType: 'close' }) });
+							decoItems.push({ from: open.openIndex, to: open.openIndex + open.openLength, deco: OPEN_TAG_DECO });
+							decoItems.push({ from: tm.index, to: tm.index + tm.length, deco: CLOSE_TAG_DECO });
 						}
 						// 内容加样式（始终生效）
 						const contentFrom = open.openIndex + open.openLength;
@@ -116,13 +127,13 @@ function buildDecorations(view: EditorView): DecorationSet {
 					}
 				}
 				if (!found && formattingConfig.hideHtmlFormatting) {
-					decoItems.push({ from: tm.index, to: tm.index + tm.length, deco: Decoration.replace({}) });
+					decoItems.push({ from: tm.index, to: tm.index + tm.length, deco: OPEN_TAG_DECO });
 				}
 			}
 		}
 		if (formattingConfig.hideHtmlFormatting) {
 			for (const orphan of stack) {
-				decoItems.push({ from: orphan.openIndex, to: orphan.openIndex + orphan.openLength, deco: Decoration.replace({}) });
+				decoItems.push({ from: orphan.openIndex, to: orphan.openIndex + orphan.openLength, deco: OPEN_TAG_DECO });
 			}
 		}
 	}
