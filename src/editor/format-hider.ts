@@ -1,9 +1,8 @@
 /**
  * 隐藏样式模块
  *
- * 在 Obsidian 实时预览模式下，通过 CodeMirror 6 装饰隐藏 Markdown
- * 格式化标记符号（**、*、==、~~、`）、转义符号（\）、标题符号（#）、
- * 以及 HTML 标签（<strong>、<del>、<font>、<mark> 等可配置列表）。
+ * 在 Obsidian 实时预览模式下，通过 CodeMirror 6 装饰隐藏 HTML 标签
+ * （<strong>、<del>、<font>、<mark> 等可配置列表）并保留内容样式。
  * HTML 标签用 mark 装饰 + CSS 隐藏字形（`.sh-html-tag-hidden`），不用 replace 装饰，
  * 否则会和 Obsidian 自己的 `.cm-html-embed` 替换装饰重叠、连带把内容吞掉。
  *
@@ -20,7 +19,6 @@ import {
 	EditorView,
 } from '@codemirror/view';
 import { Prec, RangeSetBuilder } from '@codemirror/state';
-import { syntaxTree } from '@codemirror/language';
 import type { SidebarHomeSettings } from '../settings';
 import { DEFAULT_SETTINGS } from '../settings';
 
@@ -137,69 +135,6 @@ function buildDecorations(view: EditorView): DecorationSet {
 			}
 		}
 	}
-
-	// ── Markdown 格式符号：通过语法树节点类型匹配 ──
-	const tree = syntaxTree(view.state);
-	tree.iterate({
-		enter(node: { type: { name: string }; from: number; to: number }) {
-			const typeName = node.type.name;
-			let markerLen = 0;
-
-			if (formattingConfig.hideBoldFormatting && typeName.includes('formatting-strong')) {
-				markerLen = 2;
-			} else if (formattingConfig.hideItalicFormatting && typeName.includes('formatting-em') && !typeName.includes('formatting-embed')) {
-				markerLen = 1;
-			} else if (formattingConfig.hideHighlightFormatting && typeName.includes('formatting-highlight')) {
-				markerLen = 2;
-			} else if (formattingConfig.hideStrikethroughFormatting && typeName.includes('formatting-strikethrough')) {
-				markerLen = 2;
-			} else if (
-				formattingConfig.hideCodeFormatting &&
-				typeName.includes('formatting-code') &&
-				typeName.includes('inline-code')
-			) {
-				const text = view.state.doc.sliceString(node.from, node.to);
-				const match = text.match(/^`+/);
-				markerLen = match ? match[0].length : 1;
-			} else if (
-				formattingConfig.hideEscapeFormatting &&
-				(typeName === 'Escape' || typeName === 'escape' || typeName.includes('formatting-escape'))
-			) {
-				markerLen = 1;
-			} else if (
-				formattingConfig.hideHeadingFormatting &&
-				(typeName.includes('formatting-header') || typeName.includes('formatting-heading') || typeName.includes('HeadingMark') || typeName.includes('HeaderMark'))
-			) {
-				const text = view.state.doc.sliceString(node.from, node.to);
-				const headingMatch = text.match(/^(#+)\s?$/);
-				if (headingMatch) {
-					const spaceInside = text.endsWith(' ');
-					const spaceAfter = !spaceInside && view.state.doc.sliceString(node.to, node.to + 1) === ' ';
-					if (spaceInside || spaceAfter) {
-						markerLen = headingMatch[1]!.length + 1;
-					}
-				}
-			}
-
-			if (markerLen > 0) {
-				const isEscape = typeName === 'Escape' || typeName === 'escape' || typeName.includes('formatting-escape');
-				const isHeading = typeName.includes('formatting-header') || typeName.includes('formatting-heading') || typeName.includes('HeadingMark') || typeName.includes('HeaderMark');
-
-				decoItems.push({
-					from: node.from,
-					to: node.from + markerLen,
-					deco: Decoration.replace({ markerType: 'open' }),
-				});
-				if (!isEscape && !isHeading) {
-					decoItems.push({
-						from: node.to - markerLen,
-						to: node.to,
-						deco: Decoration.replace({ markerType: 'close' }),
-					});
-				}
-			}
-		},
-	});
 
 	// 按位置排序后添加到 builder
 	decoItems.sort((a, b) => a.from - b.from || a.to - b.to);

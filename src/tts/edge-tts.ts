@@ -3,6 +3,7 @@
  */
 import * as tls from 'tls';
 import * as crypto from 'crypto';
+import { generateSecMsGec, TRUSTED_CLIENT_TOKEN } from './edge-drm';
 
 export interface EdgeTtsOptions {
 	voice: string;
@@ -12,15 +13,14 @@ export interface EdgeTtsOptions {
 
 const HOST = 'speech.platform.bing.com';
 const PORT = 443;
-const TRUSTED_CLIENT_TOKEN = '6A5AA1D4EAFF4E9FB37E23D68491D6F4';
-const CHROMIUM_MAJOR = '143';
-const SEC_MS_GEC_VERSION = '1-143.0.3650.75';
+const CHROMIUM_FULL_VERSION = '143.0.3650.75';
+const CHROMIUM_MAJOR = CHROMIUM_FULL_VERSION.split('.')[0];
+const SEC_MS_GEC_VERSION = `2-${CHROMIUM_FULL_VERSION}`;
 const EDGE_ORIGIN = 'chrome-extension://jdiccldimpdaibmpdkjnbmckianbfold';
 const EDGE_UA =
 	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' +
 	` (KHTML, like Gecko) Chrome/${CHROMIUM_MAJOR}.0.0.0 Safari/537.36` +
 	` Edg/${CHROMIUM_MAJOR}.0.0.0`;
-const WIN_EPOCH = 11644473600;
 
 function uuid(): string {
 	return 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, c => {
@@ -35,15 +35,6 @@ function dateToString(): string {
 	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 	const pad = (n: number) => String(n).padStart(2, '0');
 	return `${days[d.getUTCDay()]} ${months[d.getUTCMonth()]} ${pad(d.getUTCDate())} ${d.getUTCFullYear()} ${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())} GMT+0000 (Coordinated Universal Time)`;
-}
-
-function generateSecMsGec(): string {
-	const now = Date.now() / 1000;
-	let ticks = (now + WIN_EPOCH);
-	ticks = ticks - (ticks % 300);
-	ticks = ticks * 10000000;
-	const strToHash = `${Math.floor(ticks)}${TRUSTED_CLIENT_TOKEN}`;
-	return crypto.createHash('sha256').update(strToHash, 'ascii').digest('hex').toUpperCase();
 }
 
 function generateMuid(): string {

@@ -39,6 +39,9 @@ export function formatMarkdown(text: string, fileCreatedAt: number, settings: Fo
 		return `\u0000CODE${codeBlocks.length - 1}\u0000`;
 	});
 
+	// 行内代码前后空格（须在行内代码占位保护之前执行）
+	if (settings.inlineCodeSpacing) body = inlineCodeSpacing(body);
+
 	// 保护行内代码，避免被格式化（引号、中英文空格等所有规则均不触碰，须在代码块保护之后执行）
 	const inlineCodes: string[] = [];
 	body = body.replace(/(`+)([^`\n]*?)\1/g, (match) => {
@@ -124,6 +127,7 @@ export interface FormatSettings {
 	cjkSpacing: boolean;
 	codeFenceLanguage: boolean;
 	codeFenceDefaultLanguage: string;
+	inlineCodeSpacing: boolean;
 	spaceAfterListMarkers: boolean;
 	unorderedListStyle: boolean;
 	removeEmptyLinesBetweenListMarkers: boolean;
@@ -279,6 +283,21 @@ function codeFenceLanguage(text: string, defaultLanguage: string): string {
 		}
 	}
 	return lines.join('\n');
+}
+
+// ============================================================
+// Phase 4: 行内代码前后空格
+// ============================================================
+
+function inlineCodeSpacing(text: string): string {
+	const isWordChar = (ch: string | undefined) =>
+		!!ch && /[0-9A-Za-z\u00C0-\u024F\u4E00-\u9FFF\u3040-\u30FF\uAC00-\uD7AF]/.test(ch);
+	return text.replace(/(`+)([^`\n]*?)\1/g, (match: string, _ticks: string, _inner: string, offset: number, whole: string) => {
+		let result = match;
+		if (isWordChar(whole[offset - 1])) result = ' ' + result;
+		if (isWordChar(whole[offset + match.length])) result = result + ' ';
+		return result;
+	});
 }
 
 // ============================================================

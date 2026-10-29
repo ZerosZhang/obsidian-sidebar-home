@@ -1,6 +1,7 @@
 import { App, Notice, PluginSettingTab, Setting, TAbstractFile, TFile, TFolder } from 'obsidian';
+import type { ColorComponent } from 'obsidian';
 import type SidebarHomePlugin from '../main';
-import type { QuickLink, MenuAreaKey, SidebarHomeSettings } from '../settings';
+import type { QuickLink, MenuAreaKey } from '../settings';
 import { highlightColor } from '../tts/tts-highlight';
 import { generateEdgeTts } from '../tts/edge-tts';
 import { refreshMountedPreviews } from '../preview/excel-embed';
@@ -13,34 +14,106 @@ const MENU_AREA_LABELS: Record<MenuAreaKey, string> = {
 	'tab-header': '标签页标题',
 };
 
-const FORMAT_RULES: Array<{ key: string; label: string; desc: string; phase: string }> = [
-	{ key: 'protectSpanText', label: '保护 span 标签内容', desc: '<span>...</span> 内的文本不参与格式化', phase: '保护机制' },
-	{ key: 'boldToStrong', label: '加粗 → <strong>', desc: '**text** 转为 <strong>text</strong>', phase: 'Phase 1: 标记转换' },
-	{ key: 'strikethroughToDel', label: '删除线 → <del>', desc: '~~text~~ 转为 <del>text</del>', phase: 'Phase 1: 标记转换' },
-	{ key: 'markdownLinkToWiki', label: 'Markdown链接 → Wiki链接', desc: '[text](url) 转为 [[url]]', phase: 'Phase 1: 标记转换' },
-	{ key: 'smartQuotes', label: '弯引号替换', desc: '"双引号" → \u201c弯双\u201d, \'单引号\' → \u2018弯单\u2019', phase: 'Phase 1: 标记转换' },
-	{ key: 'removeUnclosedTags', label: '移除未闭合HTML标签', desc: '清除无配对的开闭标签（br/img等自闭合除外）', phase: 'Phase 1: 标记转换' },
-	{ key: 'headerIncrement', label: '标题层级递增', desc: '从 H2 起步，H1→H2, H2→H3...', phase: 'Phase 2: 标题处理' },
-	{ key: 'headingsStartLine', label: '标题前导空白', desc: '移除标题行首多余空格', phase: 'Phase 2: 标题处理' },
-	{ key: 'cjkSpacing', label: '中英文空格', desc: '中文与英文/数字间插入空格', phase: 'Phase 3: 中英文排版' },
-	{ key: 'codeFenceLanguage', label: '代码块默认语言', desc: '无语言标识的代码块添加默认语言', phase: 'Phase 4: 代码块' },
-	{ key: 'spaceAfterListMarkers', label: '列表标记后空格', desc: '列表标记后确保有一个空格', phase: 'Phase 5: 列表' },
-	{ key: 'unorderedListStyle', label: '无序列表样式', desc: '统一为文件中第一个列表标记样式', phase: 'Phase 5: 列表' },
-	{ key: 'removeEmptyLinesBetweenListMarkers', label: '移除列表间空行', desc: '列表项之间不留空行', phase: 'Phase 5: 列表' },
-	{ key: 'blockquoteStyle', label: '引用块样式', desc: '> 后统一加空格', phase: 'Phase 6: 引用块' },
-	{ key: 'addBlankLineAfterYaml', label: 'YAML 后空行', desc: 'YAML frontmatter 后确保有空行', phase: 'Phase 7: 空行管理' },
-	{ key: 'compactYaml', label: '紧凑 YAML', desc: '移除 YAML 内多余空行', phase: 'Phase 7: 空行管理' },
-	{ key: 'headingBlankLines', label: '标题前后空行', desc: '标题前后各确保一个空行', phase: 'Phase 7: 空行管理' },
-	{ key: 'paragraphBlankLines', label: '段落空行', desc: '块级结构（标题/列表/表格等）后紧接段落时，补空行分隔', phase: 'Phase 7: 空行管理' },
-	{ key: 'emptyLineAroundTables', label: '表格前后空行', desc: '表格前后确保有空行', phase: 'Phase 7: 空行管理' },
-	{ key: 'consecutiveBlankLines', label: '合并连续空行', desc: '3个以上连续空行合并为2个', phase: 'Phase 7: 空行管理' },
-	{ key: 'removeMultipleSpaces', label: '移除多余空格', desc: '连续2个以上空格合并为1个', phase: 'Phase 8: 多余空格' },
-	{ key: 'removeSpaceAroundFullWidthChars', label: '全角符号空格', desc: '移除全角标点周围的空格', phase: 'Phase 8: 多余空格' },
-	{ key: 'removeLinkSpacing', label: '链接文本空格', desc: '移除 [] 内文本首尾空格', phase: 'Phase 8: 多余空格' },
-	{ key: 'removeLeadingSpaces', label: '清理段落前导空格', desc: '移除普通段落行首的 1-3 个空格', phase: 'Phase 8: 多余空格' },
-	{ key: 'trailingSpaces', label: '行尾空格', desc: '移除行尾多余空格', phase: 'Phase 9: 行尾处理' },
-	{ key: 'lineBreakAtDocumentEnd', label: '文档末尾换行', desc: '确保文档末尾有换行符', phase: 'Phase 9: 行尾处理' },
-	{ key: 'yamlTimestamp', label: 'YAML 时间戳', desc: '自动插入/更新创建和修改日期', phase: 'Phase 10: YAML 时间戳' },
+type FormatSectionItem =
+	| { kind: 'toggle'; key: string; label: string; desc: string }
+	| { kind: 'text'; key: string; label: string; desc: string; placeholder: string };
+
+const FORMAT_SECTIONS: Array<{ title: string; desc?: string; items: FormatSectionItem[] }> = [
+	{
+		title: '执行方式',
+		desc: '使用 Ctrl+P → "格式化当前文档" 手动执行；规则按流水线顺序执行，先执行的在前。',
+		items: [
+			{ kind: 'toggle', key: 'formatOnSave', label: '保存时自动格式化', desc: '按 Ctrl+S 保存时，先格式化再保存' },
+		],
+	},
+	{
+		title: '保护机制',
+		items: [
+			{ kind: 'toggle', key: 'protectSpanText', label: '保护 span 标签内容', desc: '<span> 标签内的文本跳过格式化' },
+			{ kind: 'text', key: 'yamlSkipTag', label: 'YAML 跳过标签', desc: 'YAML 含此标签时整篇跳过格式化', placeholder: '#no-format' },
+		],
+	},
+	{
+		title: 'Phase 1: 标记转换',
+		items: [
+			{ kind: 'toggle', key: 'boldToStrong', label: '加粗 → <strong>', desc: '**text** 转为 <strong>text</strong>' },
+			{ kind: 'toggle', key: 'strikethroughToDel', label: '删除线 → <del>', desc: '~~text~~ 转为 <del>text</del>' },
+			{ kind: 'toggle', key: 'markdownLinkToWiki', label: 'Markdown链接 → Wiki链接', desc: '[text](url) 转为 [[url]]' },
+			{ kind: 'toggle', key: 'smartQuotes', label: '弯引号替换', desc: '"双引号" → \u201c弯双\u201d, \'单引号\' → \u2018弯单\u2019' },
+			{ kind: 'toggle', key: 'removeUnclosedTags', label: '移除未闭合HTML标签', desc: '清除无配对的开闭标签（br/img等自闭合除外）' },
+		],
+	},
+	{
+		title: 'Phase 2: 标题处理',
+		items: [
+			{ kind: 'toggle', key: 'headerIncrement', label: '标题层级递增', desc: '从 H2 起步，H1→H2, H2→H3...' },
+			{ kind: 'toggle', key: 'headingsStartLine', label: '标题前导空白', desc: '移除标题行首多余空格' },
+		],
+	},
+	{
+		title: 'Phase 3: 中英文排版',
+		items: [
+			{ kind: 'toggle', key: 'cjkSpacing', label: '中英文空格', desc: '中文与英文/数字间插入空格' },
+		],
+	},
+	{
+		title: 'Phase 4: 代码块',
+		items: [
+			{ kind: 'toggle', key: 'codeFenceLanguage', label: '代码块默认语言', desc: '无语言标识的代码块添加默认语言' },
+			{ kind: 'text', key: 'codeFenceDefaultLanguage', label: '默认语言', desc: '为未指定语言的代码块添加的语言标识', placeholder: 'CSharp' },
+			{ kind: 'toggle', key: 'inlineCodeSpacing', label: '行内代码前后空格', desc: '确保行内代码与两侧文字之间各有一个空格' },
+		],
+	},
+	{
+		title: 'Phase 5: 列表',
+		items: [
+			{ kind: 'toggle', key: 'spaceAfterListMarkers', label: '列表标记后空格', desc: '列表标记后确保有一个空格' },
+			{ kind: 'toggle', key: 'unorderedListStyle', label: '无序列表样式', desc: '统一为文件中第一个列表标记样式' },
+			{ kind: 'toggle', key: 'removeEmptyLinesBetweenListMarkers', label: '移除列表间空行', desc: '列表项之间不留空行' },
+		],
+	},
+	{
+		title: 'Phase 6: 引用块',
+		items: [
+			{ kind: 'toggle', key: 'blockquoteStyle', label: '引用块样式', desc: '> 后统一加空格' },
+		],
+	},
+	{
+		title: 'Phase 7: 空行管理',
+		items: [
+			{ kind: 'toggle', key: 'addBlankLineAfterYaml', label: 'YAML 后空行', desc: 'YAML frontmatter 后确保有空行' },
+			{ kind: 'toggle', key: 'compactYaml', label: '紧凑 YAML', desc: '移除 YAML 内多余空行' },
+			{ kind: 'toggle', key: 'headingBlankLines', label: '标题前后空行', desc: '标题前后各确保一个空行' },
+			{ kind: 'toggle', key: 'paragraphBlankLines', label: '段落空行', desc: '块级结构（标题/列表/表格等）后紧接段落时，补空行分隔' },
+			{ kind: 'toggle', key: 'emptyLineAroundTables', label: '表格前后空行', desc: '表格前后确保有空行' },
+			{ kind: 'toggle', key: 'consecutiveBlankLines', label: '合并连续空行', desc: '3个以上连续空行合并为2个' },
+		],
+	},
+	{
+		title: 'Phase 8: 多余空格',
+		items: [
+			{ kind: 'toggle', key: 'removeMultipleSpaces', label: '移除多余空格', desc: '连续2个以上空格合并为1个' },
+			{ kind: 'toggle', key: 'removeSpaceAroundFullWidthChars', label: '全角符号空格', desc: '移除全角标点周围的空格' },
+			{ kind: 'toggle', key: 'removeLinkSpacing', label: '链接文本空格', desc: '移除 [] 内文本首尾空格' },
+			{ kind: 'toggle', key: 'removeLeadingSpaces', label: '清理段落前导空格', desc: '移除普通段落行首的 1-3 个空格' },
+		],
+	},
+	{
+		title: 'Phase 9: 行尾处理',
+		items: [
+			{ kind: 'toggle', key: 'trailingSpaces', label: '行尾空格', desc: '移除行尾多余空格' },
+			{ kind: 'toggle', key: 'lineBreakAtDocumentEnd', label: '文档末尾换行', desc: '确保文档末尾有换行符' },
+		],
+	},
+	{
+		title: 'Phase 10: YAML 时间戳',
+		items: [
+			{ kind: 'toggle', key: 'yamlTimestamp', label: 'YAML 时间戳', desc: '自动插入/更新创建和修改日期' },
+			{ kind: 'text', key: 'yamlDateFormat', label: '日期格式', desc: 'Moment.js 格式字符串', placeholder: 'YYYY年MM月DD日 HH:mm:ss' },
+			{ kind: 'text', key: 'yamlDateCreatedKey', label: '创建日期 Key', desc: 'YAML 中记录文件创建日期的字段名', placeholder: '创建日期' },
+			{ kind: 'text', key: 'yamlDateModifiedKey', label: '修改日期 Key', desc: 'YAML 中记录文件修改日期的字段名', placeholder: '修改日期' },
+		],
+	},
 ];
 
 export class SidebarHomeSettingTab extends PluginSettingTab {
@@ -283,33 +356,6 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 	// ========== Tab 3: 隐藏样式 ==========
 
 	private renderFormatHiderSettings(container: HTMLElement) {
-		container.createEl('h2', { text: '隐藏格式符号' });
-		container.createEl('p', {
-			text: '在实时预览模式下隐藏 Markdown 格式标记符号，光标移入时自动显示。鼠标点击格式内容边界时，光标会自动落在标记符号之外。',
-			cls: 'setting-item-description',
-		});
-
-		const formatToggles: Array<{ key: keyof SidebarHomeSettings; label: string }> = [
-			{ key: 'hideBoldFormatting', label: '隐藏加粗符号 **' },
-			{ key: 'hideItalicFormatting', label: '隐藏斜体符号 *' },
-			{ key: 'hideHighlightFormatting', label: '隐藏高亮符号 ==' },
-			{ key: 'hideStrikethroughFormatting', label: '隐藏删除线符号 ~~' },
-			{ key: 'hideCodeFormatting', label: '隐藏行内代码符号 `' },
-			{ key: 'hideEscapeFormatting', label: '隐藏转义符号 \\' },
-			{ key: 'hideHeadingFormatting', label: '隐藏标题符号 #' },
-		];
-
-		for (const { key, label } of formatToggles) {
-			new Setting(container)
-				.setName(label)
-				.addToggle(toggle => toggle
-					.setValue(!!this.plugin.settings[key])
-					.onChange(async (value) => {
-						(this.plugin.settings as unknown as Record<string, boolean>)[key] = value;
-						await this.plugin.saveSettings();
-					}));
-		}
-
 		// HTML 标签隐藏
 		container.createEl('h2', { text: 'HTML 标签隐藏' });
 
@@ -321,18 +367,13 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 				.onChange(async (value) => {
 					this.plugin.settings.hideHtmlFormatting = value;
 					await this.plugin.saveSettings();
+					tagEditorEl.style.display = value ? 'block' : 'none';
 				}));
 
-		new Setting(container)
-			.setName('要隐藏的标签列表')
-			.setDesc('逗号分隔的标签名，如 strong,del,font,mark（开闭标签均隐藏）')
-			.addText(text => text
-				.setPlaceholder('strong,del,font,mark')
-				.setValue(this.plugin.settings.hideHtmlTags)
-				.onChange(async (value) => {
-					this.plugin.settings.hideHtmlTags = value || 'strong,del,font,mark';
-					await this.plugin.saveSettings();
-				}));
+		const tagEditorEl = container.createDiv({
+			attr: { style: `display: ${this.plugin.settings.hideHtmlFormatting ? 'block' : 'none'}` },
+		});
+		this.renderHtmlTagEditor(tagEditorEl);
 
 		// 空格可视化
 		container.createEl('h2', { text: '空格可视化' });
@@ -346,6 +387,60 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 					this.plugin.settings.showWhitespace = value;
 					await this.plugin.saveSettings();
 				}));
+	}
+
+	private renderHtmlTagEditor(container: HTMLElement) {
+		const wrap = container.createDiv({ cls: 'sh-html-tags' });
+		let tags = this.plugin.settings.hideHtmlTags
+			.split(',')
+			.map(t => t.trim().toLowerCase())
+			.filter(t => t.length > 0);
+
+		const persist = async () => {
+			this.plugin.settings.hideHtmlTags = tags.join(',');
+			await this.plugin.saveSettings();
+		};
+
+		const render = () => {
+			wrap.empty();
+
+			tags.forEach((tag) => {
+				const chip = wrap.createSpan({ cls: 'sh-html-tag-chip' });
+				chip.createSpan({ text: tag });
+				const remove = chip.createSpan({
+					cls: 'sh-html-tag-chip-remove',
+					text: '×',
+					attr: { title: '移除' },
+				});
+				remove.addEventListener('click', async () => {
+					tags = tags.filter(t => t !== tag);
+					await persist();
+					render();
+					wrap.querySelector('input')?.focus();
+				});
+			});
+
+			const input = wrap.createEl('input', {
+				cls: 'sh-html-tag-input',
+				attr: { placeholder: tags.length > 0 ? '添加标签…' : '输入标签名后回车添加' },
+				type: 'text',
+			});
+			input.addEventListener('keydown', async (e) => {
+				if (e.key !== 'Enter') return;
+				e.preventDefault();
+				const value = input.value.trim().toLowerCase();
+				if (!value || tags.includes(value)) {
+					input.value = '';
+					return;
+				}
+				tags.push(value);
+				await persist();
+				render();
+				wrap.querySelector('input')?.focus();
+			});
+		};
+
+		render();
 	}
 
 	private renderMenuAreaSection(container: HTMLElement, area: MenuAreaKey) {
@@ -645,98 +740,38 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 	// ========== Tab 3: 格式化 ==========
 
 	private renderFormatSettings(container: HTMLElement) {
-		container.createEl('h2', { text: 'Markdown 格式化' });
-		container.createEl('p', {
-			text: '使用 Ctrl+P → "格式化当前文档" 命令对当前打开的笔记执行格式化。规则按流水线顺序执行，先执行的在前。',
-			cls: 'setting-item-description',
-		});
-
-		// Phase 分组渲染
-		let currentPhase = '';
-		for (const rule of FORMAT_RULES) {
-			if (rule.phase !== currentPhase) {
-				currentPhase = rule.phase;
-				container.createEl('h3', { text: currentPhase });
+		// 按分组渲染：执行方式 → 保护机制 → 各 Phase
+		const formatSettings = this.plugin.settings.format as unknown as Record<string, string | boolean>;
+		for (const section of FORMAT_SECTIONS) {
+			container.createEl('h3', { text: section.title });
+			if (section.desc) {
+				const descCard = container.createDiv({ cls: 'setting-item' });
+				descCard
+					.createDiv({ cls: 'setting-item-info' })
+					.createDiv({ cls: 'setting-item-description', text: section.desc });
 			}
 
-			new Setting(container)
-				.setName(rule.label)
-				.setDesc(rule.desc)
-				.addToggle(toggle => toggle
-					.setValue((this.plugin.settings.format as unknown as Record<string, boolean>)[rule.key] as boolean)
-					.onChange(async (value) => {
-						(this.plugin.settings.format as unknown as Record<string, boolean>)[rule.key] = value;
-						await this.plugin.saveSettings();
-					}));
+			for (const item of section.items) {
+				const setting = new Setting(container).setName(item.label).setDesc(item.desc);
+
+				if (item.kind === 'toggle') {
+					setting.addToggle(toggle => toggle
+						.setValue(formatSettings[item.key] as boolean)
+						.onChange(async (value) => {
+							formatSettings[item.key] = value;
+							await this.plugin.saveSettings();
+						}));
+				} else {
+					setting.addText(text => text
+						.setPlaceholder(item.placeholder)
+						.setValue(formatSettings[item.key] as string)
+						.onChange(async (value) => {
+							formatSettings[item.key] = value;
+							await this.plugin.saveSettings();
+						}));
+				}
+			}
 		}
-
-		// 配置项
-		container.createEl('h3', { text: '配置选项' });
-
-		new Setting(container)
-			.setName('保存时自动格式化')
-			.setDesc('按 Ctrl+S 保存时自动格式化文档（手动命令始终可用）')
-			.addToggle(toggle => toggle
-				.setValue(this.plugin.settings.format.formatOnSave)
-				.onChange(async (value) => {
-					this.plugin.settings.format.formatOnSave = value;
-					await this.plugin.saveSettings();
-				}));
-
-		new Setting(container)
-			.setName('日期格式')
-			.setDesc('Moment.js 格式字符串')
-			.addText(text => text
-				.setPlaceholder('YYYY年MM月DD日 HH:mm:ss')
-				.setValue(this.plugin.settings.format.yamlDateFormat)
-				.onChange(async (value) => {
-					this.plugin.settings.format.yamlDateFormat = value;
-					await this.plugin.saveSettings();
-				}));
-
-		new Setting(container)
-			.setName('创建日期 Key')
-			.setDesc('YAML 中记录文件创建日期的字段名')
-			.addText(text => text
-				.setPlaceholder('创建日期')
-				.setValue(this.plugin.settings.format.yamlDateCreatedKey)
-				.onChange(async (value) => {
-					this.plugin.settings.format.yamlDateCreatedKey = value;
-					await this.plugin.saveSettings();
-				}));
-
-		new Setting(container)
-			.setName('修改日期 Key')
-			.setDesc('YAML 中记录文件修改日期的字段名')
-			.addText(text => text
-				.setPlaceholder('修改日期')
-				.setValue(this.plugin.settings.format.yamlDateModifiedKey)
-				.onChange(async (value) => {
-					this.plugin.settings.format.yamlDateModifiedKey = value;
-					await this.plugin.saveSettings();
-				}));
-
-		new Setting(container)
-			.setName('代码块默认语言')
-			.setDesc('为未指定语言的代码块添加默认语言标识')
-			.addText(text => text
-				.setPlaceholder('CSharp')
-				.setValue(this.plugin.settings.format.codeFenceDefaultLanguage)
-				.onChange(async (value) => {
-					this.plugin.settings.format.codeFenceDefaultLanguage = value;
-					await this.plugin.saveSettings();
-				}));
-
-		new Setting(container)
-			.setName('YAML 跳过标签')
-			.setDesc('当 YAML 中存在此 Tag 时跳过格式化（如 #no-format）')
-			.addText(text => text
-				.setPlaceholder('#no-format')
-				.setValue(this.plugin.settings.format.yamlSkipTag)
-				.onChange(async (value) => {
-					this.plugin.settings.format.yamlSkipTag = value;
-					await this.plugin.saveSettings();
-				}));
 	}
 
 	// ========== Tab 4: 语音朗读 ==========
@@ -747,9 +782,9 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 		container.createEl('h2', { text: '语音朗读' });
 
 		// Edge-TTS 音色
-		new Setting(container)
+		const edgeVoiceSetting = new Setting(container)
 			.setName('Edge-TTS 音色')
-			.setDesc('在线神经网络语音（高质量，需联网）')
+			.setDesc('在线神经网络语音（高质量，需联网）；失败时自动改用本地音色')
 			.addDropdown(dropdown => dropdown
 				.addOption('zh-CN-XiaoxiaoNeural', '晓晓 (女声，活泼)')
 				.addOption('zh-CN-YunxiNeural', '云希 (男声，沉稳)')
@@ -771,6 +806,7 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 					this.plugin.settings.ttsEdgeVoice = value;
 					await this.plugin.saveSettings();
 				}));
+		edgeVoiceSetting.settingEl.addClass('sh-tts-voice-setting');
 
 		// 本地音色
 		let voiceDropdown: any;
@@ -783,7 +819,12 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 			} else {
 				voiceDropdown?.addOption?.('', '系统默认');
 				for (const v of zhVoices) {
-					const label = `${v.name} (${v.lang}${v.localService ? '' : ' 在线'})`;
+					// 系统语音名通常形如 "Microsoft Yaoyao - Chinese (Simplified, PRC)"，只保留短名
+					const shortName = v.name
+						.replace(/^Microsoft\s+/i, '')
+						.replace(/\s*-\s*Chinese.*$/i, '')
+						.trim() || v.name;
+					const label = `${shortName} (${v.lang}${v.localService ? '' : ' 在线'})`;
 					voiceDropdown?.addOption?.(v.voiceURI, label);
 				}
 			}
@@ -791,7 +832,7 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 		};
 
 		const voiceSetting = new Setting(container)
-			.setName('音色')
+			.setName('本地音色')
 			.setDesc('本地语音引擎的音色（需系统已安装对应语音包）')
 			.addDropdown(dropdown => {
 				voiceDropdown = dropdown;
@@ -800,25 +841,13 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 					this.plugin.settings.ttsVoice = value;
 					await this.plugin.saveSettings();
 				});
-			})
-			.addExtraButton(btn => {
-				btn.setIcon('refresh-cw')
-					.setTooltip('重新扫描系统语音')
-					.onClick(() => {
-						// getVoices 是异步加载的，重新触发确保列表最新
-						const voices = window.speechSynthesis.getVoices();
-						if (voices.length === 0) {
-							// 首次调用可能返回空，需要等待 voiceschanged 事件
-							window.speechSynthesis.addEventListener('voiceschanged', () => {
-								refreshVoiceList();
-							}, { once: true });
-							new Notice('正在加载语音列表…');
-						} else {
-							refreshVoiceList();
-							new Notice(`找到 ${voices.filter(v => v.lang.startsWith('zh')).length} 个中文语音`);
-						}
-					});
 			});
+		voiceSetting.settingEl.addClass('sh-tts-voice-setting');
+
+		// 语音列表是异步加载的，首次为空时等 voiceschanged 再填充
+		if (window.speechSynthesis.getVoices().length === 0) {
+			window.speechSynthesis.addEventListener('voiceschanged', refreshVoiceList, { once: true });
+		}
 
 		// 语速
 		new Setting(container)
@@ -834,17 +863,32 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 				}));
 
 		// 高亮背景色
-		const highlightColorKey = 'ttsHighlightColor' as const;
 		let colorInput: HTMLInputElement;
+		let colorPicker: ColorComponent | undefined;
+		const isHexColor = (value: string) => /^#[0-9a-fA-F]{6}$/.test(value);
 
-		new Setting(container)
+		const colorSetting = new Setting(container)
 			.setName('高亮背景色')
 			.setDesc('朗读时当前句子的背景颜色 (hex)')
+			.addColorPicker(picker => {
+				colorPicker = picker;
+				picker
+					.setValue(isHexColor(this.plugin.settings.ttsHighlightColor)
+						? this.plugin.settings.ttsHighlightColor
+						: this.DEFAULT_HIGHLIGHT_COLOR)
+					.onChange(async (value) => {
+						this.plugin.settings.ttsHighlightColor = value;
+						colorInput.value = value;
+						this.updateHighlightStyle(value);
+						await this.plugin.saveSettings();
+					});
+			})
 			.addText(text => {
 				colorInput = text.inputEl;
 				text.setValue(this.plugin.settings.ttsHighlightColor)
 					.onChange(async (value) => {
 						this.plugin.settings.ttsHighlightColor = value;
+						if (isHexColor(value)) colorPicker?.setValue(value);
 						this.updateHighlightStyle(value);
 						await this.plugin.saveSettings();
 					});
@@ -855,11 +899,13 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 					.onClick(async () => {
 						this.plugin.settings.ttsHighlightColor = this.DEFAULT_HIGHLIGHT_COLOR;
 						colorInput.value = this.DEFAULT_HIGHLIGHT_COLOR;
+						colorPicker?.setValue(this.DEFAULT_HIGHLIGHT_COLOR);
 						this.updateHighlightStyle(this.DEFAULT_HIGHLIGHT_COLOR);
 						await this.plugin.saveSettings();
 						new Notice('高亮颜色已恢复默认');
 					});
 			});
+		colorSetting.settingEl.addClass('sh-tts-color-setting');
 
 		// 初始应用样式
 		this.updateHighlightStyle(this.plugin.settings.ttsHighlightColor);
@@ -903,7 +949,7 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 
 		new Setting(container)
 			.setName('启用 Excel 内嵌预览')
-			.setDesc('在笔记中用 ![[表格.xlsx]] 直接显示只读表格；点击文件名仍可用 Excel 打开。支持 .xlsx / .xlsm / .ods / .csv')
+			.setDesc('用 ![[表格.xlsx]] 在笔记内只读预览表格')
 			.addToggle(toggle => toggle
 				.setValue(this.plugin.settings.excelPreviewEnabled)
 				.onChange(async (value) => {

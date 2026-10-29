@@ -43,6 +43,7 @@ export interface FormatSettings {
 	// 代码块
 	codeFenceLanguage: boolean;
 	codeFenceDefaultLanguage: string;
+	inlineCodeSpacing: boolean;
 	// 列表
 	spaceAfterListMarkers: boolean;
 	unorderedListStyle: boolean;
@@ -88,13 +89,6 @@ export interface SidebarHomeSettings {
 	closeTabGoToPrev: boolean;
 	menuSettings: MenuSettings;
 	// 隐藏样式
-	hideBoldFormatting: boolean;
-	hideItalicFormatting: boolean;
-	hideHighlightFormatting: boolean;
-	hideStrikethroughFormatting: boolean;
-	hideCodeFormatting: boolean;
-	hideEscapeFormatting: boolean;
-	hideHeadingFormatting: boolean;
 	hideHtmlFormatting: boolean;
 	hideHtmlTags: string;
 	showWhitespace: boolean;
@@ -131,13 +125,6 @@ export const DEFAULT_SETTINGS: SidebarHomeSettings = {
 		'editor': { enabled: false, items: [] },
 		'tab-header': { enabled: false, items: [] },
 	},
-	hideBoldFormatting: true,
-	hideItalicFormatting: true,
-	hideHighlightFormatting: true,
-	hideStrikethroughFormatting: true,
-	hideCodeFormatting: true,
-	hideEscapeFormatting: true,
-	hideHeadingFormatting: true,
 	hideHtmlFormatting: true,
 	hideHtmlTags: 'strong,del,font,mark',
 	showWhitespace: false,
@@ -167,6 +154,7 @@ export const DEFAULT_SETTINGS: SidebarHomeSettings = {
 		cjkSpacing: true,
 		codeFenceLanguage: false,
 		codeFenceDefaultLanguage: '',
+		inlineCodeSpacing: true,
 		spaceAfterListMarkers: true,
 		unorderedListStyle: true,
 		removeEmptyLinesBetweenListMarkers: true,

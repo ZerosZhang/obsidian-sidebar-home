@@ -31,8 +31,8 @@
 ### 架构设计
 
 ```
-src/formatting/format.ts — 格式化引擎，27 条规则流水线 + 设置接口
-src/settings.ts       — 扩展 FormatSettings 接口（27 个配置项）
+src/formatting/format.ts — 格式化引擎，28 条规则流水线 + 设置接口
+src/settings.ts       — 扩展 FormatSettings 接口（28 个配置项）
 src/ui/setting-tab.ts — 设置页「格式化」Tab，含每规则开关
 src/main.ts            — 注册命令、保存时拦截（checkCallback 替换）、差异化文本替换
 src/editor/format-hider.ts — HTML 标签隐藏 + 内容加格式（Decoration.mark + markerType）
@@ -56,6 +56,7 @@ styles.css             — 新增 .sh-tag-bold/.sh-tag-strikethrough 等内联�
 | 8 | headingsStartLine | 标题前导空白 | Phase 2 |
 | 9 | cjkSpacing | 中英文空格 | Phase 3 |
 | 10 | codeFenceLanguage | 代码块默认语言 | Phase 4 |
+| - | inlineCodeSpacing | 行内代码前后空格 | Phase 4 |
 | 11 | spaceAfterListMarkers | 列表标记后空格 | Phase 5 |
 | 12 | unorderedListStyle | 无序列表样式 | Phase 5 |
 | 13 | removeEmptyLinesBetweenListMarkers | 移除列表间空行 | Phase 5 |

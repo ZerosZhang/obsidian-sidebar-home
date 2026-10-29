@@ -264,7 +264,10 @@ export default class SidebarHomePlugin extends Plugin {
 	}
 
 	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+		const data = await this.loadData();
+		this.settings = Object.assign({}, DEFAULT_SETTINGS, data);
+		// 嵌套对象单独合并，保证新增的格式化选项能取到默认值
+		this.settings.format = Object.assign({}, DEFAULT_SETTINGS.format, data?.format);
 	}
 
 	async saveSettings() {
