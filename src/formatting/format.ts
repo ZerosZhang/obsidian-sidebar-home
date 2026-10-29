@@ -358,7 +358,7 @@ function blockquoteStyle(text: string): string {
 // ============================================================
 
 function removeMultipleSpaces(text: string): string {
-	return text.replace(/[^\S\n]{2,}/g, ' ');
+	return text.replace(/(\S)[^\S\n]{2,}/g, '$1 ');
 }
 
 function removeSpaceAroundFullWidthChars(text: string): string {
@@ -373,7 +373,7 @@ function removeSpaceAroundFullWidthChars(text: string): string {
 
 function removeLinkSpacing(text: string): string {
 	// [^\[\]]+ 确保不匹配 [[wiki链接]]
-	return text.replace(/\[([^\[\]]+)\s*\]/g, (_, content) => '[' + content.trim() + ']');
+	return text.replace(/\[([^\[\]]+)\s*\]/g, (match, content) => content.trim() === '' ? match : '[' + content.trim() + ']');
 }
 
 function removeLeadingSpaces(text: string): string {
