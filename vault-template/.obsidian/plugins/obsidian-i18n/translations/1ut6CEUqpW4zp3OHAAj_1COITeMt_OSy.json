@@ -1,0 +1,2275 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "easy-typing-obsidian",
+        "version": "1.0.0",
+        "title": "Easy Typing",
+        "description": "Easy Typing Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "6.0.1",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "EasyTyping: Invalid RegExp:",
+                    "target": "EasyTyping: 无效的正则表达式:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "EasyTyping: Settings not loaded properly, using defaults",
+                    "target": "EasyTyping: 设置未正确加载，使用默认值"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "EasyTyping: Failed to load settings, using defaults:",
+                    "target": "EasyTyping: 加载设置失败，使用默认值:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "[LangPairSpacing] content:",
+                    "target": "[LangPairSpacing] 内容:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "curCh:",
+                    "target": "当前字符:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "prevCh:",
+                    "target": "前一字符:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "offset:",
+                    "target": "偏移量:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "cursorInContent:",
+                    "target": "光标在内容中:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "boundaries:",
+                    "target": "边界:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "tokenBounds:",
+                    "target": "词元边界:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "cursorToken:",
+                    "target": "cursorToken:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "suppressed:",
+                    "target": "suppressed:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "protectedUpTo:",
+                    "target": "protectedUpTo:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "line parts\n",
+                    "target": "行片段\n"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "[RuleEngine] hit:",
+                    "target": "[RuleEngine] 命中:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "----- EasyTyping: insert code block-----",
+                    "target": "----- EasyTyping: 插入代码块-----"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "[TransactionFilter] type, fromA, toA, changed, fromB, toB, inserted",
+                    "target": "[TransactionFilter] type, fromA, toA, changed, fromB, toB, inserted"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "[ViewUpdate] type, fromA, toA, changed, fromB, toB, inserted",
+                    "target": "[ViewUpdate] type, fromA, toA, changed, fromB, toB, inserted"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "can't get editor",
+                    "target": "无法获取编辑器"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "Easy Typing Plugin loaded.",
+                    "target": "Easy Typing 插件已加载。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "Easy Typing Plugin unloaded.",
+                    "target": "Easy Typing 插件已卸载。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "e.g. python, javascript",
+                    "target": "例如 python, javascript"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "PrefixDictionary: invalid regex:",
+                    "target": "PrefixDictionary：无效的正则表达式："
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "EasyTyping: Syntax tree is not ready yet, please wait a moment and try again later!",
+                    "target": "EasyTyping：语法树尚未就绪，请稍等片刻后再试！"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "EasyTyping: Format Article Done!",
+                    "target": "EasyTyping：文章格式化完成！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "In lists or quote blocks, paste content automatically with proper indentation and list/quote markers.",
+                    "target": "在列表或引用块中，粘贴内容时自动添加正确的缩进和列表/引用标记。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Improve editing in codeblocks (Tab, delete, paste, Cmd/Ctrl+A select).",
+                    "target": "改善代码块中的编辑体验（Tab、删除、粘贴、Cmd/Ctrl+A 全选）。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Press Tab to move cursor outside paired symbols like 【】, （）, 《》, quotes, or inline code.",
+                    "target": "按 Tab 将光标移出成对符号（如【】、（）、《》、引号或行内代码）。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Toggle auto-formatting of text while editing the document.",
+                    "target": "切换在编辑文档时自动格式化文本。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Toggle auto-formatting when pasting. CMD/CTRL+SHIFT+V (paste without formatting) will not trigger this.",
+                    "target": "切换粘贴时自动格式化。CMD/CTRL+SHIFT+V（无格式粘贴）不会触发此功能。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Define which language/symbol pairs should have automatic spacing",
+                    "target": "定义哪些语言/符号组合应自动添加空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Separate entries by commas, spaces, or newlines. Supports words and /regex/. Matching tokens won't have spaces inserted; prefixes being typed are also suppressed",
+                    "target": "用逗号、空格或换行分隔条目。支持单词和 /regex/。匹配到的标记不会插入空格；正在输入的前缀也会被抑制"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Add custom language or symbol sets for spacing strategies",
+                    "target": "为间距策略添加自定义语言或符号集合"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Capitalize the first letter of each sentence in English.",
+                    "target": "将英文每个句子的首字母大写。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Define the spacing strategy between inline code and text.",
+                    "target": "定义行内代码与文本之间的空格策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Define the spacing strategy between inline formulas and text.",
+                    "target": "定义行内公式与文本之间的空格策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Define the spacing strategy between [[wikilink]] [mdlink](...) and text.",
+                    "target": "定义 [[wikilink]] [mdlink](...) 与文本之间的空格策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Toggle custom regular expressions, preventing formatting and setting space strategy between matched content and other text.",
+                    "target": "启用/禁用自定义正则表达式，阻止格式化并设置匹配内容与其他文本之间的空格策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "User-defined regular expression, matched to the content is not formatted, one expression per line, do not feel free to add spaces at the end of the line.The end of each line of three characters fixed as | and two space strategy symbols, space strategy symbols for - = +, respectively, on behalf of not requiring spaces (-), soft spaces (=), strict spaces (+).These two space strategy symbols are the space strategy for the left and right sides of the matching block respectively",
+                    "target": "用户自定义正则表达式，匹配到的内容不进行格式化，每行一个表达式，不要在行尾随意添加空格。每行末尾固定为三个字符：| 和两个空格策略符号，空格策略符号为 - = +，分别表示不需要空格 (-)、软空格 (=)、严格空格 (+)。这两个空格策略符号分别表示匹配块左侧和右侧的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Fix the issue where the cursor jumps to the next line when the context menu is invoked on MacOS (requires restarting Obsidian).",
+                    "target": "修复在 MacOS 上调用上下文菜单时光标跳到下一行的问题（需要重启 Obsidian）。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Adapt for older versions of Microsoft Input Method.",
+                    "target": "适配旧版本微软输入法。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "In strict line breaks mode, pressing Enter once in normal text lines will produce two line breaks or two spaces and Enter.",
+                    "target": "在严格换行模式下，在普通文本行中按一次 Enter 会产生两个换行或两个空格加换行。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "First select the current line, second select the current text block, third select the entire text.",
+                    "target": "第一次选中当前行，第二次选中当前文本块，第三次选中全部文本。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Pressing Enter on a collapsed heading inserts a same-level heading below without expanding the fold.",
+                    "target": "在折叠标题上按 Enter 会在下方插入同级标题，且不展开折叠。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Print debug information in the console.",
+                    "target": "在控制台打印调试信息。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "User defined Selection Replace Rule",
+                    "target": "用户自定义选区替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Rule: Use | to indicate the cursor position. Tips: Using | to indicate the cursor position.",
+                    "target": "规则：用 | 表示光标位置。提示：使用 | 表示光标位置。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "在列表或引用块中粘贴时，自动添加缩进和列表/引用符号",
+                    "target": "在列表或引用块中粘贴时，自动添加缩进和列表/引用符号"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "增强代码块内的编辑（Cmd/Ctrl+A 选中、Tab、删除、粘贴）",
+                    "target": "增强代码块内的编辑（Cmd/Ctrl+A 选中、Tab、删除、粘贴）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "增强删除空列表项或空引用行的功能",
+                    "target": "增强删除空列表项或空引用行的功能"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "按 Tab 键跳出配对符号，如【】、（）、《》、引号、行内代码等",
+                    "target": "按 Tab 键跳出配对符号，如【】、（）、《》、引号、行内代码等"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "是否在编辑文档时自动格式化文本，自动格式化的总开关",
+                    "target": "是否在编辑文档时自动格式化文本，自动格式化的总开关"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "粘贴时是否自动格式化，CMD/CTRL+SHIFT+V 无格式粘贴时不触发。",
+                    "target": "粘贴时是否自动格式化，CMD/CTRL+SHIFT+V 无格式粘贴时不触发。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "定义不同语言/符号类型之间是否自动添加空格",
+                    "target": "定义不同语言/符号类型之间是否自动添加空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "用逗号、空格或换行分隔，支持词或 /正则/。匹配的 token 不会被插入空格，正在输入的前缀也会暂不插入空格",
+                    "target": "用逗号、空格或换行分隔，支持词或 /正则/。匹配的 token 不会被插入空格，正在输入的前缀也会暂不插入空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "添加自定义语言或符号集用于空格策略",
+                    "target": "添加自定义语言或符号集用于空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "英文每个句首字母大写，可撤销",
+                    "target": "英文每个句首字母大写，可撤销"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "定义行内代码和文本之间的空格策略",
+                    "target": "定义行内代码和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "定义行内公式和文本之间的空格策略",
+                    "target": "定义行内公式和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "定义 [[wikilink]] [mdlink](...) 和文本之间的空格策略",
+                    "target": "定义 [[wikilink]] [mdlink](...) 和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "自定义正则表达式开关，匹配到的内容不进行格式化，且可以设置匹配到的内容块与其他内容之间的空格策略",
+                    "target": "自定义正则表达式开关，匹配到的内容不进行格式化，且可以设置匹配到的内容块与其他内容之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "用户自定义正则表达式，匹配到的内容不进行格式化，每行一个表达式，行尾不要随意加空格。每行末尾3个字符的固定为|和两个空格策略符号，空格策略符号为-=+，分别代表不要求空格(-)，软空格(=)，严格空格(+)。这两个空格策略符号分别为匹配区块的左右两边的空格策略",
+                    "target": "用户自定义正则表达式，匹配到的内容不进行格式化，每行一个表达式，行尾不要随意加空格。每行末尾3个字符的固定为|和两个空格策略符号，空格策略符号为-=+，分别代表不要求空格(-)，软空格(=)，严格空格(+)。这两个空格策略符号分别为匹配区块的左右两边的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "修复 MacOS 鼠标右键呼出菜单时光标跳到下一行的问题 (需要重启 Obsidian 生效)",
+                    "target": "修复 MacOS 鼠标右键呼出菜单时光标跳到下一行的问题 (需要重启 Obsidian 生效)"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "适配旧版微软输入法",
+                    "target": "适配旧版微软输入法"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "严格换行的设置下，在普通文本行进行一次回车会根据模式产生两个换行符或者两个空格和回车",
+                    "target": "严格换行的设置下，在普通文本行进行一次回车会根据模式产生两个换行符或者两个空格和回车"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "第一次选中当前行，第二次选中当前文本块，第三次选中全文。",
+                    "target": "第一次选中当前行，第二次选中当前文本块，第三次选中全文。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "在折叠的标题行按回车时，不展开折叠内容，直接在下方添加同级标题行",
+                    "target": "在折叠的标题行按回车时，不展开折叠内容，直接在下方添加同级标题行"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "在控制台输出调试信息",
+                    "target": "在控制台输出调试信息"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "用户定义的选择替换规则",
+                    "target": "用户定义的选择替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "规则：用 | 代表光标位置，必须包含光标。提示：使用 | 表示光标位置。",
+                    "target": "规则：用 | 代表光标位置，必须包含光标。提示：使用 | 表示光标位置。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "在列表或引用塊中粘貼時，自動添加縮進和列表/引用符號",
+                    "target": "在列表或引用块中粘贴时，自动添加缩进和列表/引用符号"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "增强代碼塊內的編輯（Cmd/Ctrl+A 選中、Tab、刪除、粘貼）",
+                    "target": "增强代码块内的编辑（Cmd/Ctrl+A 选中、Tab、删除、粘贴）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "增強刪除空列表項或空引用行的功能",
+                    "target": "增强删除空列表项或空引用行的功能"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "按 Tab 鍵跳出配對符號，如【】、（）、《》、引號、行內代碼等",
+                    "target": "按 Tab 键跳出配对符号，如【】、（）、《》、引号、行内代码等"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "是否在編輯文檔時自動格式化文本，自動格式化的總開關",
+                    "target": "是否在编辑文档时自动格式化文本，自动格式化的总开关"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "粘貼時是否自動格式化，CMD/CTRL+SHIFT+V 無格式粘貼時不觸發。",
+                    "target": "粘贴时是否自动格式化，CMD/CTRL+SHIFT+V 无格式粘贴时不触发。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "定義不同語言/符號類型之間是否自動添加空格",
+                    "target": "定义不同语言/符号类型之间是否自动添加空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "用逗號、空格或換行分隔，支援詞或 /正則/。匹配的 token 不會被插入空格，正在輸入的前綴也會暫不插入空格",
+                    "target": "用逗号、空格或换行分隔，支持词或 /正则/。匹配的 token 不会被插入空格，正在输入的前缀也会暂不插入空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "添加自定義語言或符號集用於空格策略",
+                    "target": "添加自定义语言或符号集用于空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "英文每個句首字母大寫，可取消",
+                    "target": "英文每个句首字母大写，可取消"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "在文本和標點之間智能插入空格",
+                    "target": "在文本和标点之间智能插入空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "定義行內代碼和文本之間的空格策略",
+                    "target": "定义行内代码和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "定義行內公式和文本之間的空格策略",
+                    "target": "定义行内公式和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "定義 [[wikilink]] [mdlink](...) 和文本之間的空格策略",
+                    "target": "定义 [[wikilink]] [mdlink](...) 和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "自定義正則表達式開關，匹配到的內容不進行格式化，且可以設置匹配到的內容塊與其他內容之間的空格策略",
+                    "target": "自定义正则表达式开关，匹配到的内容不进行格式化，且可以设置匹配到的内容块与其他内容之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "用戶自定義正則表達式，匹配到的內容不進行格式化，每行一個表達式，行尾不要隨意加空格。每行末尾3個字符的固定為|和兩個空格策略符號，空格策略符號為-=+，分別代表不要求空格(-)，軟空格(=)，嚴格空格(+)。這兩個空格策略符號分別為匹配區塊的左右兩邊的空格策略",
+                    "target": "用户自定义正则表达式，匹配到的内容不进行格式化，每行一个表达式，行尾不要随意加空格。每行末尾3个字符的固定为|和两个空格策略符号，空格策略符号为-=+，分别代表不要求空格(-)，软空格(=)，严格空格(+)。这两个空格策略符号分别为匹配区块的左右两边的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "修復 MacOS 鼠標右鍵呼出菜單時光標跳到下一行的問題 (需要重啟 Obsidian 生效)",
+                    "target": "修复 MacOS 鼠标右键呼出菜单时光标跳到下一行的问题 (需要重启 Obsidian 生效)"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "適配舊版微軟輸入法",
+                    "target": "适配旧版微软输入法"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "嚴格換行的設置下，在普通文本行進行一次回車會根據模式產生兩個換行符或者兩個空格和回車",
+                    "target": "严格换行的设置下，在普通文本行进行一次回车会根据模式产生两个换行符或者两个空格和回车"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "第一次選中當前行，第二次選中當前文本塊，第三次選中全文。",
+                    "target": "第一次选中当前行，第二次选中当前文本块，第三次选中全文。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "在折疊的標題行按回車時，不展開折疊內容，直接在下方添加同級標題行",
+                    "target": "在折叠的标题行按回车时，不展开折叠内容，直接在下方添加同级标题行"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "在控制台輸出調試資訊",
+                    "target": "在控制台输出调试信息"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "用戶定義的選中替換規則",
+                    "target": "用户定义的选中替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "規則：用 | 代表光標位置，必須包含光標。提示：使用 | 表示光標位置。",
+                    "target": "规则：用 | 代表光标位置，必须包含光标。提示：使用 | 表示光标位置。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "При вставке в списки или блоки цитат автоматически добавляются отступы и маркеры списка/цитаты.",
+                    "target": "粘贴到列表或引用块时，会自动添加缩进和列表/引用标记。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Улучшение редактирования в кодовых блоках (Tab, удаление, вставка, Cmd/Ctrl+A выделение).",
+                    "target": "改进代码块中的编辑（Tab、删除、粘贴、Cmd/Ctrl+A 全选）。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Улучшение удаления пустых элементов списка или пустых строк ссылок.",
+                    "target": "改进删除空的列表项或空的链接行。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Нажмите Tab, чтобы переместить курсор за пределы парных символов, таких как 【】, （）, 《》, кавычки или встроенного кода.",
+                    "target": "按 Tab 将光标移到成对符号之外，如【】、（）、《》、引号或内嵌代码。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Включение/выключение автоформатирования текста во время редактирования документа.",
+                    "target": "在编辑文档时启用/禁用文本自动格式化。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Включение/выключение автоформатирования при вставке. CMD/CTRL+SHIFT+V (вставка без форматирования) не вызывает срабатывание.",
+                    "target": "启用/禁用粘贴时的自动格式化。CMD/CTRL+SHIFT+V（无格式粘贴）不会触发。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Определите, между какими парами языков/символов должны автоматически добавляться пробелы",
+                    "target": "指定应在哪些语言/符号对之间自动添加空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Разделяйте записи запятыми, пробелами или переносами строк. Поддерживаются слова и /регулярные выражения/. Совпадающие токены не получат пробелов",
+                    "target": "用逗号、空格或换行分隔条目。支持单词和/正则表达式/。匹配的标记不会添加空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Добавьте пользовательские языки или наборы символов",
+                    "target": "添加自定义语言或字符集"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Преобразование первой буквы каждого предложения в английском в заглавную.",
+                    "target": "将英文每个句子的首字母转换为大写。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Интеллектуальная вставка пробела между текстом и пунктуацией.",
+                    "target": "在文本与标点之间智能插入空格。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Определение стратегии пробелов между встроенным кодом и текстом.",
+                    "target": "定义嵌入式代码与文本之间的空格策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Определение стратегии пробелов между встроенными формулами и текстом.",
+                    "target": "定义内嵌公式与文本之间的空格策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Определение стратегии пробелов между [[викиссылками]] [markdown-ссылками](...) и текстом.",
+                    "target": "定义[[维基链接]] [markdown链接](...)与文本之间的空格策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Включение/выключение пользовательских регулярных выражений, предотвращение форматирования и установка стратегии пробелов между совпадающим содержимым и другим текстом.",
+                    "target": "启用/禁用自定义正则表达式、防止格式化，并设置匹配内容与其他文本之间的空格策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Пользовательское регулярное выражение, совпадающее с содержимым, не форматируется, одно выражение на строку, не добавляйте пробелы в конце строки.Конец каждой строки фиксирован тремя символами: | и двумя символами стратегии пробелов, символы стратегии пробелов - это - = +, которые соответственно обозначают отсутствие требования пробелов (-), мягкие пробелы (=), строгие пробелы (+).Эти два символа стратегии пробелов являются стратегией пробелов для левой и правой сторон совпадающего блока соответственно",
+                    "target": "匹配内容的自定义正则表达式不进行格式化，每行一个表达式，行尾不要添加空格。每行结尾固定为三个字符：| 和两个空格策略字符，空格策略字符为 - = +，分别表示不要求空格(-)、软空格(=)、强制空格(+)。这两个空格策略字符分别作为匹配块左侧和右侧的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Исправление проблемы, когда курсор перескакивает на следующую строку при вызове контекстного меню на MacOS (требуется перезапуск Obsidian).",
+                    "target": "修复在 MacOS 上调用上下文菜单时光标跳到下一行的问题（需要重启 Obsidian）。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Адаптация для старых версий Microsoft Input Method.",
+                    "target": "适配旧版 Microsoft Input Method。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "В режиме строгих разрывов строк, однократное нажатие Enter в обычных текстовых строках создаст два разрыва строки или два пробела и Enter.",
+                    "target": "在严格换行模式下，在普通文本行中按一次 Enter 会生成两个换行或两个空格并换行。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Сначала выделите текущую строку, затем выделите текущий текстовый блок, затем выделите весь текст.",
+                    "target": "先选中当前行，再选中当前文本块，然后选中全部文本。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "При нажатии Enter на свёрнутом заголовке добавляет заголовок того же уровня, не разворачивая содержимое.",
+                    "target": "在折叠的标题上按 Enter 时，会添加同级标题而不展开内容。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Вывод отладочной информации в консоль.",
+                    "target": "将调试信息输出到控制台。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Пользовательское правило замены выделенного текста",
+                    "target": "选中文本的自定义替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Правило: Используйте | для указания позиции курсора. Подсказка: Использование | для указания позиции курсора.",
+                    "target": "规则：使用 | 指定光标位置。提示：使用 | 指定光标位置。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "リストや引用ブロック内で貼り付ける際、適切なインデントとリスト/引用マーカーを自動的に追加します。",
+                    "target": "在列表或引用块内粘贴时，会自动添加合适的缩进和列表/引用标记。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "コードブロック内の編集を改善します（Tab、削除、貼り付け、Cmd/Ctrl+A 選択）。",
+                    "target": "改进代码块内的编辑体验（Tab、删除、粘贴、Cmd/Ctrl+A 选择）。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "空のリスト項目や引用行でのバックスペース機能を向上させます。",
+                    "target": "提升空列表项和引用行中的退格功能。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Tab キーを押して【】、（）、《》、引用符、インラインコードなどのペア記号の外へカーソルを移動します。",
+                    "target": "按 Tab 键将光标移到【】、（）、《》、引号、行内代码等成对符号之外。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "ドキュメント編集中のテキスト自動書式設定を切り替えます。",
+                    "target": "切换文档编辑中的文本自动格式化。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "異なる言語/記号ペア間の自動スペーシングルールを定義します。",
+                    "target": "定义不同语言/符号对之间的自动空格规则。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "カンマ、スペース、改行で区切ります。単語または /正規表現/ に対応。マッチしたトークンにはスペースが挿入されず、入力中の接頭辞もスペース挿入が抑制されます。",
+                    "target": "用逗号、空格、换行分隔。支持单词或 /正则表达式/。匹配的标记不插入空格，输入中的前缀也会抑制插入空格。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "スペーシング戦略用のカスタム言語または記号セットを追加します。",
+                    "target": "添加用于空格策略的自定义语言或符号集。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "英語の各文の最初の文字を大文字にします。",
+                    "target": "将英文每句的首字母大写。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "インラインコードとテキスト間のスペーシング戦略を定義します。",
+                    "target": "定义行内代码与文本之间的空格策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "インライン数式とテキスト間のスペーシング戦略を定義します。",
+                    "target": "定义行内公式与文本之间的空格策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "[[ウィキリンク]] [マークダウンリンク](...) とテキスト間のスペーシング戦略を定義します。",
+                    "target": "定义 [[维基链接]] [Markdown 链接](...) 与文本之间的空格策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "カスタム正規表現を有効にし、マッチしたコンテンツの書式設定を防止し、マッチしたコンテンツと他のテキスト間のスペーシング戦略を設定します。",
+                    "target": "启用自定义正则表达式，防止对匹配内容进行格式化，并设置匹配内容与其他文本之间的间距策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "ユーザー定義の正規表現で、マッチしたコンテンツは書式設定されません。1行に1つの式を記述し、行末にスペースを追加しないでください。各行の末尾3文字は | と2つのスペーシング戦略記号で固定されます。スペーシング戦略記号は - = + で、それぞれスペース不要(-)、ソフトスペース(=)、厳密スペース(+)を意味します。これら2つのスペーシング戦略記号は、マッチブロックの左右のスペーシング戦略です。",
+                    "target": "在用户自定义正则中，匹配到的内容不会被格式化。每行写一个表达式，行末请勿添加空格。每行最后三个字符固定为 | 和两个间距策略符号。间距策略符号为 - = +，分别表示不需要空格(-)、软空格(=)、严格空格(+)。这两个间距策略符号表示匹配块左右的间距策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "macOS でコンテキストメニューを呼び出した際にカーソルが次の行にジャンプする問題を修正します（Obsidianの再起動が必要）。",
+                    "target": "修复在 macOS 上调用上下文菜单时光标跳到下一行的问题（需要重启 Obsidian）。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "旧バージョンの Microsoft IME に対応します。",
+                    "target": "兼容旧版本的 Microsoft IME。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "厳密改行モードでは、通常のテキスト行で Enter を1回押すと、2つの改行または2つのスペースと Enter が生成されます。",
+                    "target": "在严格换行模式下，在普通文本行中按一次 Enter 会生成两个换行，或两个空格加 Enter。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "1回目：現在の行を選択、2回目：現在のテキストブロックを選択、3回目：全テキストを選択。",
+                    "target": "第一次：选择当前行，第二次：选择当前文本块，第三次：选择全部文本。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "折りたたまれた見出しで Enter を押すと、折りたたみを展開せずに下に同レベルの見出しを挿入します。",
+                    "target": "在折叠的标题上按 Enter，会在下方插入同级标题而不展开折叠。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "コンソールにデバッグ情報を出力します。",
+                    "target": "在控制台输出调试信息。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "ユーザー定義の選択置換ルール",
+                    "target": "用户自定义的选择替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "ルール：| でカーソル位置を示します。ヒント：| を使用してカーソル位置を表します。",
+                    "target": "规则：用 | 表示光标位置。提示：使用 | 表示光标位置。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "목록이나 인용 블록에서 붙여넣을 때 적절한 들여쓰기와 목록/인용 기호를 자동으로 추가합니다.",
+                    "target": "在列表或引用块中粘贴时，自动添加合适的缩进和列表/引用符号。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "코드 블록 내 편집 기능 강화 (Tab, 삭제, 붙여넣기, Cmd/Ctrl+A 선택)",
+                    "target": "增强代码块内的编辑功能（Tab、删除、粘贴、Cmd/Ctrl+A 全选）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "빈 목록 항목이나 빈 인용 줄에서 백스페이스 기능을 향상시킵니다.",
+                    "target": "在空列表项或空引用行中改进退格功能。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Tab 키를 눌러 【】, （）, 《》, 따옴표, 인라인 코드 등의 쌍 기호 밖으로 커서를 이동합니다.",
+                    "target": "按 Tab 键将光标移出【】、（）、《》、引号、内联代码等成对符号。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "문서 편집 중 텍스트 자동 서식 지정을 켜거나 끕니다.",
+                    "target": "在文档编辑中开启或关闭文本自动格式化。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "서로 다른 언어/기호 쌍 사이의 자동 간격 규칙을 정의합니다.",
+                    "target": "定义不同语言/符号对之间的自动间距规则。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "쉼표, 공백 또는 줄바꿈으로 구분합니다. 단어 또는 /정규식/을 지원합니다. 매칭된 토큰에는 공백이 삽입되지 않으며, 입력 중인 접두사도 공백 삽입이 억제됩니다.",
+                    "target": "使用逗号、空格或换行分隔。支持单词或 /正则表达式/。匹配的标记不会插入空格，输入中的前缀也会抑制插入空格。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "간격 전략을 위한 사용자 정의 언어 또는 기호 집합을 추가합니다.",
+                    "target": "添加用于间距策略的自定义语言或符号集合。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "영어 문장의 첫 글자를 대문자로 변환합니다.",
+                    "target": "将英文句子的首字母转换为大写。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "인라인 코드와 텍스트 사이의 간격 전략을 정의합니다.",
+                    "target": "定义内联代码与文本之间的间距策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "인라인 수식과 텍스트 사이의 간격 전략을 정의합니다.",
+                    "target": "定义行内公式与文本之间的间距策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "[[위키링크]] [마크다운 링크](...) 와 텍스트 사이의 간격 전략을 정의합니다.",
+                    "target": "定义[[维基链接]] [Markdown 链接](...) 与文本之间的间距策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "사용자 정의 정규식을 활성화하여 매칭된 콘텐츠의 서식을 방지하고, 매칭된 콘텐츠와 다른 텍스트 사이의 간격 전략을 설정합니다.",
+                    "target": "启用自定义正则表达式以阻止匹配内容的格式化，并设置匹配内容与其他文本之间的间距策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "사용자 정의 정규식으로 매칭된 콘텐츠는 서식이 적용되지 않습니다. 한 줄에 하나씩 작성하며, 줄 끝에 공백을 추가하지 마세요.각 줄의 마지막 3자는 |와 두 개의 간격 전략 기호로 고정됩니다. 간격 전략 기호는 - = +이며, 각각 간격 불필요(-), 소프트 스페이스(=), 엄격한 스페이스(+)를 의미합니다.이 두 간격 전략 기호는 매칭 블록의 왼쪽과 오른쪽의 간격 전략입니다.",
+                    "target": "通过自定义正则表达式匹配的内容不会应用格式。每行写一个，行尾不要添加空格。每行最后 3 个字符固定为 | 和两个间距策略符号。间距策略符号为 - = +，分别表示不需要间距(-)、软空格(=)、严格空格(+)。这两个间距策略符号分别是匹配块左侧和右侧的间距策略。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "macOS에서 컨텍스트 메뉴 호출 시 커서가 다음 줄로 이동하는 문제를 수정합니다 (Obsidian 재시작 필요).",
+                    "target": "修复在 macOS 上调用上下文菜单时光标跳到下一行的问题（需要重启 Obsidian）。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "이전 버전의 Microsoft 입력기에 대한 호환성 처리.",
+                    "target": "对旧版本 Microsoft 输入法的兼容处理。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "엄격한 줄바꿈 모드에서 일반 텍스트 줄에서 Enter를 한 번 누르면 두 번의 줄바꿈 또는 두 개의 공백과 Enter가 생성됩니다.",
+                    "target": "在严格换行模式下，在普通文本行按一次 Enter 会生成两次换行，或两个空格加 Enter。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "첫 번째: 현재 줄 선택, 두 번째: 현재 텍스트 블록 선택, 세 번째: 전체 텍스트 선택.",
+                    "target": "第一次：选择当前行，第二次：选择当前文本块，第三次：选择全部文本。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "접힌 제목에서 Enter를 누르면 접힘을 펼치지 않고 아래에 같은 수준의 제목을 삽입합니다.",
+                    "target": "在折叠的标题处按 Enter，会在下方插入同级标题而不展开折叠。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "콘솔에 디버그 정보를 출력합니다.",
+                    "target": "在控制台输出调试信息。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "사용자 정의 선택 대체 규칙",
+                    "target": "自定义选择替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "규칙: |로 커서 위치를 표시합니다. 팁: |를 사용하여 커서 위치를 나타냅니다.",
+                    "target": "规则：用 | 表示光标位置。提示：使用 | 表示光标位置。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "输入全角括号/引号时自动补全配对",
+                    "target": "输入全角括号/引号时自动补全配对"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "输入右侧配对符号时自动跳过，避免重复插入",
+                    "target": "输入右侧配对符号时自动跳过，避免重复插入"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "删除全角括号/引号时同时删除配对",
+                    "target": "删除全角括号/引号时同时删除配对"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "连续中文间隔号 ·· 转行内代码",
+                    "target": "连续中文间隔号 ·· 转行内代码"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "行内代码中继续输入 · 升级为代码块",
+                    "target": "行内代码中继续输入 · 升级为代码块"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "￥/$ 符号组合转行内或块级公式",
+                    "target": "￥/$ 符号组合转行内或块级公式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "行首 》 转引用标记、行首 、 转斜杠",
+                    "target": "行首 》 转引用标记、行首 、 转斜杠"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "CJK字符后半角标点转全角",
+                    "target": "CJK字符后半角标点转全角"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "连续输入两个相同全角标点转对应半角",
+                    "target": "连续输入两个相同全角标点转对应半角"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "删除行内公式 $...$ 配对",
+                    "target": "删除行内公式 $...$ 配对"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "删除高亮 ==...== 配对",
+                    "target": "删除高亮 ==...== 配对"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "删除块级公式 $$...$$ 配对",
+                    "target": "删除块级公式 $$...$$ 配对"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "快速删除空代码块",
+                    "target": "快速删除空代码块"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "快速删除双链及嵌入（![[]]）",
+                    "target": "快速删除双链及嵌入（![[]]）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "选中文字后输入 · 包裹为行内代码",
+                    "target": "选中文字后输入 · 包裹为行内代码"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "选中文字后输入 【/¥/￥ 包裹为 []/$$",
+                    "target": "选中文字后输入 【/¥/￥ 包裹为 []/$$"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "选中文字后输入全角引号，配对引号包裹",
+                    "target": "选中文字后输入全角引号，配对引号包裹"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "选中文字后输入《（，配对括号包裹",
+                    "target": "选中文字后输入《（，配对括号包裹"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "输入 > 或 》 转为 Markdown 引用标记",
+                    "target": "输入 > 或 》 转为 Markdown 引用标记"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "引用标记 > 后自动补空格",
+                    "target": "引用标记 > 后自动补空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "For knowledge about regular expressions, see ",
+                    "target": "正则表达式相关知识，见 "
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "Instructions and examples for using regular expression rules: ",
+                    "target": "正则表达式规则使用说明与示例： "
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "正则表达式相关知识，见 ",
+                    "target": "正则表达式相关知识，见 "
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "正则表达式规则使用说明与示例： ",
+                    "target": "正则表达式规则使用说明与示例： "
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "正則表達式相關知識，見 ",
+                    "target": "正则表达式相关知识，见 "
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "正則表達式規則使用說明與示例： ",
+                    "target": "正则表达式规则使用说明与示例： "
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "Для информации о регулярных выражениях см. ",
+                    "target": "正则表达式相关信息，参见 "
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "Инструкции и примеры использования правил регулярных выражений: ",
+                    "target": "正则表达式规则使用说明与示例： "
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "正規表現についての詳細は以下を参照してください：",
+                    "target": "有关正则表达式的详细信息请参阅以下内容："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "正規表現ルールの使用方法と例：",
+                    "target": "正则表达式规则的使用方法与示例："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "정규식에 대한 자세한 내용은 다음을 참조하세요: ",
+                    "target": "有关正则表达式的详细信息请参阅以下内容："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": "정규식 규칙 사용 안내 및 예시: ",
+                    "target": "正则表达式规则使用说明及示例："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Smart Paste in Lists & Quotes",
+                    "target": "在列表和引用中智能粘贴"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Enhance Codeblock Edit",
+                    "target": "增强代码块编辑"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Smart Backspace",
+                    "target": "智能退格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Tab Out of Paired Symbols",
+                    "target": "Tab 跳出成对符号"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Auto formatting when typing",
+                    "target": "输入时自动格式化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Auto formatting on paste",
+                    "target": "粘贴时自动格式化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Language Pair Spacing",
+                    "target": "语言对空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Prefix Dictionary",
+                    "target": "前缀词典"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Custom Script Categories",
+                    "target": "自定义脚本类别"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Capitalize the first letter of every sentence",
+                    "target": "每个句子首字母大写"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Space strategy between inline code and text",
+                    "target": "内联代码与文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Space strategy between inline formula and text",
+                    "target": "内联公式与文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Space strategy between link and text",
+                    "target": "链接与文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "User Defined RegExp Switch",
+                    "target": "用户自定义正则开关"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "User-defined Regular Expression, one expression per line",
+                    "target": "用户自定义正则表达式，每行一个表达式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Exclude Folders/Files",
+                    "target": "排除文件夹/文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Fix MacOS context-menu cursor position (Need to restart Obsidian)",
+                    "target": "修复 MacOS 上下文菜单光标位置（需要重启 Obsidian）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Fix Microsoft Input Method Issue",
+                    "target": "修复微软输入法问题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Strict Line breaks Mode",
+                    "target": "严格换行模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Enhance Mod+A selection in text",
+                    "target": "增强文本中 Mod+A 选择"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Keep Collapsed on Enter",
+                    "target": "回车时保持折叠"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Print debug info in console",
+                    "target": "在控制台打印调试信息"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Selection Replace Rule",
+                    "target": "选区替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Delete Rule",
+                    "target": "删除规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Convert Rule",
+                    "target": "转换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Old Pattern",
+                    "target": "旧模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "New Pattern",
+                    "target": "新模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "智能粘贴",
+                    "target": "智能粘贴"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "增强代码块编辑",
+                    "target": "增强代码块编辑"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "智能退格键",
+                    "target": "智能退格键"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Tab 跳出配对符号",
+                    "target": "Tab 跳出配对符号"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "输入时自动格式化",
+                    "target": "输入时自动格式化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "粘贴时自动格式化",
+                    "target": "粘贴时自动格式化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "语言间空格策略",
+                    "target": "语言间空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "前缀词典",
+                    "target": "前缀词典"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "自定义语言/符号集",
+                    "target": "自定义语言/符号集"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "句首字母大写",
+                    "target": "句首字母大写"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "行内代码和文本之间的空格策略",
+                    "target": "行内代码和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "行内公式和文本之间的空格策略",
+                    "target": "行内公式和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "链接和文本之间的空格策略",
+                    "target": "链接和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "用户定义的正则表达式开关",
+                    "target": "用户定义的正则表达式开关"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "用户定义的正则表达式",
+                    "target": "用户定义的正则表达式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "排除文件夹/文件",
+                    "target": "排除文件夹/文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "修复 MacOS 右键菜单光标位置",
+                    "target": "修复 MacOS 右键菜单光标位置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "修复微软输入法问题",
+                    "target": "修复微软输入法问题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "严格换行模式回车增强",
+                    "target": "严格换行模式回车增强"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "增强 Ctrl/Cmd+A 功能",
+                    "target": "增强 Ctrl/Cmd+A 功能"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "折叠标题回车不展开",
+                    "target": "折叠标题回车不展开"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "在控制台输出调试信息",
+                    "target": "在控制台输出调试信息"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "选中替换规则",
+                    "target": "选中替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "删除规则",
+                    "target": "删除规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "转换规则",
+                    "target": "转换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "触发器",
+                    "target": "触发器"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "旧模式",
+                    "target": "旧模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "新模式",
+                    "target": "新模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "智慧粘貼",
+                    "target": "智能粘贴"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "增强代碼塊編輯",
+                    "target": "增强代码块编辑"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "智慧退格鍵",
+                    "target": "智能退格键"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Tab 跳出配對符號",
+                    "target": "Tab 跳出配对符号"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "輸入時自動格式化",
+                    "target": "输入时自动格式化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "粘貼時自動格式化",
+                    "target": "粘贴时自动格式化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "語言間空格策略",
+                    "target": "语言间空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "前綴詞典",
+                    "target": "前缀词典"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "自定義語言/符號集",
+                    "target": "自定义语言/符号集"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "句首字母大寫",
+                    "target": "句首字母大写"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "文本和標點間空格",
+                    "target": "文本和标点间空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "行內代碼和文本之間的空格策略",
+                    "target": "行内代码和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "行內公式和文本之間的空格策略",
+                    "target": "行内公式和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "連結和文本之間的空格策略",
+                    "target": "链接和文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "用戶定義的正則表達式開關",
+                    "target": "用户定义的正则表达式开关"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "用戶定義的正則表達式",
+                    "target": "用户定义的正则表达式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "排除文件夾/文件",
+                    "target": "排除文件夹/文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "修復 MacOS 右鍵菜單光標位置",
+                    "target": "修复 MacOS 右键菜单光标位置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "修復微軟輸入法問題",
+                    "target": "修复微软输入法问题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "嚴格換行模式回車增強",
+                    "target": "严格换行模式回车增强"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "增強 Mod+A 功能",
+                    "target": "增强 Mod+A 功能"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "折疊標題回車不展開",
+                    "target": "折叠标题回车不展开"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "在控制台輸出調試資訊",
+                    "target": "在控制台输出调试信息"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "選中替換規則",
+                    "target": "选中替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "刪除規則",
+                    "target": "删除规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "轉換規則",
+                    "target": "转换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "觸發器",
+                    "target": "触发器"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "舊模式",
+                    "target": "旧模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Умная вставка в списках и цитатах",
+                    "target": "列表和引用中的智能粘贴"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Улучшение редактирования кодовых блоков",
+                    "target": "改进代码块编辑"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Умный Backspace",
+                    "target": "智能退格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Tab для выхода из парных символов",
+                    "target": "按 Tab 退出成对符号"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Автоформатирование при наборе текста",
+                    "target": "输入时自动格式化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Автоформатирование при вставке",
+                    "target": "粘贴时自动格式化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Стратегия пробелов между языками",
+                    "target": "语言间空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Словарь префиксов",
+                    "target": "前缀词典"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Пользовательские категории скриптов",
+                    "target": "自定义脚本类别"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Заглавная буква в начале каждого предложения",
+                    "target": "每句句首大写"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Интеллектуальная вставка пробела между текстом и пунктуацией",
+                    "target": "文本与标点之间智能插入空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Стратегия пробелов между встроенным кодом и текстом",
+                    "target": "内联代码与文本之间空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Стратегия пробелов между встроенной формулой и текстом",
+                    "target": "内联公式与文本之间空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Стратегия пробелов между ссылкой и текстом",
+                    "target": "链接与文本之间的空格策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Переключение пользовательских регулярных выражений",
+                    "target": "切换自定义正则表达式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Пользовательское регулярное выражение, одно выражение на строку",
+                    "target": "自定义正则表达式，每行一个表达式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Исключить папки/файлы",
+                    "target": "排除文件夹/文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Исправление положения курсора контекстного меню MacOS (требуется перезапуск Obsidian)",
+                    "target": "修复 MacOS 上上下文菜单光标位置（需要重启 Obsidian）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Исправление проблемы с Microsoft Input Method",
+                    "target": "修复 Microsoft 输入法问题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Режим строгих разрывов строк",
+                    "target": "严格换行模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Улучшить выделение Mod+A в тексте",
+                    "target": "改进文本中的 Mod+A 选择"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Enter без разворачивания заголовка",
+                    "target": "Enter 不展开标题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Вывод отладочной информации в консоль",
+                    "target": "在控制台输出调试信息"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Правило замены выделенного текста",
+                    "target": "选中文本替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Правило удаления",
+                    "target": "删除规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Правило преобразования",
+                    "target": "转换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Триггер",
+                    "target": "触发器"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Левый",
+                    "target": "左"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Правый",
+                    "target": "右"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Старый шаблон",
+                    "target": "旧模板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Новый шаблон",
+                    "target": "新模板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "スマート貼り付け",
+                    "target": "智能粘贴"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "コードブロック編集の強化",
+                    "target": "增强代码块编辑"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "スマートバックスペース",
+                    "target": "智能退格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Tabでペア記号の外へ移動",
+                    "target": "用 Tab 移出成对符号"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "入力時の自動書式設定",
+                    "target": "输入时自动格式化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "言語ペアスペーシング",
+                    "target": "语言配对间距"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "接頭辞辞書",
+                    "target": "前缀词典"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "カスタム文字カテゴリ",
+                    "target": "自定义字符类别"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "文頭の大文字化",
+                    "target": "句首大写"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "インラインコードとテキスト間のスペーシング戦略",
+                    "target": "行内代码与文本间距策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "インライン数式とテキスト間のスペーシング戦略",
+                    "target": "行内公式与文本间距策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "リンクとテキスト間のスペーシング戦略",
+                    "target": "链接与文本间距策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "ユーザー定義正規表現スイッチ",
+                    "target": "自定义正则表达式开关"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "ユーザー定義正規表現（1行に1つ）",
+                    "target": "自定义正则表达式（每行一个）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "除外フォルダ/ファイル",
+                    "target": "排除文件夹/文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "macOS コンテキストメニューのカーソル位置を修正（Obsidianの再起動が必要）",
+                    "target": "修复 macOS 上下文菜单的光标位置（需要重启 Obsidian）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Microsoft IME の問題を修正",
+                    "target": "修复 Microsoft IME 的问题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "厳密改行モード",
+                    "target": "严格换行模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Ctrl/Cmd+A 選択の強化",
+                    "target": "增强 Ctrl/Cmd+A 选择"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "折りたたみ時のEnter動作維持",
+                    "target": "保持折叠时的 Enter 行为"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "コンソールにデバッグ情報を出力",
+                    "target": "在控制台输出调试信息"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "選択置換ルール",
+                    "target": "选择替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "削除ルール",
+                    "target": "删除规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "変換ルール",
+                    "target": "转换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "トリガー",
+                    "target": "触发器"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "旧パターン",
+                    "target": "旧模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "新パターン",
+                    "target": "新模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "스마트 붙여넣기",
+                    "target": "智能粘贴"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "코드 블록 편집 강화",
+                    "target": "增强代码块编辑"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "스마트 백스페이스",
+                    "target": "智能退格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Tab으로 쌍 기호 밖으로 이동",
+                    "target": "使用 Tab 移出成对符号"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "입력 시 자동 서식",
+                    "target": "输入时自动格式化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "언어 쌍 간격",
+                    "target": "语言对间距"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "접두사 사전",
+                    "target": "前缀词典"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "사용자 정의 문자 범주",
+                    "target": "自定义字符类别"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "문장 첫 글자 대문자화",
+                    "target": "句首字母大写"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "인라인 코드와 텍스트 사이 간격 전략",
+                    "target": "内联代码与文本之间的间距策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "인라인 수식과 텍스트 사이 간격 전략",
+                    "target": "内联公式与文本之间的间距策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "링크와 텍스트 사이 간격 전략",
+                    "target": "链接与文本之间的间距策略"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "사용자 정의 정규식 스위치",
+                    "target": "自定义正则开关"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "사용자 정의 정규식, 한 줄에 하나씩",
+                    "target": "自定义正则，每行一个"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "제외 폴더/파일",
+                    "target": "排除文件夹/文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "macOS 컨텍스트 메뉴 커서 위치 수정 (Obsidian 재시작 필요)",
+                    "target": "修复 macOS 上下文菜单光标位置（需重启 Obsidian）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Microsoft 입력기 문제 수정",
+                    "target": "修复 Microsoft 输入法问题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "엄격한 줄바꿈 모드",
+                    "target": "严格换行模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Ctrl/Cmd+A 선택 강화",
+                    "target": "增强 Ctrl/Cmd+A 选择"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "접힌 상태에서 Enter 유지",
+                    "target": "折叠状态下保留 Enter"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "콘솔에 디버그 정보 출력",
+                    "target": "在控制台输出调试信息"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "선택 대체 규칙",
+                    "target": "选择替换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "삭제 규칙",
+                    "target": "删除规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "변환 규칙",
+                    "target": "转换规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "트리거",
+                    "target": "触发器"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "왼쪽",
+                    "target": "左侧"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "오른쪽",
+                    "target": "右侧"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "이전 패턴",
+                    "target": "上一个模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "새 패턴",
+                    "target": "新模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Yifeng Nguyen: A Concise Tutorial on Regular Expressions",
+                    "target": "阮一峰：正则表达式简明教程"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Customizing Regular Expression Rules",
+                    "target": "自定义正则表达式规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "《阮一峰：正则表达式简明教程》",
+                    "target": "《阮一峰：正则表达式简明教程》"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "自定义正则表达式规则",
+                    "target": "自定义正则表达式规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "《阮一峰：正則表達式簡明教程》",
+                    "target": "《阮一峰：正则表达式简明教程》"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "自定義正則表達式規則",
+                    "target": "自定义正则表达式规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Yifeng Nguyen: Краткое руководство по регулярным выражениям",
+                    "target": "Yifeng Nguyen：正则表达式简明教程"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Настройка пользовательских правил регулярных выражений",
+                    "target": "自定义正则表达式规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "正規表現の簡潔なチュートリアル",
+                    "target": "正则表达式简明教程"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "正規表現ルールのカスタマイズ",
+                    "target": "自定义正则表达式规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "정규식 간결 튜토리얼",
+                    "target": "正则表达式简明教程"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "정규식 규칙 사용자 정의",
+                    "target": "自定义正则表达式规则"
+                }
+            ],
+            "regex": []
+        }
+    }
+}

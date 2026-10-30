@@ -1,0 +1,15 @@
+{
+  "cssTheme": "Border",
+  "textFontFamily": "霞鹜文楷",
+  "accentColor": "#5cd6f5",
+  "theme": "moonstone",
+  "monospaceFontFamily": "Consolas",
+  "showRibbon": false,
+  "showViewHeader": true,
+  "enabledCssSnippets": [
+    "custom-style"
+  ],
+  "baseFontSizeAction": false,
+  "baseFontSize": 16,
+  "interfaceFontFamily": ""
+}

@@ -1,0 +1,145 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "manual-sorting",
+        "version": "1.0.0",
+        "title": "Manual Sorting",
+        "description": "Manual Sorting Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "3.2.4",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Drag started",
+                    "target": "开始拖拽"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Drag and drop enabled",
+                    "target": "已启用拖放"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Drag and drop disabled",
+                    "target": "已禁用拖放"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Refreshing Explorer after mount",
+                    "target": "挂载后刷新资源管理器"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Explorer already mounted",
+                    "target": "资源管理器已挂载"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Explorer mounted",
+                    "target": "资源管理器已挂载"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Directory did not change, calling sort on File Explorer manually",
+                    "target": "目录未更改，手动调用文件资源管理器排序"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Updating order...",
+                    "target": "正在更新顺序..."
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Explorer unpatched",
+                    "target": "资源管理器已取消补丁"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Sort order menu unpatched",
+                    "target": "排序顺序菜单已取消补丁"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Manual Sorting unloaded",
+                    "target": "手动排序已卸载"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Migrating settings to v4 format",
+                    "target": "正在迁移设置到 v4 格式"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Settings loaded:",
+                    "target": "设置已加载："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Settings saved:",
+                    "target": "设置已保存："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Show debug logs in the console.",
+                    "target": "在控制台中显示调试日志。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Debug Mode",
+                    "target": "调试模式"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTitle",
+                    "source": "Manual Sorting",
+                    "target": "手动排序"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTitle",
+                    "source": "Manual sorting",
+                    "target": "手动排序"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTitle",
+                    "source": "Reset order",
+                    "target": "重置顺序"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Settings changed externally",
+                    "target": "设置已在外部更改"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Reset custom order?",
+                    "target": "重置自定义顺序？"
+                }
+            ],
+            "regex": []
+        }
+    }
+}

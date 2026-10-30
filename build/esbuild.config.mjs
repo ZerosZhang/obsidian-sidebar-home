@@ -1,6 +1,10 @@
 import esbuild from "esbuild";
 import process from "process";
 import builtins from "builtin-modules";
+import { fileURLToPath } from "url";
+import path from "path";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 const banner =
 `/*
@@ -12,10 +16,12 @@ if you want to view the source, please visit the github repository of this plugi
 const prod = (process.argv[2] === 'production');
 
 const context = await esbuild.context({
+	absWorkingDir: root,
 	banner: {
 		js: banner,
 	},
-	entryPoints: ['src/main.ts'],
+	entryPoints: [path.join(root, 'src/main.ts')],
+	tsconfig: path.join(root, 'build/tsconfig.json'),
 	bundle: true,
 	external: [
 		'obsidian',
@@ -28,7 +34,7 @@ const context = await esbuild.context({
 	logLevel: "info",
 	sourcemap: prod ? false : 'inline',
 	treeShaking: true,
-	outfile: 'main.js',
+	outfile: path.join(root, 'main.js'),
 });
 
 if (prod) {

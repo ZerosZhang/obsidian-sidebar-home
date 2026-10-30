@@ -1,0 +1,109 @@
+{
+  "confirmDeletion": true,
+  "showAddCommand": true,
+  "debug": false,
+  "editorMenu": [
+    {
+      "id": "obsidian-quiet-outline:quiet-outline",
+      "icon": "lucide-app-window",
+      "name": "Quiet Outline: Quiet Outline",
+      "mode": "any"
+    },
+    {
+      "id": "markdown:toggle-preview",
+      "icon": "lucide-book-open",
+      "name": "切换编辑/预览视图",
+      "mode": "any"
+    },
+    {
+      "id": "editing-toolbar:format-eraser",
+      "icon": "eraser",
+      "name": "Editing Toolbar: Format Eraser",
+      "mode": "any"
+    },
+    {
+      "id": "workspace:copy-full-path",
+      "icon": "lucide-hard-drive",
+      "name": "复制当前文件绝对路径",
+      "mode": "any"
+    }
+  ],
+  "fileMenu": [
+    {
+      "id": "obsidian-copy-block-link:copy-link-to-block",
+      "icon": "link",
+      "name": "Copy Block Link: Copy link to current block or heading",
+      "mode": "any"
+    },
+    {
+      "id": "obsidian-copy-block-link:copy-embed-to-block",
+      "icon": "link",
+      "name": "Copy Block Link: Copy embed to current block or heading",
+      "mode": "any"
+    }
+  ],
+  "leftRibbon": [],
+  "rightRibbon": [],
+  "titleBar": [],
+  "statusBar": [
+    {
+      "id": "workspace:split-vertical",
+      "icon": "lucide-split-square-horizontal",
+      "name": "左右分屏",
+      "mode": "any"
+    },
+    {
+      "id": "obsidian-style-settings:show-style-settings-leaf",
+      "icon": "lucide-settings-2",
+      "name": "Style Settings: 显示样式设置视图",
+      "mode": "any"
+    },
+    {
+      "id": "markdown:toggle-preview",
+      "icon": "lucide-book-open",
+      "name": "切换编辑/预览视图",
+      "mode": "any",
+      "color": "#1bb11d"
+    }
+  ],
+  "pageHeader": [
+    {
+      "id": "editor:toggle-source",
+      "icon": "lucide-code-2",
+      "name": "切换实时阅览/源码模式",
+      "mode": "any"
+    }
+  ],
+  "macros": [],
+  "explorer": [],
+  "emptyState": [],
+  "textToolbarCommands": [],
+  "hide": {
+    "statusbar": [
+      "backlink",
+      "word-count",
+      "editing-toolbar",
+      "properties"
+    ],
+    "leftRibbon": [
+      "新建绘图文件",
+      "新建数据库",
+      "打开命令面板",
+      "查看关系图谱"
+    ],
+    "editorMenuItems": [],
+    "fileMenuItems": []
+  },
+  "spacing": 0,
+  "advancedToolbar": {
+    "rowHeight": 48,
+    "rowCount": 1,
+    "spacing": 0,
+    "buttonWidth": 48,
+    "columnLayout": false,
+    "mappedIcons": [],
+    "tooltips": false,
+    "heightOffset": 0
+  },
+  "spacingReset": true
+}

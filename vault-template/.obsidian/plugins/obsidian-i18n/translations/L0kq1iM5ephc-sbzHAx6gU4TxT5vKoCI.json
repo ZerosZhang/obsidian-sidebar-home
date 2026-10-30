@@ -1,0 +1,139 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "obsidian-quiet-outline",
+        "version": "1.0.0",
+        "title": "Quiet Outline",
+        "description": "Quiet Outline Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "0.5.12",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "&nbsp;",
+                    "target": "&nbsp;"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "Specific text of heading",
+                    "target": "标题的具体文本"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "Obsidian Language",
+                    "target": "Obsidian 语言"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[css-render/mount]: `id` is required in `boost` mode.",
+                    "target": "[css-render/mount]: `boost` 模式下需要 `id`。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTooltip",
+                    "source": "release doc 0.3.32",
+                    "target": "发布文档 0.3.32"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "No file in markdown view",
+                    "target": "Markdown 视图中没有文件"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Headings copied",
+                    "target": "标题已复制"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "No Data",
+                    "target": "无数据"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Quiet Outline",
+                    "target": "安静大纲"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Focus Heading Tree",
+                    "target": "聚焦标题树"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Reset expanding level",
+                    "target": "重置展开层级"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Focus on input",
+                    "target": "聚焦输入框"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Copy Current Headings As Text",
+                    "target": "复制当前标题为文本"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Increase Level",
+                    "target": "提升层级"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Decrease Level",
+                    "target": "降低层级"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "To previous heading",
+                    "target": "到上一个标题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "To next heading",
+                    "target": "到下一个标题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Please Select",
+                    "target": "请选择"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Select Time",
+                    "target": "选择时间"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Please Input",
+                    "target": "请输入"
+                }
+            ],
+            "regex": []
+        }
+    }
+}

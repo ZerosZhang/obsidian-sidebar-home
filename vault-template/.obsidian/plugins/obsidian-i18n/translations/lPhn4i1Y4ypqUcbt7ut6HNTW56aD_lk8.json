@@ -1,0 +1,751 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "editing-toolbar",
+        "version": "1.0.0",
+        "title": "Editing Toolbar",
+        "description": "Editing Toolbar Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "3.2.7",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "<svg  width=\"14\" height=\"14\"  version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 1024\" enable-background=\"new 0 0 1024 1024\" xml:space=\"preserve\"><path fill=\"#666\" d=\"M510.29 14.13 q17.09 -15.07 40.2 -14.07 q23.12 1 39.2 18.08 l334.66 385.92 q25.12 30.15 34.16 66.83 q9.04 36.68 0.5 73.87 q-8.54 37.19 -32.66 67.34 l-335.67 390.94 q-15.07 18.09 -38.69 20.1 q-23.62 2.01 -41.71 -13.07 q-18.08 -15.08 -20.09 -38.19 q-2.01 -23.12 13.06 -41.21 l334.66 -390.94 q11.06 -13.06 11.56 -29.65 q0.5 -16.58 -10.55 -29.64 l-334.67 -386.92 q-15.07 -17.09 -13.56 -40.7 q1.51 -23.62 19.59 -38.7 ZM81.17 14.13 q17.08 -15.07 40.19 -14.07 q23.11 1 39.2 18.08 l334.66 385.92 q25.12 30.15 34.16 66.83 q9.04 36.68 0.5 73.87 q-8.54 37.19 -32.66 67.34 l-335.67 390.94 q-15.07 18.09 -38.69 20.6 q-23.61 2.51 -41.7 -12.57 q-18.09 -15.08 -20.1 -38.69 q-2.01 -23.62 13.06 -41.71 l334.66 -390.94 q11.06 -13.06 11.56 -29.65 q0.5 -16.58 -10.55 -29.64 l-334.66 -386.92 q-15.08 -17.09 -13.57 -40.7 q1.51 -23.62 19.6 -38.7 Z\"/></svg>",
+                    "target": "<svg  width=\"14\" height=\"14\"  version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 1024\" enable-background=\"new 0 0 1024 1024\" xml:space=\"preserve\"><path fill=\"#666\" d=\"M510.29 14.13 q17.09 -15.07 40.2 -14.07 q23.12 1 39.2 18.08 l334.66 385.92 q25.12 30.15 34.16 66.83 q9.04 36.68 0.5 73.87 q-8.54 37.19 -32.66 67.34 l-335.67 390.94 q-15.07 18.09 -38.69 20.1 q-23.62 2.01 -41.71 -13.07 q-18.08 -15.08 -20.09 -38.19 q-2.01 -23.12 13.06 -41.21 l334.66 -390.94 q11.06 -13.06 11.56 -29.65 q0.5 -16.58 -10.55 -29.64 l-334.67 -386.92 q-15.07 -17.09 -13.56 -40.7 q1.51 -23.62 19.59 -38.7 ZM81.17 14.13 q17.08 -15.07 40.19 -14.07 q23.11 1 39.2 18.08 l334.66 385.92 q25.12 30.15 34.16 66.83 q9.04 36.68 0.5 73.87 q-8.54 37.19 -32.66 67.34 l-335.67 390.94 q-15.07 18.09 -38.69 20.6 q-23.61 2.51 -41.7 -12.57 q-18.09 -15.08 -20.1 -38.69 q-2.01 -23.62 13.06 -41.71 l334.66 -390.94 q11.06 -13.06 11.56 -29.65 q0.5 -16.58 -10.55 -29.64 l-334.66 -386.92 q-15.08 -17.09 -13.57 -40.7 q1.51 -23.62 19.6 -38.7 Z\"/></svg>"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "abc def ghi jkl mno pqr stu",
+                    "target": "abc def ghi jkl mno pqr stu"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "已复制!",
+                    "target": "已复制!"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "All commands",
+                    "target": "所有命令"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "Main menu",
+                    "target": "主菜单"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "Main Menu Commands",
+                    "target": "主菜单命令"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "┌ Light",
+                    "target": "┌ 明亮"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "├ Dark",
+                    "target": "├ 深色"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "├ Vibrant",
+                    "target": "├ 活力"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "├ Minimal",
+                    "target": "├ 极简"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "└ Elegant",
+                    "target": "└ 优雅"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "---- Admonitions ----",
+                    "target": "---- 警示 ----"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "addOption",
+                    "source": "---- Default ----",
+                    "target": "---- 默认 ----"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "加载 Changelog 时出错:",
+                    "target": "加载 Changelog 时出错:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "修复命令ID时出错:",
+                    "target": "修复命令ID时出错:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "恢复默认设置时出错:",
+                    "target": "恢复默认设置时出错:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Failed to copy code: ",
+                    "target": "复制代码失败: "
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "无法复制文本: ",
+                    "target": "无法复制文本: "
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Failed to copy: ",
+                    "target": "复制失败: "
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Import error: ",
+                    "target": "导入错误: "
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Failed to set icon:",
+                    "target": "设置图标失败:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Subresult is undefined.",
+                    "target": "子结果未定义。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Failed to read clipboard:",
+                    "target": "读取剪贴板失败:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "读取剪贴板失败:",
+                    "target": "读取剪贴板失败:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "正则表达式命令执行错误:",
+                    "target": "正则表达式命令执行错误:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Copy failed:",
+                    "target": "复制失败:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Paste failed:",
+                    "target": "粘贴失败:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Cut failed:",
+                    "target": "剪切失败:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "color: Violet",
+                    "target": "color: Violet"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "color: #989cab",
+                    "target": "color: #989cab"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "当前浏览器不支持Fullscreen API !",
+                    "target": "当前浏览器不支持Fullscreen API !"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "editing toolbar disable loading on mobile",
+                    "target": "在移动端禁用加载编辑工具栏"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "editingToolbar unloaded",
+                    "target": "编辑工具栏已卸载"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "保存",
+                    "target": "保存"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTitle",
+                    "source": "Edit Link(Modal)",
+                    "target": "编辑链接(弹窗)"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTooltip",
+                    "source": "Copy commands from selected style.",
+                    "target": "从所选样式复制命令。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "未能从 admonitionPlugin.admonitions (作为对象) 获取类型。",
+                    "target": "未能从 admonitionPlugin.admonitions (作为对象) 获取类型。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "The selected style has no commands to import.",
+                    "target": "所选样式没有可导入的命令。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Undo Edit",
+                    "target": "撤销编辑"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Redo Edit",
+                    "target": "重做编辑"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Format Brush",
+                    "target": "格式刷"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Clear Text Formatting",
+                    "target": "清除文本格式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Header 2",
+                    "target": "标题 2"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Header 3",
+                    "target": "标题 3"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Header 1",
+                    "target": "标题 1"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Header 4",
+                    "target": "标题 4"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Header 5",
+                    "target": "标题 5"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Header 6",
+                    "target": "标题 6"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Text Tools",
+                    "target": "文本工具"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Get Plain Text",
+                    "target": "获取纯文本"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Full Half Converter",
+                    "target": "全角半角转换器"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Line Operations",
+                    "target": "行操作"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert Blank Lines",
+                    "target": "插入空行"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Split Lines",
+                    "target": "拆分行"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Merge Lines",
+                    "target": "合并行"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Dedupe Lines",
+                    "target": "行去重"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Text Processing",
+                    "target": "文本处理"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Add Prefix/Suffix",
+                    "target": "添加前缀/后缀"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Number Lines (Custom)",
+                    "target": "行编号（自定义）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Trim Line Ends",
+                    "target": "修剪行尾"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Shrink Extra Spaces",
+                    "target": "压缩多余空格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Advanced Tools",
+                    "target": "高级工具"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "List to Table",
+                    "target": "列表转表格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Table to List",
+                    "target": "表格转列表"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Extract Between Strings",
+                    "target": "提取字符串之间内容"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Swap Line Down",
+                    "target": "下移一行"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Swap Line Up",
+                    "target": "上移一行"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Attach File",
+                    "target": "附加文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert Table",
+                    "target": "插入表格"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Cycle List and Checklist",
+                    "target": "切换列表与清单"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Inline Code",
+                    "target": "行内代码"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Code Block",
+                    "target": "代码块"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Horizontal Divider",
+                    "target": "水平分隔线"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Inline Math",
+                    "target": "行内公式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Renumber Ordered List",
+                    "target": "重编号有序列表"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Ordered List",
+                    "target": "有序列表"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Unordered List",
+                    "target": "无序列表"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Unindent List",
+                    "target": "减少列表缩进"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Indent list",
+                    "target": "增加列表缩进"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Justify Text",
+                    "target": "两端对齐"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Align Text Left",
+                    "target": "左对齐"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Center Text",
+                    "target": "居中对齐"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Align Text Right",
+                    "target": "右对齐"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Change Font Color",
+                    "target": "更改字体颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Change Background Color",
+                    "target": "更改背景颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Fullscreen Focus Mode",
+                    "target": "全屏专注模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Workplace Fullscreen",
+                    "target": "工作区全屏"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Left sidebar",
+                    "target": "左侧边栏"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert markdown link",
+                    "target": "插入 Markdown 链接"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Add tag",
+                    "target": "添加标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Add internal link",
+                    "target": "添加内部链接"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Checklist status",
+                    "target": "清单状态"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert Callout",
+                    "target": "插入提示块"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert Link",
+                    "target": "插入链接"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert Tag",
+                    "target": "插入标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert Internal link",
+                    "target": "插入内部链接"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert Code",
+                    "target": "插入代码"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert Blockquote",
+                    "target": "插入引用块"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert Comment",
+                    "target": "插入注释"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert MathBlock",
+                    "target": "插入数学块"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Clear Formatting",
+                    "target": "清除格式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Hide/Show ",
+                    "target": "隐藏/显示 "
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Toggle Top Toolbar",
+                    "target": "切换顶部工具栏"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Toggle Following Toolbar",
+                    "target": "切换浮动工具栏"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Toggle Fixed Toolbar",
+                    "target": "切换固定工具栏"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Format Eraser",
+                    "target": "格式刷"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Indent List",
+                    "target": "缩进列表"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Numbered List",
+                    "target": "编号列表"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Toggle Bold",
+                    "target": "切换加粗"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Toggle Italics",
+                    "target": "切换斜体"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Toggle Strikethrough",
+                    "target": "切换删除线"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Toggle Inline Math",
+                    "target": "切换行内公式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert Callout(Modal)",
+                    "target": "插入标注（弹窗）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Insert Link(Modal)",
+                    "target": "插入链接（弹窗）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Toggle Fullscreen Focus Mode",
+                    "target": "切换全屏专注模式"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Toggle Workplace Fullscreen Focus",
+                    "target": "切换工作区全屏专注"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Toggle Format Brush",
+                    "target": "切换格式刷"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Left Align",
+                    "target": "左对齐"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Right Align",
+                    "target": "右对齐"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Font Color",
+                    "target": "字体颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Background Color",
+                    "target": "背景颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "\n            .changelog-container {\n                margin-top: 20px;\n                margin-bottom: 20px;\n                padding: 10px;\n                border: 1px solid var(--background-modifier-border);\n                border-radius: 5px;\n                max-height: 200px;\n                overflow-y: auto;\n            }\n            .changelog-content {\n                padding: 0 10px;\n            }\n            .changelog-content a {\n                text-decoration: underline;\n            }\n            ",
+                    "target": "\n            .changelog-container {\n                margin-top: 20px;\n                margin-bottom: 20px;\n                padding: 10px;\n                border: 1px solid var(--background-modifier-border);\n                border-radius: 5px;\n                max-height: 200px;\n                overflow-y: auto;\n            }\n            .changelog-content {\n                padding: 0 10px;\n            }\n            .changelog-content a {\n                text-decoration: underline;\n            }\n            "
+                }
+            ],
+            "regex": []
+        }
+    }
+}

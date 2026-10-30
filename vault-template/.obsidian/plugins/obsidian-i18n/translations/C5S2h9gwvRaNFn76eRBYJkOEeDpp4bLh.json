@@ -1,0 +1,1351 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "colored-tags",
+        "version": "1.0.0",
+        "title": "Colored Tags",
+        "description": "Colored Tags Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "6.1.2",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Failed to fetch community palettes",
+                    "target": "无法获取社区调色板"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "the unthinkable has happened",
+                    "target": "发生了不可思议的事情"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Palette auswählen",
+                    "target": "选择调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Wenn die Farben einiger Tags nicht passen, kannst du die Palette verschieben.",
+                    "target": "如果某些标签的颜色不合适，你可以移动调色板。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Das Format ist <code>XXXXXX-XXXXXX-XXXXXX</code> für jede RGB-Farbe.",
+                    "target": "每种 RGB 颜色的格式为 <code>XXXXXX-XXXXXX-XXXXXX</code>。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Hier findest du Paletten aus der GitHub-Diskussion. Klicke auf eine Karte, um sie sofort zu übernehmen oder {{communityLinkStart}}teile deine eigene{{communityLinkEnd}}.",
+                    "target": "在这里可以找到来自 GitHub 讨论的调色板。点击卡片即可立即采用，或 {{communityLinkStart}}分享你自己的{{communityLinkEnd}}。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Barrierefreiheitsoptionen anzeigen",
+                    "target": "显示无障碍选项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Nur weiße und schwarze Textfarben verwenden",
+                    "target": "仅使用黑白文字颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Hilft dabei, den Text lesbar zu machen",
+                    "target": "有助于提高文字可读性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Wähle eine Farbe aus der aktuellen Palette. Beim Wechsel der Palette passt sich der Tag automatisch an.",
+                    "target": "从当前调色板中选择一种颜色。切换调色板时，标签会自动适配。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "🚨 Alle Farben aller Tags werden neu berechnet, als wäre es der erste Start des Plugins. Erfordert einen Neustart von Obsidian.",
+                    "target": "🚨 所有标签的所有颜色将被重新计算，就像是插件首次启动一样。需要重启 Obsidian。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Select palette",
+                    "target": "选择调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "If the colors of some tags don't fit, you can shift the palette.",
+                    "target": "如果某些标签的颜色不合适，你可以调整调色板。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "The format is <code>XXXXXX-XXXXXX-XXXXXX</code> for each RGB color.",
+                    "target": "每个 RGB 颜色的格式为 <code>XXXXXX-XXXXXX-XXXXXX</code>。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Below are palettes collected from the GitHub discussion. Click any card to apply it instantly or {{communityLinkStart}}share your own{{communityLinkEnd}}.",
+                    "target": "以下是从 GitHub 讨论中收集的调色板。点击任意卡片可立即应用，或 {{communityLinkStart}}分享你的调色板{{communityLinkEnd}}。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Show accessibility options",
+                    "target": "显示无障碍选项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Use only white and black colors for texts",
+                    "target": "文本仅使用黑白颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "It helps to make text readable",
+                    "target": "有助于提高文本可读性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Choose a color from the current palette. If you change the palette, the tag adapts to the nearest color.",
+                    "target": "从当前调色板中选择一种颜色。如果你更改调色板，标签会自动适配到最接近的颜色。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "🚨 All colors of all tags will be recalculated as if it was the first launch of the plugin. Requires restart of Obsidian.",
+                    "target": "🚨 所有标签的所有颜色将被重新计算，就像是插件首次启动一样。需要重启 Obsidian。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Seleccionar paleta",
+                    "target": "选择调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Si los colores de algunas etiquetas no encajan, puedes desplazar la paleta.",
+                    "target": "如果某些标签的颜色不匹配，你可以平移调色板。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "El formato es <code>XXXXXX-XXXXXX-XXXXXX</code> para cada color RGB.",
+                    "target": "每个 RGB 颜色的格式为 <code>XXXXXX-XXXXXX-XXXXXX</code>。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "A continuación hay paletas recopiladas de la discusión en GitHub. Haz clic en cualquier tarjeta para aplicarla al instante o {{communityLinkStart}}comparte la tuya{{communityLinkEnd}}.",
+                    "target": "以下是从 GitHub 讨论中收集的调色板。点击任意卡片即可立即应用，或 {{communityLinkStart}}分享你的调色板{{communityLinkEnd}}。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Mostrar opciones de accesibilidad",
+                    "target": "显示无障碍选项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Usar solo colores blanco y negro para los textos",
+                    "target": "文本仅使用黑白颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Acciones peligrosas u opciones inestables que podrían cambiarse o eliminarse en cualquier momento",
+                    "target": "可能随时更改或移除的危险操作或不稳定选项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Ayuda a hacer el texto legible",
+                    "target": "帮助提高文本可读性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Elige un color de la paleta actual. Si cambias la paleta, la etiqueta se adapta al color más cercano.",
+                    "target": "从当前调色板中选择一个颜色。如果更换调色板，标签会适配为最接近的颜色。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "🚨 Todos los colores de todas las etiquetas se recalcularán como si fuera el primer lanzamiento del plugin. Requiere reiniciar Obsidian.",
+                    "target": "🚨 所有标签的颜色将像插件首次启动一样重新计算。需要重启 Obsidian。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Sélectionner une palette",
+                    "target": "选择调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Si les couleurs de certaines étiquettes ne conviennent pas, vous pouvez décaler la palette.",
+                    "target": "如果某些标签的颜色不合适，可以调整调色板。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Le format est <code>XXXXXX-XXXXXX-XXXXXX</code> pour chaque couleur RVB.",
+                    "target": "每种 RGB 颜色的格式为 <code>XXXXXX-XXXXXX-XXXXXX</code>。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Ci-dessous se trouvent des palettes collectées depuis la discussion GitHub. Cliquez sur une carte pour l'appliquer instantanément ou {{communityLinkStart}}partagez la vôtre{{communityLinkEnd}}.",
+                    "target": "以下是从 GitHub 讨论中收集的调色板。点击卡片即可立即应用，或 {{communityLinkStart}}分享你的调色板{{communityLinkEnd}}。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Afficher les options d'accessibilité",
+                    "target": "显示无障碍选项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Actions dangereuses ou options instables qui pourraient être modifiées ou supprimées à tout moment",
+                    "target": "危险操作或不稳定选项，可能随时被修改或移除"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Cela aide à rendre le texte lisible",
+                    "target": "这有助于提高文本可读性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Choisissez une couleur de la palette actuelle. Si vous changez la palette, l'étiquette s'adapte à la couleur la plus proche.",
+                    "target": "从当前调色板中选择一种颜色。如果更改调色板，标签会匹配最接近的颜色。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Seleziona tavolozza",
+                    "target": "选择调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Se i colori di alcune etichette non vanno bene, puoi spostare la tavolozza.",
+                    "target": "如果某些标签的颜色不合适，可以调整调色板。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Il formato è <code>XXXXXX-XXXXXX-XXXXXX</code> per ogni colore RGB.",
+                    "target": "每种 RGB 颜色的格式为 <code>XXXXXX-XXXXXX-XXXXXX</code>。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Di seguito sono riportate le tavolozze raccolte dalla discussione su GitHub. Clicca su qualsiasi scheda per applicarla istantaneamente o {{communityLinkStart}}condividi la tua{{communityLinkEnd}}.",
+                    "target": "以下是从 GitHub 讨论中收集的调色板。点击任意卡片即可立即应用，或 {{communityLinkStart}}分享你的{{communityLinkEnd}}。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Mostra opzioni di accessibilità",
+                    "target": "显示辅助功能选项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Usa solo bianco e nero per i testi",
+                    "target": "文本仅使用黑白颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Azioni pericolose o opzioni instabili che potrebbero essere modificate o rimosse in qualsiasi momento",
+                    "target": "危险操作或不稳定选项，可能随时被修改或移除"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Aiuta a rendere leggibile il testo",
+                    "target": "有助于提高文本可读性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Scegli un colore dalla tavolozza corrente. Se cambi la tavolozza, l'etichetta si adatta al colore più vicino.",
+                    "target": "从当前调色板中选择颜色。如果更改调色板，标签会适配到最接近的颜色。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "🚨 Tutti i colori di tutte le etichette verranno ricalcolati come se fosse il primo avvio del plugin. Richiede il riavvio di Obsidian.",
+                    "target": "🚨 所有标签的所有颜色将像插件首次启动一样重新计算。需要重启 Obsidian。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "パレットを選択",
+                    "target": "选择调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "一部のタグの色が合わない場合は、パレットをシフトできます。",
+                    "target": "如果部分标签颜色不匹配，可以移动调色板。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "形式は各RGBカラーにつき <code>XXXXXX-XXXXXX-XXXXXX</code> です。",
+                    "target": "格式为每个RGB颜色 <code>XXXXXX-XXXXXX-XXXXXX</code>。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "以下はGitHubのディスカッションから収集されたパレットです。カードをクリックして即座に適用するか、{{communityLinkStart}}自分のものを共有{{communityLinkEnd}}してください。",
+                    "target": "以下是从 GitHub 讨论中收集的调色板。点击卡片立即应用，或{{communityLinkStart}}分享你自己的{{communityLinkEnd}}。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "アクセシビリティオプションを表示",
+                    "target": "显示无障碍选项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "テキストに白と黒の色のみを使用",
+                    "target": "文本仅使用黑白颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "いつでも変更または削除される可能性のある危険なアクションまたは不安定なオプション",
+                    "target": "可能随时更改或删除的危险操作或不稳定选项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "テキストを読みやすくするのに役立ちます",
+                    "target": "有助于提高文本可读性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "現在のパレットから色を選択します。パレットを変更すると、タグは最も近い色に適応します。",
+                    "target": "从当前调色板中选择颜色。更改调色板后，标签会适配为最接近的颜色。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "🚨 すべてのタグのすべての色が、プラグインの初回起動時のように再計算されます。Obsidianの再起動が必要です。",
+                    "target": "🚨 所有标签的所有颜色将像插件首次启动时一样重新计算。需要重启 Obsidian。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Selecionar paleta",
+                    "target": "选择调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "O formato é <code>XXXXXX-XXXXXX-XXXXXX</code> para cada cor RGB.",
+                    "target": "每个 RGB 颜色的格式为 <code>XXXXXX-XXXXXX-XXXXXX</code>。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Mostrar opções de acessibilidade",
+                    "target": "显示辅助功能选项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Usar apenas cores branca e preta para textos",
+                    "target": "文本仅使用黑白两色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Ajuda a tornar o texto legível",
+                    "target": "有助于提高文本可读性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Escolha uma cor da paleta atual. Se você mudar a paleta, a etiqueta se adapta à cor mais próxima.",
+                    "target": "从当前调色板中选择一种颜色。如果你更改调色板，标签会适配到最接近的颜色。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "🚨 Todas as cores de todas as etiquetas serão recalculadas como se fosse o primeiro lançamento do plugin. Requer reinicialização do Obsidian.",
+                    "target": "🚨 所有标签的所有颜色将被重新计算，仿佛插件首次启动。需要重启 Obsidian。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Выберите палитру",
+                    "target": "选择调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Если цвета каких-то тегов не подходят, можно сдвинуть палитру.",
+                    "target": "如果某些标签的颜色不合适，可以平移调色板。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Формат <code>XXXXXX-XXXXXX-XXXXXX</code> для каждого RGB-цвета.",
+                    "target": "每个 RGB 颜色的格式为 <code>XXXXXX-XXXXXX-XXXXXX</code>。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Ниже собраны палитры из обсуждения на GitHub. Кликните по карточке, чтобы применить её или {{communityLinkStart}}поделитесь своей{{communityLinkEnd}}.",
+                    "target": "下方汇总了 GitHub 讨论中的调色板。点击卡片即可应用，或 {{communityLinkStart}}分享你的调色板{{communityLinkEnd}}。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Показать настройки доступности",
+                    "target": "显示辅助功能设置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Использовать только белый и черный цвета текста",
+                    "target": "仅使用白色和黑色文本颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Опасные действия или нестабильные опции, которые могут быть изменены или удалены в любой момент",
+                    "target": "可能随时更改或删除的危险操作或不稳定选项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Помогает сделать текст читаемым",
+                    "target": "有助于提高文本可读性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Выберите цвет из текущей палитры. При смене палитры тег адаптируется к ближайшему цвету.",
+                    "target": "从当前调色板中选择颜色。更换调色板时，标签会适配到最接近的颜色。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "🚨 Все цвета всех тегов будут пересчитаны так, будто плагин запускается впервые. Требуется перезапуск Obsidian.",
+                    "target": "🚨 所有标签的颜色将被重新计算，就像插件首次运行一样。需要重启 Obsidian。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "选择调色板",
+                    "target": "选择调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "如果某些标签的颜色不合适，可以偏移调色板。",
+                    "target": "如果某些标签的颜色不合适，可以偏移调色板。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "每种 RGB 颜色的格式为 <code>XXXXXX-XXXXXX-XXXXXX</code>。",
+                    "target": "每种 RGB 颜色的格式为 <code>XXXXXX-XXXXXX-XXXXXX</code>。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "下方展示来自 GitHub 讨论区的调色板。点击任意卡片即可立即应用，或{{communityLinkStart}}分享你的配色{{communityLinkEnd}}。",
+                    "target": "下方展示来自 GitHub 讨论区的调色板。点击任意卡片即可立即应用，或{{communityLinkStart}}分享你的配色{{communityLinkEnd}}。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "显示无障碍选项",
+                    "target": "显示无障碍选项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "仅对文本使用黑色和白色",
+                    "target": "仅对文本使用黑色和白色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "危险操作或极其不稳定的选项，随时可能修改或移除",
+                    "target": "危险操作或极其不稳定的选项，随时可能修改或移除"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "有助于保持文本可读",
+                    "target": "有助于保持文本可读"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "请从当前调色板中选择颜色。更换调色板时，标签会自动适配最接近的颜色。",
+                    "target": "请从当前调色板中选择颜色。更换调色板时，标签会自动适配最接近的颜色。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "🚨 所有标签的颜色都会重新计算，就像第一次启动插件一样。需要重新启动 Obsidian。",
+                    "target": "🚨 所有标签的颜色都会重新计算，就像第一次启动插件一样。需要重新启动 Obsidian。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "Noch keine Community-Paletten vorhanden. Sei der Erste, der eine teilt!",
+                    "target": "尚无社区调色板。成为第一个分享的人！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "Noch keine Farbzuweisungen",
+                    "target": "尚无颜色分配"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "No shared palettes yet. Be the first to post one!",
+                    "target": "尚无共享调色板。成为第一个发布的人！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "No tag overrides yet",
+                    "target": "尚无标签覆盖"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "Aún no hay paletas compartidas. ¡Sé el primero en publicar una!",
+                    "target": "尚无共享调色板。成为第一个发布的人！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "Aún no hay anulaciones de etiquetas",
+                    "target": "还没有标签覆盖"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "Aucune substitution d'étiquette pour l'instant",
+                    "target": "目前没有标签替换"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "Nessuna tavolozza condivisa ancora. Sii il primo a pubblicarne una!",
+                    "target": "还没有共享的调色板。快来第一个发布吧！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "Nessuna sovrascrittura etichetta ancora",
+                    "target": "还没有标签覆盖"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "共有されたパレットはまだありません。最初に投稿しましょう！",
+                    "target": "还没有共享的调色板。快来第一个发布吧！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "タグのオーバーライドはまだありません",
+                    "target": "还没有标签覆盖"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "Nenhuma paleta compartilhada ainda. Seja o primeiro a postar uma!",
+                    "target": "还没有共享的调色板。快来第一个发布吧！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "Nenhuma substituição de etiqueta ainda",
+                    "target": "还没有标签替换"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "Пока никто не поделился палитрами. Будьте первыми!",
+                    "target": "还没有人分享调色板。快来第一个分享吧！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "Пока нет назначенных цветов",
+                    "target": "还没有指定的颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "还没有人分享调色板，欢迎率先贡献！",
+                    "target": "还没有人分享调色板，欢迎率先贡献！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "empty",
+                    "source": "还没有分配标签颜色",
+                    "target": "还没有分配标签颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "error",
+                    "source": "Paletten konnten nicht geladen werden. Öffne die Diskussion, um sie manuell anzusehen.",
+                    "target": "无法加载调色板。请打开讨论以手动查看。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "error",
+                    "source": "No se pueden cargar las paletas en este momento. Siéntete libre de abrir la discusión para explorarlas manualmente.",
+                    "target": "目前无法加载调色板。欢迎打开讨论以手动查看。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "error",
+                    "source": "Impossibile caricare le tavolozze al momento. Sentiti libero di aprire la discussione per sfogliarle manualmente.",
+                    "target": "目前无法加载调色板。请打开讨论以手动查看。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "error",
+                    "source": "現在パレットを読み込めません。ディスカッションを開いて手動で閲覧してください。",
+                    "target": "暂时无法加载调色板。请打开讨论以手动查看。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "error",
+                    "source": "Não foi possível carregar as paletas agora. Sinta-se à vontade para abrir a discussão para navegá-las manualmente.",
+                    "target": "目前无法加载调色板。欢迎打开讨论以手动查看。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "error",
+                    "source": "Не удалось загрузить палитры. Откройте обсуждение, чтобы посмотреть их вручную.",
+                    "target": "无法加载调色板。请打开讨论以手动查看。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "error",
+                    "source": "暂时无法加载调色板，请打开讨论页面手动查看。",
+                    "target": "暂时无法加载调色板，请打开讨论页面手动查看。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🦾 Barrierefreiheit",
+                    "target": "🦾 无障碍"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🧪 Experimentell",
+                    "target": "🧪 实验性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "Community palettes",
+                    "target": "社区调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🦾 Accessibility",
+                    "target": "🦾 无障碍"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🧪 Experimental",
+                    "target": "🧪 实验性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "Paletas de la comunidad",
+                    "target": "社区调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🦾 Accesibilidad",
+                    "target": "🦾 无障碍"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "Palettes communautaires",
+                    "target": "社区调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🦾 Accessibilité",
+                    "target": "🦾 无障碍"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🧪 Expérimental",
+                    "target": "🧪 实验性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "Tavolozze della comunità",
+                    "target": "社区调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🦾 Accessibilità",
+                    "target": "🦾 无障碍"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🧪 Sperimentale",
+                    "target": "🧪 实验性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "パレット",
+                    "target": "调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "コミュニティパレット",
+                    "target": "社区调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🦾 アクセシビリティ",
+                    "target": "🦾 无障碍"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🧪 実験的",
+                    "target": "🧪 实验性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "Paletas da comunidade",
+                    "target": "社区调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🦾 Acessibilidade",
+                    "target": "🦾 无障碍"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "Палитра",
+                    "target": "调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "Палитры сообщества",
+                    "target": "社区调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🦾 Доступность",
+                    "target": "🦾 无障碍"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🧪 Экспериментальные",
+                    "target": "🧪 实验性功能"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "调色板",
+                    "target": "调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "社区调色板",
+                    "target": "社区调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🦾 无障碍",
+                    "target": "🦾 无障碍"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "heading",
+                    "source": "🧪 实验功能",
+                    "target": "🧪 实验功能"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Benutzerdefinierte Palette",
+                    "target": "自定义调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Hoher Textkontrast",
+                    "target": "高文本对比度"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Farben mischen",
+                    "target": "混合颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Gradientenübergang",
+                    "target": "渐变过渡"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Konfiguration zurücksetzen",
+                    "target": "重置配置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Palette shift",
+                    "target": "调色板偏移"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Custom palette",
+                    "target": "自定义调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "High text contrast",
+                    "target": "高文本对比度"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Mix colors",
+                    "target": "混合颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Gradient transition",
+                    "target": "渐变过渡"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Tag assignments",
+                    "target": "标签分配"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Reset config",
+                    "target": "重置配置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Desplazamiento de paleta",
+                    "target": "调色板偏移"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Paleta personalizada",
+                    "target": "自定义调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Alto contraste de texto",
+                    "target": "高对比度文本"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Mezclar colores",
+                    "target": "混合颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Transición de degradado",
+                    "target": "渐变过渡"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Asignaciones de etiquetas",
+                    "target": "标签分配"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Restablecer configuración",
+                    "target": "重置设置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Décalage de palette",
+                    "target": "调色板偏移"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Palette personnalisée",
+                    "target": "自定义调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Contraste de texte élevé",
+                    "target": "高对比度文本"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Mélanger les couleurs",
+                    "target": "混合颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Transition de dégradé",
+                    "target": "渐变过渡"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Affectations d'étiquettes",
+                    "target": "标签分配"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Réinitialiser la config",
+                    "target": "重置配置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Spostamento tavolozza",
+                    "target": "调色板偏移"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Tavolozza personalizzata",
+                    "target": "自定义调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Alto contrasto del testo",
+                    "target": "高对比度文本"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Mescola colori",
+                    "target": "混合颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Transizione gradiente",
+                    "target": "渐变过渡"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Assegnazioni etichette",
+                    "target": "标签分配"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Reimposta configurazione",
+                    "target": "重置配置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "パレットシフト",
+                    "target": "调色板偏移"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "カスタムパレット",
+                    "target": "自定义调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "高テキストコントラスト",
+                    "target": "高文本对比度"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "色を混ぜる",
+                    "target": "混合颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "グラデーション遷移",
+                    "target": "渐变过渡"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "タグの割り当て",
+                    "target": "标签分配"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "設定をリセット",
+                    "target": "重置设置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Deslocamento de paleta",
+                    "target": "调色板偏移"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Misturar cores",
+                    "target": "混合颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Transição de gradiente",
+                    "target": "渐变过渡"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Atribuições de etiquetas",
+                    "target": "标签分配"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Redefinir configuração",
+                    "target": "重置配置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Сдвиг палитры",
+                    "target": "调色板偏移"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Своя палитра",
+                    "target": "自定义调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Высокий контраст текста",
+                    "target": "高对比度文本"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Смешивать цвета",
+                    "target": "混合颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Плавный градиент",
+                    "target": "平滑渐变"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Назначение цветов",
+                    "target": "颜色分配"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Сбросить конфиг",
+                    "target": "重置配置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "调色板偏移",
+                    "target": "调色板偏移"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "自定义调色板",
+                    "target": "自定义调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "高对比文本",
+                    "target": "高对比文本"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "混合颜色",
+                    "target": "混合颜色"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "渐变过渡",
+                    "target": "渐变过渡"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "标签颜色分配",
+                    "target": "标签颜色分配"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "重置配置",
+                    "target": "重置配置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "XYZ D65",
+                    "target": "XYZ D65"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "XYZ D50",
+                    "target": "XYZ D50"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Linear REC.2020",
+                    "target": "Linear REC.2020"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Linear P3",
+                    "target": "Linear P3"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Linear sRGB",
+                    "target": "Linear sRGB"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Lab D65",
+                    "target": "Lab D65"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Absolute XYZ D65",
+                    "target": "绝对 XYZ D65"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Linear Adobe® 98 RGB compatible",
+                    "target": "线性 Adobe® 98 RGB 兼容"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Adobe® 98 RGB compatible",
+                    "target": "Adobe® 98 RGB 兼容"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Linear ProPhoto",
+                    "target": "线性 ProPhoto"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Palette einfügen",
+                    "target": "粘贴调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Tag eingeben",
+                    "target": "输入标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Paste palette",
+                    "target": "粘贴调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Start typing a tag",
+                    "target": "开始输入标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Pegar paleta",
+                    "target": "粘贴调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Coller une palette",
+                    "target": "粘贴调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Commencez à taper une étiquette",
+                    "target": "开始输入标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Incolla tavolozza",
+                    "target": "粘贴调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Inizia a digitare un'etichetta",
+                    "target": "开始输入标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "パレットを貼り付け",
+                    "target": "粘贴调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "タグの入力を開始",
+                    "target": "开始输入标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Colar paleta",
+                    "target": "粘贴调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Comece a digitar uma etiqueta",
+                    "target": "开始输入标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Вставьте палитру",
+                    "target": "粘贴调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Начните вводить тег",
+                    "target": "开始输入标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "粘贴调色板",
+                    "target": "粘贴调色板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "开始输入标签",
+                    "target": "开始输入标签"
+                }
+            ],
+            "regex": []
+        }
+    }
+}

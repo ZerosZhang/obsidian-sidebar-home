@@ -1,0 +1,948 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "omnisearch",
+        "version": "2.0.0",
+        "title": "Omnisearch",
+        "description": "Omnisearch Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "1.28.2",
+        "author": "Machine丶YU"
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "Omnisearch will use Text Extractor to index the content of your office documents (currently <pre style=\"display:inline\">.docx</pre> and <pre style=\"display:inline\">.xlsx</pre>).",
+                    "target": "Omnisearch 将使用文本提取器来索引您的办公文档内容（目前支持 <pre style=\"display:inline\">.docx</pre> 和 <pre style=\"display:inline\">.xlsx</pre> 格式）。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "Omnisearch will use AI Image Analyzer to index the content of your images with ai.<br/>\n    \\u26A0\\uFE0F <span style=\"color: var(--text-accent)\">If both AI Image Analyzer and Text Extractor are enabled, Text Extractor will only be used as a fallback.</span>",
+                    "target": "Omnisearch 将使用 AI 图像分析器，通过人工智能来索引您的图片内容。<br/>\n    ⚠️ <span style=\"color: var(--text-accent)\">如果同时启用了 AI 图像分析器和文本提取器，文本提取器将仅作为备用方案使用。</span>"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "<strong style=\"color: var(--text-accent)\">⚠️ OMNISEARCH IS DISABLED ⚠️</strong>",
+                    "target": "<strong style=\"color: var(--text-accent)\">⚠️ OMNISEARCH 已禁用 ⚠️</strong>"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "\n        <iframe sandbox=\"allow-top-navigation-by-user-activation\" src=\"https://github.com/sponsors/scambier/button\" title=\"Sponsor scambier\" height=\"35\" width=\"116\" style=\"border: 0;\"></iframe>\n        <a href='https://ko-fi.com/B0B6LQ2C' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> \n    ",
+                    "target": "\n        <iframe sandbox=\"allow-top-navigation-by-user-activation\" src=\"https://github.com/sponsors/scambier/button\" title=\"Sponsor scambier\" height=\"35\" width=\"116\" style=\"border: 0;\"></iframe>\n        <a href='https://ko-fi.com/B0B6LQ2C' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> \n    "
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Last ten effects were: ",
+                    "target": "最近十条错误记录："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Omnisearch - Error in highlightText()",
+                    "target": "Omnisearch - highlightText() 函数出错"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Omnisearch - Error while creating excerpt",
+                    "target": "Omnisearch - 创建摘要时出错"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Omnisearch - Error while loading Minisearch cache",
+                    "target": "Omnisearch - 加载 Minisearch 缓存时出错"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Error tokenizing text, skipping document",
+                    "target": "文本分词出错，已跳过此文档"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Omnisearch",
+                    "target": "Omnisearch"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "cannot be read",
+                    "target": "无法读取"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Omnisearch: Error while parsing Dataloom file",
+                    "target": "Omnisearch：解析 Dataloom 文件时出错"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "Omnisearch - Terminated HTTP server",
+                    "target": "Omnisearch - HTTP 服务器已终止"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "Omnisearch - No cache found",
+                    "target": "Omnisearch - 未找到缓存"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Clear cache",
+                    "target": "清除缓存"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Add a new property",
+                    "target": "添加新属性"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Enable caching to speed up indexing time. In rare cases, the cache write may cause a crash in Obsidian. This option will disable itself if it happens.",
+                    "target": "启用缓存以加快索引速度。在极少数情况下，缓存写入可能导致 Obsidian 崩溃。如果发生这种情况，此选项将自动禁用。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Re-executes the previous query when opening Omnisearch.",
+                    "target": "打开 Omnisearch 时重新执行上一次的查询。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Folders to downrank in search results. Files in these folders will be downranked in results.  They will still be indexed for tags, unlike excluded files.  Folders should be comma delimited.",
+                    "target": "在搜索结果中降级的文件夹。这些文件夹中的文件将在结果中降级显示。它们仍会被索引以获取标签，这与排除的文件不同。文件夹应以逗号分隔。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Enable this if Obsidian often freezes while making searches.\n        Words shorter than 3 characters won't be used as prefixes; this can reduce search delay but will return fewer results.",
+                    "target": "如果 Obsidian 在搜索时经常卡顿，请启用此选项。\n        长度小于 3 个字符的单词将不会用作前缀；这可以减少搜索延迟，但返回的结果会减少。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Enable this if you want to be able to search for URLs as separate words.\n        This setting has a strong impact on indexing performance, and can crash Obsidian under certain conditions.",
+                    "target": "启用此选项后，可将 URL 拆分为独立词汇进行搜索。\n        此设置会显著影响索引性能，且在特定条件下可能导致 Obsidian 崩溃。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Open and create files in a new pane instead of the current pane.",
+                    "target": "在新窗格中打开和创建文件，而非当前窗格。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Define the level of fuzziness for the search. The higher the fuzziness, the more results you'll get.",
+                    "target": "定义搜索的模糊匹配程度。模糊度越高，返回的结果越多。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Will display a notification if the server is enabled, at Obsidian startup.",
+                    "target": "若服务器已启用，将在 Obsidian 启动时显示通知。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Add a button on the sidebar to open the Vault search modal.",
+                    "target": "在侧边栏添加按钮，用于打开库搜索模态框。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Shows the contextual part of the note that matches the search. Disable this to only show filenames in results.",
+                    "target": "显示笔记中与搜索匹配的上下文内容。禁用此选项将仅在结果中显示文件名。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Activate this option to render line returns in result excerpts.",
+                    "target": "启用此选项可在结果摘要中渲染换行符。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Will highlight matching results when enabled. See README for more customization options.",
+                    "target": "启用后将高亮显示匹配结果。更多自定义选项请参阅 README。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "You can set custom weights for values of header properties (e.g. \"keywords\"). Weights under 1.0 will downrank the results.",
+                    "target": "可为标题属性的值（如“关键词”）设置自定义权重。权重低于 1.0 会降低结果排序。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Files that have been modified more recently than [selected cutoff] are given a higher rank.",
+                    "target": "修改时间晚于[选定截止日期]的文件将获得更高排名。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Adds a LOT of logs for debugging purposes. You also need to enable \"Verbose\" logging in the console to see these logs.",
+                    "target": "添加大量日志用于调试。你还需要在控制台中启用“详细”日志级别才能看到这些日志。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Behavior",
+                    "target": "行为"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Save index to cache",
+                    "target": "将索引保存至缓存"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Show previous query results",
+                    "target": "显示之前的查询结果"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Respect Obsidian's \"Excluded Files\"",
+                    "target": "遵循 Obsidian 的“排除文件”设置"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Folders to downrank in search results",
+                    "target": "在搜索结果中降权处理的文件夹"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Split CamelCaseWords",
+                    "target": "拆分驼峰命名单词"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Simpler search",
+                    "target": "简化搜索"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Tokenize URLs",
+                    "target": "对 URL 进行分词"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Open in new pane",
+                    "target": "在新窗格中打开"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Set Vim like navigation keys",
+                    "target": "启用类 Vim 导航键"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Fuzziness",
+                    "target": "模糊匹配"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Danger Zone",
+                    "target": "危险区域"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Ignore diacritics",
+                    "target": "忽略变音符号"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Ignore Arabic diacritics (beta)",
+                    "target": "忽略阿拉伯语变音符号（测试版）"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Disable on this device",
+                    "target": "在此设备上禁用"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Force save the cache",
+                    "target": "强制保存缓存"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Clear cache data",
+                    "target": "清除缓存数据"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "API Access Through HTTP",
+                    "target": "通过 HTTP 访问 API"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Enable the HTTP server",
+                    "target": "启用 HTTP 服务器"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "HTTP Port",
+                    "target": "HTTP 端口"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Show a notification when the server starts",
+                    "target": "服务器启动时显示通知"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Indexing",
+                    "target": "索引"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Index paths of unsupported files",
+                    "target": "索引不支持的文件路径"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Set frontmatter property key as title",
+                    "target": "将 Frontmatter 属性键设为标题"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Additional TEXT files to index",
+                    "target": "需要索引的额外文本文件"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "User Interface",
+                    "target": "用户界面"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Show ribbon button",
+                    "target": "显示功能区按钮"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Show excerpts",
+                    "target": "显示摘要"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Render line return in excerpts",
+                    "target": "在摘要中渲染换行符"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Show \"Create note\" button",
+                    "target": "显示“创建笔记”按钮"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Highlight matching words in results",
+                    "target": "高亮显示结果中的匹配词汇"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Results weighting",
+                    "target": "结果权重设置"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Header properties fields",
+                    "target": "标题属性字段"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Recency boost (experimental)",
+                    "target": "时效性增强（实验性功能）"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Debugging",
+                    "target": "调试"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Enable verbose logging",
+                    "target": "启用详细日志记录"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Example: src,p2/dir",
+                    "target": "示例：src,p2/dir"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Example: txt org csv",
+                    "target": "示例：txt org csv"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Property name",
+                    "target": "属性名称"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "%c[svelte] lifecycle_double_unmount\n%cTried to unmount a component that was not mounted\nhttps://svelte.dev/e/lifecycle_double_unmount",
+                    "target": "%c[svelte] lifecycle_double_unmount\n%c尝试卸载一个未挂载的组件\nhttps://svelte.dev/e/lifecycle_double_unmount"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Dexie: Need to reopen db",
+                    "target": "Dexie: 需要重新打开数据库"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Dexie: Workaround for Chrome UnknownError on open()",
+                    "target": "Dexie: Chrome 在 open() 时出现 UnknownError 的临时解决方案"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "marked(): The async option was set to true by an extension. The async: false option sent to parse will be ignored.",
+                    "target": "marked(): 扩展程序已将 async 选项设为 true。发送给 parse 的 async: false 选项将被忽略。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Omnisearch ⚠️ There might be an issue with your cache. You should clean it in Omnisearch settings and restart Obsidian.",
+                    "target": "Omnisearch ⚠️ 您的缓存可能存在问题。请在 Omnisearch 设置中清理缓存并重启 Obsidian。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Omnisearch - Disabled. Please restart Obsidian.",
+                    "target": "Omnisearch - 已禁用。请重启 Obsidian。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Omnisearch - Enabled. Please restart Obsidian.",
+                    "target": "Omnisearch - 已启用。请重启 Obsidian。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Omnisearch - Error while creating excerpt, see developer console",
+                    "target": "Omnisearch - 创建摘要时出错，请查看开发者控制台"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Omnisearch - Error - No active editor",
+                    "target": "Omnisearch - 错误 - 没有活动的编辑器"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Omnisearch - Terminated HTTP server",
+                    "target": "Omnisearch - 已终止 HTTP 服务器"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Omnisearch - Cache missing or invalid. Some freezes may occur while Omnisearch indexes your vault.",
+                    "target": "Omnisearch - 缓存缺失或无效。在 Omnisearch 为您的知识库建立索引期间，可能会出现一些卡顿。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Omnisearch - Cache cleared. Please restart Obsidian.",
+                    "target": "Omnisearch - 缓存已清除。请重启 Obsidian。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Omnisearch - Your index cache may be incorrect or corrupted. If this message keeps appearing, go to Settings to clear the cache.",
+                    "target": "Omnisearch - 您的索引缓存可能不正确或已损坏。如果此消息持续出现，请前往设置以清除缓存。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Omnisearch - There was an error while loading the cache. Please restart Obsidian.",
+                    "target": "Omnisearch - 加载缓存时出错。请重启 Obsidian。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Your files have been indexed.",
+                    "target": "您的文件已完成索引。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "header",
+                    "source": ":is(h1, h2, h3, h4, h5, h6)",
+                    "target": ":is(h1, h2, h3, h4, h5, h6)"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "VirtualIndexMiddleware",
+                    "target": "VirtualIndexMiddleware"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "HooksMiddleware",
+                    "target": "HooksMiddleware"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Observability",
+                    "target": "Observability"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Cache",
+                    "target": "Cache"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Vault search",
+                    "target": "库内搜索"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "In-file search",
+                    "target": "文件内搜索"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Omnisearch - Vault",
+                    "target": "全局搜索 - 库"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Omnisearch - File",
+                    "target": "全局搜索 - 文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Omnisearch",
+                    "target": "全局搜索"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "input:is(:not([type!='']), [type=text])",
+                    "target": "input:is(:not([type!='']), [type=text])"
+                }
+            ],
+            "regex": [
+                {
+                    "source": "Notice(\"Omnisearch \\u26A0\\uFE0F There might be an issue with your cache. You should clean it in Omnisearch settings and restart Obsidian.\",5e3))}})()});function gc(e,t){dr(t,!1);let r=ze(t,\"initialValue\",8,\"\")",
+                    "target": "Notice(\"Omnisearch \\u26A0\\uFE0F There might be an issue with your cache. You should clean it in Omnisearch settings and restart Obsidian.\",5e3))}})()});function gc(e,t){dr(t,!1);let r=ze(t,\"initialValue\",8,\"\")"
+                },
+                {
+                    "source": "setName(\"Save index to cache\")",
+                    "target": "setName(\"Save index to cache\")"
+                },
+                {
+                    "source": "setDesc(\"Enable caching to speed up indexing time. In rare cases, the cache write may cause a crash in Obsidian. This option will disable itself if it happens.\")",
+                    "target": "setDesc(\"Enable caching to speed up indexing time. In rare cases, the cache write may cause a crash in Obsidian. This option will disable itself if it happens.\")"
+                },
+                {
+                    "source": "setName(\"Show previous query results\")",
+                    "target": "setName(\"Show previous query results\")"
+                },
+                {
+                    "source": "setDesc(\"Re-executes the previous query when opening Omnisearch.\")",
+                    "target": "setDesc(\"Re-executes the previous query when opening Omnisearch.\")"
+                },
+                {
+                    "source": "setName(`Respect Obsidian's \"Excluded Files\"`)",
+                    "target": "setName(`Respect Obsidian's \"Excluded Files\"`)"
+                },
+                {
+                    "source": "setName(\"Folders to downrank in search results\")",
+                    "target": "setName(\"Folders to downrank in search results\")"
+                },
+                {
+                    "source": "setDesc(\"Folders to downrank in search results. Files in these folders will be downranked in results.  They will still be indexed for tags, unlike excluded files.  Folders should be comma delimited.\")",
+                    "target": "setDesc(\"Folders to downrank in search results. Files in these folders will be downranked in results.  They will still be indexed for tags, unlike excluded files.  Folders should be comma delimited.\")"
+                },
+                {
+                    "source": "setPlaceholder(\"Example: src,p2/dir\")",
+                    "target": "setPlaceholder(\"Example: src,p2/dir\")"
+                },
+                {
+                    "source": "setName(\"Split CamelCaseWords\")",
+                    "target": "setName(\"Split CamelCaseWords\")"
+                },
+                {
+                    "source": "setName(\"Simpler search\")",
+                    "target": "setName(\"Simpler search\")"
+                },
+                {
+                    "source": "setDesc(`Enable this if Obsidian often freezes while making searches.\n        Words shorter than 3 characters won't be used as prefixes; this can reduce search delay but will return fewer results.`)",
+                    "target": "setDesc(`Enable this if Obsidian often freezes while making searches.\n        Words shorter than 3 characters won't be used as prefixes; this can reduce search delay but will return fewer results.`)"
+                },
+                {
+                    "source": "setName(\"Tokenize URLs\")",
+                    "target": "setName(\"Tokenize URLs\")"
+                },
+                {
+                    "source": "setDesc(`Enable this if you want to be able to search for URLs as separate words.\n        This setting has a strong impact on indexing performance, and can crash Obsidian under certain conditions.`)",
+                    "target": "setDesc(`Enable this if you want to be able to search for URLs as separate words.\n        This setting has a strong impact on indexing performance, and can crash Obsidian under certain conditions.`)"
+                },
+                {
+                    "source": "setName(\"Open in new pane\")",
+                    "target": "setName(\"Open in new pane\")"
+                },
+                {
+                    "source": "setDesc(\"Open and create files in a new pane instead of the current pane.\")",
+                    "target": "setDesc(\"Open and create files in a new pane instead of the current pane.\")"
+                },
+                {
+                    "source": "setName(\"Set Vim like navigation keys\")",
+                    "target": "setName(\"Set Vim like navigation keys\")"
+                },
+                {
+                    "source": "setDesc(`Navigate down the results with ${vn()} + J/N, or navigate up with ${vn()} + K/P.`)",
+                    "target": "setDesc(`Navigate down the results with ${vn()} + J/N, or navigate up with ${vn()} + K/P.`)"
+                },
+                {
+                    "source": "setDesc(\"Define the level of fuzziness for the search. The higher the fuzziness, the more results you'll get.\")",
+                    "target": "setDesc(\"Define the level of fuzziness for the search. The higher the fuzziness, the more results you'll get.\")"
+                },
+                {
+                    "source": "setName(\"Danger Zone\")",
+                    "target": "setName(\"Danger Zone\")"
+                },
+                {
+                    "source": "setName(\"Ignore diacritics\")",
+                    "target": "setName(\"Ignore diacritics\")"
+                },
+                {
+                    "source": "setName(\"Ignore Arabic diacritics (beta)\")",
+                    "target": "setName(\"Ignore Arabic diacritics (beta)\")"
+                },
+                {
+                    "source": "setName(\"Disable on this device\")",
+                    "target": "setName(\"Disable on this device\")"
+                },
+                {
+                    "source": "Notice(\"Omnisearch - Disabled. Please restart Obsidian.\")",
+                    "target": "Notice(\"Omnisearch - Disabled. Please restart Obsidian.\")"
+                },
+                {
+                    "source": "Notice(\"Omnisearch - Enabled. Please restart Obsidian.\")",
+                    "target": "Notice(\"Omnisearch - Enabled. Please restart Obsidian.\")"
+                },
+                {
+                    "source": "setName(\"Force save the cache\")",
+                    "target": "setName(\"Force save the cache\")"
+                },
+                {
+                    "source": "setName(\"Clear cache data\")",
+                    "target": "setName(\"Clear cache data\")"
+                },
+                {
+                    "source": "setButtonText(\"Clear cache\")",
+                    "target": "setButtonText(\"Clear cache\")"
+                },
+                {
+                    "source": "setName(\"API Access Through HTTP\")",
+                    "target": "setName(\"API Access Through HTTP\")"
+                },
+                {
+                    "source": "setName(\"Enable the HTTP server\")",
+                    "target": "setName(\"Enable the HTTP server\")"
+                },
+                {
+                    "source": "setName(\"HTTP Port\")",
+                    "target": "setName(\"HTTP Port\")"
+                },
+                {
+                    "source": "setName(\"Show a notification when the server starts\")",
+                    "target": "setName(\"Show a notification when the server starts\")"
+                },
+                {
+                    "source": "setDesc(\"Will display a notification if the server is enabled, at Obsidian startup.\")",
+                    "target": "setDesc(\"Will display a notification if the server is enabled, at Obsidian startup.\")"
+                },
+                {
+                    "source": "setName(`PDFs content indexing ${n?\"\":\"\\u26A0\\uFE0F Disabled\"}`)",
+                    "target": "setName(`PDFs content indexing ${n?\"\":\"\\u26A0\\uFE0F Disabled\"}`)"
+                },
+                {
+                    "source": "setName(`Images OCR indexing ${n?\"\":\"\\u26A0\\uFE0F Disabled\"}`)",
+                    "target": "setName(`Images OCR indexing ${n?\"\":\"\\u26A0\\uFE0F Disabled\"}`)"
+                },
+                {
+                    "source": "setName(`Documents content indexing ${n?\"\":\"\\u26A0\\uFE0F Disabled\"}`)",
+                    "target": "setName(`Documents content indexing ${n?\"\":\"\\u26A0\\uFE0F Disabled\"}`)"
+                },
+                {
+                    "source": "setName(`Images AI indexing ${i?\"\":\"\\u26A0\\uFE0F Disabled\"}`)",
+                    "target": "setName(`Images AI indexing ${i?\"\":\"\\u26A0\\uFE0F Disabled\"}`)"
+                },
+                {
+                    "source": "setName(\"Index paths of unsupported files\")",
+                    "target": "setName(\"Index paths of unsupported files\")"
+                },
+                {
+                    "source": "setName(\"Set frontmatter property key as title\")",
+                    "target": "setName(\"Set frontmatter property key as title\")"
+                },
+                {
+                    "source": "setName(\"Additional TEXT files to index\")",
+                    "target": "setName(\"Additional TEXT files to index\")"
+                },
+                {
+                    "source": "setPlaceholder(\"Example: txt org csv\")",
+                    "target": "setPlaceholder(\"Example: txt org csv\")"
+                },
+                {
+                    "source": "setName(\"User Interface\")",
+                    "target": "setName(\"User Interface\")"
+                },
+                {
+                    "source": "setName(\"Show ribbon button\")",
+                    "target": "setName(\"Show ribbon button\")"
+                },
+                {
+                    "source": "setDesc(\"Add a button on the sidebar to open the Vault search modal.\")",
+                    "target": "setDesc(\"Add a button on the sidebar to open the Vault search modal.\")"
+                },
+                {
+                    "source": "setName(\"Show excerpts\")",
+                    "target": "setName(\"Show excerpts\")"
+                },
+                {
+                    "source": "setDesc(\"Shows the contextual part of the note that matches the search. Disable this to only show filenames in results.\")",
+                    "target": "setDesc(\"Shows the contextual part of the note that matches the search. Disable this to only show filenames in results.\")"
+                },
+                {
+                    "source": "setName(\"Render line return in excerpts\")",
+                    "target": "setName(\"Render line return in excerpts\")"
+                },
+                {
+                    "source": "setDesc(\"Activate this option to render line returns in result excerpts.\")",
+                    "target": "setDesc(\"Activate this option to render line returns in result excerpts.\")"
+                },
+                {
+                    "source": "setName('Show \"Create note\" button')",
+                    "target": "setName('Show \"Create note\" button')"
+                },
+                {
+                    "source": "setName(\"Highlight matching words in results\")",
+                    "target": "setName(\"Highlight matching words in results\")"
+                },
+                {
+                    "source": "setDesc(\"Will highlight matching results when enabled. See README for more customization options.\")",
+                    "target": "setDesc(\"Will highlight matching results when enabled. See README for more customization options.\")"
+                },
+                {
+                    "source": "setName(\"Results weighting\")",
+                    "target": "setName(\"Results weighting\")"
+                },
+                {
+                    "source": "setName(`File name & declared aliases (default: ${a.weightBasename})`)",
+                    "target": "setName(`File name & declared aliases (default: ${a.weightBasename})`)"
+                },
+                {
+                    "source": "setName(`File directory (default: ${a.weightDirectory})`)",
+                    "target": "setName(`File directory (default: ${a.weightDirectory})`)"
+                },
+                {
+                    "source": "setName(`Headings level 1 (default: ${a.weightH1})`)",
+                    "target": "setName(`Headings level 1 (default: ${a.weightH1})`)"
+                },
+                {
+                    "source": "setName(`Headings level 2 (default: ${a.weightH2})`)",
+                    "target": "setName(`Headings level 2 (default: ${a.weightH2})`)"
+                },
+                {
+                    "source": "setName(`Headings level 3 (default: ${a.weightH3})`)",
+                    "target": "setName(`Headings level 3 (default: ${a.weightH3})`)"
+                },
+                {
+                    "source": "setName(`Tags (default: ${a.weightUnmarkedTags})`)",
+                    "target": "setName(`Tags (default: ${a.weightUnmarkedTags})`)"
+                },
+                {
+                    "source": "setName(\"Header properties fields\")",
+                    "target": "setName(\"Header properties fields\")"
+                },
+                {
+                    "source": "setDesc('You can set custom weights for values of header properties (e.g. \"keywords\"). Weights under 1.0 will downrank the results.')",
+                    "target": "setDesc('You can set custom weights for values of header properties (e.g. \"keywords\"). Weights under 1.0 will downrank the results.')"
+                },
+                {
+                    "source": "setPlaceholder(\"Property name\")",
+                    "target": "setPlaceholder(\"Property name\")"
+                },
+                {
+                    "source": "setButtonText(\"Add a new property\")",
+                    "target": "setButtonText(\"Add a new property\")"
+                },
+                {
+                    "source": "setName(\"Recency boost (experimental)\")",
+                    "target": "setName(\"Recency boost (experimental)\")"
+                },
+                {
+                    "source": "setDesc(\"Files that have been modified more recently than [selected cutoff] are given a higher rank.\")",
+                    "target": "setDesc(\"Files that have been modified more recently than [selected cutoff] are given a higher rank.\")"
+                },
+                {
+                    "source": "setName(\"Enable verbose logging\")",
+                    "target": "setName(\"Enable verbose logging\")"
+                },
+                {
+                    "source": "setDesc('Adds a LOT of logs for debugging purposes. You also need to enable \"Verbose\" logging in the console to see these logs.')",
+                    "target": "setDesc('Adds a LOT of logs for debugging purposes. You also need to enable \"Verbose\" logging in the console to see these logs.')"
+                },
+                {
+                    "source": "error(\"Omnisearch - Error in highlightText()\",i),t}}stringsToRegex(t){if(!t.length)return/^$/g;t.sort((n,i)=>i.length-n.length);let r=`(${t.map(n=>`\\\\b${Oc(n)}\\\\b|${Oc(n)}`).join(\"|\")",
+                    "target": "error(\"Omnisearch - Error in highlightText()\",i),t}}stringsToRegex(t){if(!t.length)return/^$/g;t.sort((n,i)=>i.length-n.length);let r=`(${t.map(n=>`\\\\b${Oc(n)}\\\\b|${Oc(n)}`).join(\"|\")"
+                },
+                {
+                    "source": "Notice(\"Omnisearch - Error while creating excerpt, see developer console\")",
+                    "target": "Notice(\"Omnisearch - Error while creating excerpt, see developer console\")"
+                },
+                {
+                    "source": "error(\"Omnisearch - Error while creating excerpt\")",
+                    "target": "error(\"Omnisearch - Error while creating excerpt\")"
+                },
+                {
+                    "source": "log(`Omnisearch - Started HTTP server on port ${n}`)",
+                    "target": "log(`Omnisearch - Started HTTP server on port ${n}`)"
+                },
+                {
+                    "source": "Notice(`Omnisearch - Started non-localhost HTTP server at ${e.settings.DANGER_httpHost}:${n}`,12e4):e.settings.httpApiNotice&&new bl.Notice(`Omnisearch - Started HTTP server on port ${n}`)",
+                    "target": "Notice(`Omnisearch - Started non-localhost HTTP server at ${e.settings.DANGER_httpHost}:${n}`,12e4):e.settings.httpApiNotice&&new bl.Notice(`Omnisearch - Started HTTP server on port ${n}`)"
+                },
+                {
+                    "source": "Notice(`Omnisearch - Cannot start HTTP server on ${n}. See console for more details.`)",
+                    "target": "Notice(`Omnisearch - Cannot start HTTP server on ${n}. See console for more details.`)"
+                },
+                {
+                    "source": "log(\"Omnisearch - Terminated HTTP server\")",
+                    "target": "log(\"Omnisearch - Terminated HTTP server\")"
+                },
+                {
+                    "source": "Notice(\"Omnisearch - Terminated HTTP server\")",
+                    "target": "Notice(\"Omnisearch - Terminated HTTP server\")"
+                },
+                {
+                    "source": "Notice(\"Omnisearch - Cache missing or invalid. Some freezes may occur while Omnisearch indexes your vault.\")",
+                    "target": "Notice(\"Omnisearch - Cache missing or invalid. Some freezes may occur while Omnisearch indexes your vault.\")"
+                },
+                {
+                    "source": "error(\"Omnisearch - Error while loading Minisearch cache\")",
+                    "target": "error(\"Omnisearch - Error while loading Minisearch cache\")"
+                },
+                {
+                    "source": "Notice(\"Omnisearch - Cache cleared. Please restart Obsidian.\")",
+                    "target": "Notice(\"Omnisearch - Cache cleared. Please restart Obsidian.\")"
+                },
+                {
+                    "source": "error(\"Error tokenizing text, skipping document\",r),[]}}tokenizeForSearch(t){let r=US(t);t=r.reduce((i,a)=>i.replace(a,\"\")",
+                    "target": "error(\"Error tokenizing text, skipping document\",r),[]}}tokenizeForSearch(t){let r=US(t);t=r.reduce((i,a)=>i.replace(a,\"\")"
+                },
+                {
+                    "source": "log(\"Omnisearch - No cache found\")",
+                    "target": "log(\"Omnisearch - No cache found\")"
+                },
+                {
+                    "source": "Notice(\"Omnisearch - Your index cache may be incorrect or corrupted. If this message keeps appearing, go to Settings to clear the cache.\",5e3)}}}};var yh=require(\"obsidian\")",
+                    "target": "Notice(\"Omnisearch - Your index cache may be incorrect or corrupted. If this message keeps appearing, go to Settings to clear the cache.\",5e3)}}}};var yh=require(\"obsidian\")"
+                },
+                {
+                    "source": "error(`Missing .path field in IndexedDocument \"${r.basename}\", skipping`)",
+                    "target": "error(`Missing .path field in IndexedDocument \"${r.basename}\", skipping`)"
+                },
+                {
+                    "source": "error(\"Omnisearch\",t,\"cannot be read\")",
+                    "target": "error(\"Omnisearch\",t,\"cannot be read\")"
+                },
+                {
+                    "source": "Notice(\"Omnisearch - There was an error while loading the cache. Please restart Obsidian.\")",
+                    "target": "Notice(\"Omnisearch - There was an error while loading the cache. Please restart Obsidian.\")"
+                },
+                {
+                    "source": "Notice(\"Your files have been indexed.\")",
+                    "target": "Notice(\"Your files have been indexed.\")"
+                },
+                {
+                    "source": "name=\"Svelte error\"",
+                    "target": "name=\"Svelte error\""
+                },
+                {
+                    "source": "text:\"input:is(:not([type!='']), [type=text])\"",
+                    "target": "text:\"input:is(:not([type!='']), [type=text])\""
+                },
+                {
+                    "source": "name:\"Vault search\"",
+                    "target": "name:\"Vault search\""
+                },
+                {
+                    "source": "name:\"In-file search\"",
+                    "target": "name:\"In-file search\""
+                }
+            ]
+        }
+    }
+}

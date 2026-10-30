@@ -1,0 +1,116 @@
+{
+  "easy-typing-obsidian:easy-typing-paste-without-format": [],
+  "file-explorer:new-file-in-new-pane": [],
+  "app:open-settings": [],
+  "editor:insert-link": [],
+  "app:open-help": [],
+  "app:go-back": [],
+  "workspace:close-window": [],
+  "app:go-forward": [],
+  "editor:toggle-checklist-status": [],
+  "editor:delete-paragraph": [],
+  "global-search:open": [],
+  "workspace:new-tab": [],
+  "file-explorer:new-file": [],
+  "templater-obsidian:create-new-note-from-template": [],
+  "file-explorer:move-file": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "M"
+    }
+  ],
+  "markdown:toggle-preview": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "C"
+    }
+  ],
+  "editor:open-link-in-new-split": [],
+  "editor:open-link-in-new-window": [],
+  "editor:open-link-in-new-leaf": [],
+  "markdown:add-metadata-property": [],
+  "workspace:previous-tab": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "ArrowUp"
+    }
+  ],
+  "workspace:next-tab": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "ArrowDown"
+    }
+  ],
+  "workspace:goto-tab-1": [],
+  "workspace:goto-tab-2": [],
+  "workspace:goto-tab-3": [],
+  "workspace:goto-tab-4": [],
+  "workspace:goto-tab-5": [],
+  "workspace:goto-tab-6": [],
+  "workspace:goto-tab-7": [],
+  "workspace:goto-tab-8": [],
+  "workspace:goto-last-tab": [],
+  "templater-obsidian:replace-in-file-templater": [],
+  "templater-obsidian:insert-templater": [],
+  "templater-obsidian:jump-to-next-cursor-location": [],
+  "obsidian-icon-folder:iconize:set-icon-for-file": [],
+  "obsidian-excalidraw-plugin:insert-link": [],
+  "editing-toolbar:workplace-fullscreen-focus": [],
+  "easy-typing-obsidian:easy-typing-insert-codeblock": [],
+  "editing-toolbar:editor:toggle-code": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "E"
+    }
+  ],
+  "editing-toolbar:fullscreen-focus": [],
+  "workspace:undo-close-pane": [],
+  "editor:toggle-comments": [],
+  "easy-typing-obsidian:easy-typing-toggle-comment": [],
+  "editing-toolbar:custom-html-bold": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "B"
+    }
+  ],
+  "editor:toggle-bold": [],
+  "editing-toolbar:editor:swap-line-up": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "ArrowUp"
+    }
+  ],
+  "editing-toolbar:format-eraser": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "Q"
+    }
+  ],
+  "omnisearch:show-modal": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "O"
+    }
+  ]
+}

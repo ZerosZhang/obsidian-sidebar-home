@@ -1,0 +1,31 @@
+{
+  "promptDelete": true,
+  "showUnsupportedFiles": true,
+  "showInlineTitle": true,
+  "showLineNumber": false,
+  "readableLineLength": true,
+  "spellcheck": false,
+  "autoPairBrackets": false,
+  "openBehavior": "",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "缓存",
+  "attachmentFolderPath": "附件/Image",
+  "trashOption": "local",
+  "foldHeading": false,
+  "foldIndent": false,
+  "alwaysUpdateLinks": true,
+  "defaultViewMode": "preview",
+  "useTab": false,
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "2",
+    "downscalePercent": 100
+  },
+  "livePreview": true,
+  "autoPairMarkdown": false,
+  "userIgnoreFilters": [
+    ".desktop.ini"
+  ]
+}

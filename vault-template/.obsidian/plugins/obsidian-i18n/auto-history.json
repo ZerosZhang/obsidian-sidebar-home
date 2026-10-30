@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1775480532565",
+    "time": 1775480532565,
+    "trigger": "manual",
+    "summary": {
+      "total": 3,
+      "success": 0,
+      "error": 0,
+      "skipped": 3,
+      "discovered": 0,
+      "upToDate": 0
+    },
+    "details": "[]"
+  },
+  {
+    "id": "1775480517844",
+    "time": 1775480517844,
+    "trigger": "startup",
+    "summary": {
+      "total": 3,
+      "success": 0,
+      "error": 0,
+      "skipped": 3,
+      "discovered": 0,
+      "upToDate": 0
+    },
+    "details": "[]"
+  },
+  {
+    "id": "1775480441449",
+    "time": 1775480441449,
+    "trigger": "startup",
+    "summary": {
+      "total": 0,
+      "success": 0,
+      "error": 0,
+      "skipped": 0,
+      "discovered": 0,
+      "upToDate": 0
+    },
+    "details": "[]"
+  },
+  {
+    "id": "1775480422040",
+    "time": 1775480422040,
+    "trigger": "startup",
+    "summary": {
+      "total": 10,
+      "success": 6,
+      "error": 1,
+      "skipped": 3,
+      "discovered": 0,
+      "upToDate": 0
+    },
+    "details": "[{\"id\":\"homepage\",\"type\":\"plugin\",\"name\":\"homepage\",\"status\":\"success\",\"sourceRepo\":\"yunrr/obsidian-i18n-resources\",\"targetVersion\":\"1.0.0\",\"scoreBreakdown\":{\"version\":25,\"popularity\":9,\"freshness\":20,\"total\":54}},{\"id\":\"manual-sorting\",\"type\":\"plugin\",\"name\":\"manual-sorting\",\"status\":\"success\",\"sourceRepo\":\"yunrr/obsidian-i18n-resources\",\"targetVersion\":\"1.0.0\",\"scoreBreakdown\":{\"version\":50,\"popularity\":9,\"freshness\":20,\"total\":79}},{\"id\":\"obsidian-emoji-toolbar\",\"type\":\"plugin\",\"name\":\"obsidian-emoji-toolbar\",\"status\":\"success\",\"sourceRepo\":\"yunrr/obsidian-i18n-resources\",\"targetVersion\":\"1.0.0\",\"scoreBreakdown\":{\"version\":50,\"popularity\":9,\"freshness\":20,\"total\":79}},{\"id\":\"open-in-new-tab\",\"type\":\"plugin\",\"name\":\"open-in-new-tab\",\"status\":\"success\",\"sourceRepo\":\"yunrr/obsidian-i18n-resources\",\"targetVersion\":\"1.0.0\",\"scoreBreakdown\":{\"version\":50,\"popularity\":9,\"freshness\":20,\"total\":79}},{\"id\":\"AnuPpuccin\",\"type\":\"theme\",\"name\":\"AnuPpuccin\",\"status\":\"success\",\"sourceRepo\":\"yunrr/obsidian-i18n-resources\",\"targetVersion\":\"1.0.0\",\"scoreBreakdown\":{\"version\":25,\"popularity\":9,\"freshness\":20,\"total\":54}},{\"id\":\"Blue Topaz\",\"type\":\"theme\",\"name\":\"Blue Topaz\",\"status\":\"error\",\"message\":\"Manager.Errors.ApplyFailed\"},{\"id\":\"Border\",\"type\":\"theme\",\"name\":\"Border\",\"status\":\"success\",\"sourceRepo\":\"yunrr/obsidian-i18n-resources\",\"targetVersion\":\"1.0.0\",\"scoreBreakdown\":{\"version\":25,\"popularity\":9,\"freshness\":20,\"total\":54}}]"
+  },
+  {
+    "id": "1775480403836",
+    "time": 1775480403836,
+    "trigger": "startup",
+    "summary": {
+      "total": 0,
+      "success": 0,
+      "error": 0,
+      "skipped": 0,
+      "discovered": 0,
+      "upToDate": 0
+    },
+    "details": "[]"
+  }
+]

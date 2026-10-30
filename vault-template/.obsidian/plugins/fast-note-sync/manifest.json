@@ -1,0 +1,11 @@
+{
+  "id": "fast-note-sync",
+  "name": "Fast Note Sync",
+  "version": "2.4.0",
+  "minAppVersion": "1.8.7",
+  "description": "Real-time sync of your vaults across server, mobile, and web; shareable with anyone; supports REST and MCP integrations to build your personal AI knowledge base.",
+  "author": "HaierKeys",
+  "authorUrl": "https://blog.diybeta.com",
+  "isDesktopOnly": false,
+  "fundingUrl": "https://ko-fi.com/haierkeys"
+}

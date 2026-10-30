@@ -4,8 +4,9 @@
 	"description": "侧边栏主页插件",
 	"main": "main.js",
 	"scripts": {
-		"dev": "node esbuild.config.mjs",
-		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"dev": "node build/esbuild.config.mjs",
+		"build": "tsc -p build/tsconfig.json -noEmit -skipLibCheck && node build/esbuild.config.mjs production",
+		"sync:template": "node build/sync-template.mjs",
 		"version": "2.6.1"
 	},
 	"keywords": [

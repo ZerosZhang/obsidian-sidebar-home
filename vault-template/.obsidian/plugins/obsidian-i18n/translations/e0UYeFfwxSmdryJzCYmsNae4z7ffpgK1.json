@@ -1,0 +1,415 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "reading-comments",
+        "version": "1.0.0",
+        "title": "Reading comments",
+        "description": "Reading comments Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "1.0.29",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "&nbsp;",
+                    "target": "&nbsp;"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[css-render/mount]: `id` is required in `boost` mode.",
+                    "target": "[css-render/mount]: `boost` 模式需要 `id`。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[css-render/mount]: `id` is required in `silent` mode.",
+                    "target": "[css-render/mount]: `silent` 模式需要 `id`。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[css-render/vue3-ssr]: no ssr context found.",
+                    "target": "[css-render/vue3-ssr]: 未找到 ssr 上下文。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "is invalid",
+                    "target": "无效"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Adds default tag editor to the comments panel .",
+                    "target": "向评论面板添加默认标签编辑器。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Previously comment shown just by cursor hover on commented text.",
+                    "target": "此前仅在鼠标悬停于已评论文本时显示评论。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Native %%Comments%% will be added to the panel",
+                    "target": "原生 %%Comments%% 将添加到面板中"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Automatically expand all tags",
+                    "target": "自动展开所有标签"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Automatically update comments panel during editing note",
+                    "target": "编辑笔记时自动更新评论面板"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "There is also two additional commands: Add comment as inline/ as block. Or you can change manually .ob-html-comment wrapper tag from span to div accordingly.",
+                    "target": "还有两个额外命令：将注释添加为行内/块级。或者你可以手动将 .ob-html-comment 包装标签从 span 改为 div。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Show default tag editor",
+                    "target": "显示默认标签编辑器"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Show comment in Hover Popower Window on Ctrl (Command) + Hover",
+                    "target": "在 Ctrl（Command）+ 悬停时在悬浮弹窗中显示注释"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Parse native obsidian comments",
+                    "target": "解析原生 Obsidian 注释"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Auto Expand Tags",
+                    "target": "自动展开标签"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Live reload on edit",
+                    "target": "编辑时实时刷新"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Add comment inline or as block by default",
+                    "target": "默认以行内或块级添加注释"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Commented Text Color Light/Dark",
+                    "target": "已注释文本颜色（浅色/深色）"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Comment Color Light/Dark",
+                    "target": "注释颜色（浅色/深色）"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "Please select full comment with all tags in editor!",
+                    "target": "请在编辑器中选择包含所有标签的完整注释！"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "cannot run an inactive effect scope.",
+                    "target": "无法运行未激活的 effect scope。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Write operation failed: computed value is readonly",
+                    "target": "写入操作失败：computed 值为只读"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "\\`watch(fn, options?)\\` signature has been moved to a separate API. Use \\`watchEffect(fn, options?)\\` instead. \\`watch\\` now only supports \\`watch(source, cb, options?) signature.",
+                    "target": "\\`watch(fn, options?)\\` 签名已移至独立 API。请改用 \\`watchEffect(fn, options?)\\`。\\`watch\\` 现在仅支持 \\`watch(source, cb, options?) 签名。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "watch() \"immediate\" option is only respected when using the watch(source, callback, options?) signature.",
+                    "target": "watch() 的 \"immediate\" 选项仅在使用 watch(source, callback, options?) 签名时生效。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "watch() \"deep\" option is only respected when using the watch(source, callback, options?) signature.",
+                    "target": "watch() 的 \"deep\" 选项仅在使用 watch(source, callback, options?) 签名时生效。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Invalid watch source: ",
+                    "target": "无效的 watch 源："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types.",
+                    "target": "watch 源只能是 getter/effect 函数、ref、响应式对象，或这些类型的数组。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "The data option must be a function. Plain object usage is no longer supported.",
+                    "target": "data 选项必须是函数。不再支持使用纯对象。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "data() returned a Promise - note data() cannot be async; If you intend to perform data fetching before component renders, use async setup() + <Suspense>.",
+                    "target": "data() 返回了 Promise——注意 data() 不能是 async；如果你想在组件渲染前获取数据，请使用 async setup() + <Suspense>。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "app.config.unwrapInjectedRef has been deprecated. 3.3 now always unwraps injected refs in Options API.",
+                    "target": "app.config.unwrapInjectedRef 已被弃用。3.3 现在在 Options API 中始终会解包注入的 refs。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "app.config cannot be replaced. Modify individual options instead.",
+                    "target": "app.config 不能被替换。请改为修改单个选项。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "A plugin must either be a function or an object with an \"install\" function.",
+                    "target": "插件必须是一个函数，或是包含 \"install\" 函数的对象。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Mixins are only available in builds supporting Options API",
+                    "target": "Mixins 仅在支持 Options API 的构建中可用"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "There is already an app instance mounted on the host container.\n If you want to mount another app on the same host container, you need to unmount the previous app by calling \\`app.unmount()\\` first.",
+                    "target": "主容器上已经挂载了一个应用实例。\n 如果你想在同一主容器上挂载另一个应用，需要先调用 \\`app.unmount()\\` 卸载之前的应用。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Cannot unmount an app that is not mounted.",
+                    "target": "无法卸载未挂载的应用。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "provide() can only be used inside setup().",
+                    "target": "provide() 只能在 setup() 内部使用。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "inject() can only be used inside setup() or functional components.",
+                    "target": "inject() 只能在 setup() 或函数式组件中使用。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "props must be strings when using array syntax.",
+                    "target": "使用数组语法时，props 必须是字符串。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "invalid props options",
+                    "target": "无效的 props 选项"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Non-function value encountered for default slot. Prefer function slots for better performance.",
+                    "target": "默认插槽遇到非函数值。为获得更好的性能，优先使用函数插槽。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Missing ref owner context. ref cannot be used on hoisted vnodes. A vnode with ref must be created inside the render function.",
+                    "target": "缺少 ref 所有者上下文。ref 不能用于提升的 vnode。带有 ref 的 vnode 必须在 render 函数内部创建。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Invalid VNode type:",
+                    "target": "无效的 VNode 类型："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Duplicate keys found during update:",
+                    "target": "更新期间发现重复的 key："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Make sure keys are unique.",
+                    "target": "请确保 key 唯一。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "VNode created with invalid key (NaN). VNode type:",
+                    "target": "使用无效的 key（NaN）创建了 VNode。VNode 类型："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Vue received a Component which was made a reactive object. This can lead to unnecessary performance overhead, and should be avoided by marking the component with \\`markRaw\\` or using \\`shallowRef\\` instead of \\`ref\\`.",
+                    "target": "Vue 收到了一个被制作成响应式对象的组件。这会导致不必要的性能开销，应通过将组件标记为 \\`markRaw\\` 或使用 \\`shallowRef\\` 代替 \\`ref\\` 来避免。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "\nComponent that was made reactive: ",
+                    "target": "\n被制作成响应式的组件："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "\"compilerOptions\" is only supported when using a build of Vue that includes the runtime compiler. Since you are using a runtime-only build, the options should be passed via your build tool config instead.",
+                    "target": "仅当使用包含运行时编译器的 Vue 构建版本时才支持 \"compilerOptions\"。由于你使用的是仅运行时构建版本，这些选项应通过构建工具配置传入。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "setup() should not return VNodes directly - return a render function instead.",
+                    "target": "setup() 不应直接返回 VNodes —— 应改为返回渲染函数。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "setupContext.attrs is readonly.",
+                    "target": "setupContext.attrs 是只读的。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "expose() should be called only once per setup().",
+                    "target": "expose() 在每次 setup() 中只能调用一次。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "<TransitionGroup> children must be keyed.",
+                    "target": "<TransitionGroup> 子节点必须设置 key。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "mounting on a ShadowRoot with \\`{mode: \"closed\"}\\` may lead to unpredictable bugs",
+                    "target": "在带有 \\`{mode: \"closed\"}\\` 的 ShadowRoot 上挂载可能会导致不可预测的 bug"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "No Data",
+                    "target": "无数据"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Add reading comment for selection",
+                    "target": "为所选内容添加阅读评论"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Add inline reading comment for selection",
+                    "target": "为所选内容添加行内阅读评论"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Add block reading comment for selection",
+                    "target": "为所选内容添加块级阅读评论"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Toggle block/inline for selected reading comment",
+                    "target": "切换所选阅读评论的块级/行内"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Reading Comments Panel",
+                    "target": "阅读评论面板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Extract original note with links to comments note",
+                    "target": "提取原始笔记并链接到评论笔记"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Please Select",
+                    "target": "请选择"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Select Time",
+                    "target": "选择时间"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Please Input",
+                    "target": "请输入"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Default tag",
+                    "target": "默认标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Input to search",
+                    "target": "输入以搜索"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Settings for Reading comments plugin.",
+                    "target": "阅读评论插件设置。"
+                }
+            ],
+            "regex": []
+        }
+    }
+}

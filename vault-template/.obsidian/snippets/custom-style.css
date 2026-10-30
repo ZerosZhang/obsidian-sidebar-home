@@ -1,0 +1,360 @@
+/* ============================================================
+   自定义样式 - 所有个人 CSS 片段合集
+   分组由下方唯一的 @settings 块生成，内部按小节细分。
+   ============================================================ */
+
+/* @settings
+name: 自定义样式
+id: custom-style
+description: 个人自定义的图片、标题与布局样式
+settings:
+  - id: heading-image
+    title: 图片
+    type: heading
+    level: 2
+    collapsed: true
+  - id: enable-center-image
+    title: 启用图片居中
+    description: 开启后，笔记中的图片将自动居中显示
+    type: class-toggle
+    default: true
+  - id: enable-image-max-width
+    title: 启用最大宽度
+    type: class-toggle
+    default: true
+  - id: image-max-width
+    title: 图片最大宽度
+    description: 设置图片的最大显示宽度（百分比）
+    type: variable-number-slider
+    default: 100
+    min: 30
+    max: 100
+    step: 5
+    format: '%'
+  - id: enable-image-margin-top
+    title: 启用上边距
+    type: class-toggle
+    default: true
+  - id: image-margin-top
+    title: 图片上边距
+    type: variable-number
+    default: 10
+    format: px
+  - id: enable-image-margin-bottom
+    title: 启用下边距
+    type: class-toggle
+    default: true
+  - id: image-margin-bottom
+    title: 图片下边距
+    type: variable-number
+    default: 10
+    format: px
+  - id: heading-heading-align
+    title: 标题
+    type: heading
+    level: 2
+    collapsed: true
+  - id: h2-text-align-center
+    title: H2 标题居中
+    description: 在预览模式和编辑模式下将 H2 标题居中对齐
+    type: class-toggle
+    default: true
+    addCommand: true
+  - id: heading-note-width
+    title: 笔记宽度
+    type: heading
+    level: 2
+    collapsed: true
+  - id: wide-note-width
+    title: 宽屏宽度
+    description: '在笔记 frontmatter 中写 cssclasses: wide-note 后生效'
+    type: variable-number
+    default: 1200
+    format: px
+  - id: narrow-note-width
+    title: 窄屏宽度
+    description: '在笔记 frontmatter 中写 cssclasses: narrow-note 后生效'
+    type: variable-number
+    default: 600
+    format: px
+  - id: default-note-width
+    title: 默认笔记宽度
+    description: 未设置 cssclasses 的笔记使用此宽度；设置了 wide-note 或 narrow-note 的笔记优先按各自的宽度
+    type: variable-number
+    default: 700
+    format: px
+  - id: heading-multicolumn
+    title: 多列 callout
+    type: heading
+    level: 2
+    collapsed: true
+  - id: enable-multicolumn
+    title: 启用多列
+    type: class-toggle
+    default: true
+  - id: multicolumn-gap
+    title: 列间距
+    type: variable-number
+    default: 16
+    format: px
+  - id: heading-table
+    title: 表格
+    type: heading
+    level: 2
+    collapsed: true
+  - id: enable-table-beautify
+    title: 启用表格美化
+    description: 表头底色、细分割线、单元格留白与悬停高亮，对 Markdown 表格和 Dataview 表格同时生效
+    type: class-toggle
+    default: true
+  - id: enable-table-right-align
+    title: 右侧列右对齐
+    description: Dataview 表格中除第一列外的列右对齐，日期和数字更整齐
+    type: class-toggle
+    default: true
+*/
+
+/* ============================================================
+   一、图片居中
+   ============================================================ */
+
+.enable-center-image .markdown-preview-view img,
+.enable-center-image .markdown-rendered img,
+.enable-center-image .markdown-source-view.mod-cm6 img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 编辑模式（实时预览）：图片外层 .image-embed 是 inline，auto margin 不生效；把它改成块级容器，让里面的 img 居中 */
+.enable-center-image .markdown-source-view.mod-cm6 .cm-line .image-embed {
+  display: block;
+}
+
+.enable-image-max-width.enable-center-image .markdown-preview-view img,
+.enable-image-max-width.enable-center-image .markdown-rendered img,
+.enable-image-max-width.enable-center-image .markdown-source-view.mod-cm6 img {
+  max-width: var(--image-max-width, 100%);
+}
+
+.enable-image-margin-top.enable-center-image .markdown-preview-view img,
+.enable-image-margin-top.enable-center-image .markdown-rendered img,
+.enable-image-margin-top.enable-center-image .markdown-source-view.mod-cm6 img {
+  margin-top: var(--image-margin-top, 10px);
+}
+
+.enable-image-margin-bottom.enable-center-image .markdown-preview-view img,
+.enable-image-margin-bottom.enable-center-image .markdown-rendered img,
+.enable-image-margin-bottom.enable-center-image .markdown-source-view.mod-cm6 img {
+  margin-bottom: var(--image-margin-bottom, 10px);
+}
+
+/* 图片标题居中 */
+.enable-center-image .image-embed::after,
+.enable-center-image .markdown-preview-view .image-embed::after {
+  display: block;
+  text-align: center;
+}
+
+/* ============================================================
+   二、标题对齐
+   ============================================================ */
+
+/* 预览模式 - H2 居中 */
+body.h2-text-align-center .markdown-preview-view h2,
+body.h2-text-align-center .markdown-rendered h2 {
+  text-align: center;
+}
+
+/* 编辑模式 - H2 居中 */
+body.h2-text-align-center .HyperMD-header-2 {
+  text-align: center;
+}
+
+/* 打印时也居中 */
+@media print {
+  body.h2-text-align-center .markdown-preview-view h2,
+  body.h2-text-align-center .markdown-rendered h2 {
+    text-align: center;
+  }
+}
+
+/* ============================================================
+   三、笔记宽度
+   用法：frontmatter 中写 cssclasses: wide-note / narrow-note
+   ============================================================ */
+
+/* 默认宽度：未设置 cssclasses 的笔记 */
+.markdown-preview-view .markdown-preview-sizer,
+.markdown-source-view .cm-sizer {
+    --file-line-width: var(--default-note-width, 700px);
+    max-width: var(--default-note-width, 700px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 宽屏模式 */
+.wide-note.markdown-preview-view .markdown-preview-sizer {
+    --file-line-width: var(--wide-note-width, 1200px);
+    max-width: var(--wide-note-width, 1200px) !important;
+}
+
+/* 编辑模式 */
+.wide-note .cm-sizer {
+    --file-line-width: var(--wide-note-width, 1200px);
+    max-width: var(--wide-note-width, 1200px) !important;
+}
+
+/* 兼容：属性在父元素的情况 */
+.markdown-preview-view.wide-note .markdown-preview-sizer {
+    --file-line-width: var(--wide-note-width, 1200px);
+    max-width: var(--wide-note-width, 1200px) !important;
+}
+
+/* 窄屏模式 */
+.narrow-note.markdown-preview-view .markdown-preview-sizer {
+    --file-line-width: var(--narrow-note-width, 600px);
+    max-width: var(--narrow-note-width, 600px) !important;
+}
+
+.narrow-note .cm-sizer {
+    --file-line-width: var(--narrow-note-width, 600px);
+    max-width: var(--narrow-note-width, 600px) !important;
+}
+
+.markdown-preview-view.narrow-note .markdown-preview-sizer {
+    --file-line-width: var(--narrow-note-width, 600px);
+    max-width: var(--narrow-note-width, 600px) !important;
+}
+
+/* 居中对齐 */
+.wide-note .markdown-preview-sizer,
+.narrow-note .markdown-preview-sizer {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* ============================================================
+   四、多列 callout
+   用法：
+     > [!multi-column]
+     > > [[链接]]
+     > > [[链接]]
+   带标题的列在列里放子 callout，列间需要一个单独的 `>` 空行。
+   ============================================================ */
+
+/* 外层壳：只当布局容器，不显示 */
+.enable-multicolumn .callout[data-callout='multi-column'] {
+	--callout-color: transparent;
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+	padding: 0;
+}
+
+.enable-multicolumn .callout[data-callout='multi-column'] > .callout-title {
+	display: none;
+}
+
+.enable-multicolumn .callout[data-callout='multi-column'] > .callout-content {
+	display: flex;
+	gap: var(--multicolumn-gap, 16px);
+	padding: 0;
+}
+
+/* 一列 = .callout-content 的每个直接子元素 */
+.enable-multicolumn .callout[data-callout='multi-column'] > .callout-content > * {
+	flex: 1 1 0;
+	min-width: 0;
+	margin: 0;
+}
+
+/* 包装引用只当列容器，不留自己的外观 */
+.enable-multicolumn .callout[data-callout='multi-column'] > .callout-content > blockquote {
+	padding: 0;
+	border: none;
+	background: transparent;
+	border-radius: 0;
+	box-shadow: none;
+	--blockquote-background-color: transparent;
+	--blockquote-background-light: transparent;
+	--blockquote-background-dark: transparent;
+	--blockquote-border-thickness: 0;
+}
+
+/* Border 主题用 ::before 伪元素画引用竖线，只清 border 清不掉 */
+.enable-multicolumn .callout[data-callout='multi-column'] > .callout-content > blockquote::before {
+	display: none;
+	content: none;
+}
+
+/* 带标题的列：让子 callout 铺满整列 */
+.enable-multicolumn .callout[data-callout='multi-column'] > .callout-content > blockquote > .callout {
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+/* ============================================================
+   五、表格
+   ============================================================ */
+
+/* 表头底色、细分割线、单元格留白与悬停高亮 */
+.enable-table-beautify .markdown-preview-view table,
+.enable-table-beautify .markdown-source-view table {
+  border-collapse: collapse;
+}
+
+/* 表头：浅暖底 + 极细下边线，去掉主题那条 3px 深色线 */
+.enable-table-beautify .markdown-preview-view thead tr,
+.enable-table-beautify .markdown-source-view thead tr {
+  background: #F7F4EC !important;
+}
+
+.enable-table-beautify .markdown-preview-view th,
+.enable-table-beautify .markdown-source-view th {
+  border: none !important;
+  border-bottom: 1px solid #E4DDCE !important;
+  padding: 9px 12px !important;
+  font-weight: 600 !important;
+  color: #6B6357 !important;
+  text-align: left !important;
+}
+
+/* 单元格：只用极浅的分隔线 */
+.enable-table-beautify .markdown-preview-view td,
+.enable-table-beautify .markdown-source-view td {
+  border: none !important;
+  border-bottom: 1px solid #F0EBE1 !important;
+  padding: 8px 12px !important;
+}
+
+/* 最后一行不要多余的分隔线 */
+.enable-table-beautify .markdown-preview-view tbody tr:last-child td,
+.enable-table-beautify .markdown-source-view tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* 悬停行高亮 */
+.enable-table-beautify .markdown-preview-view tbody tr:hover,
+.enable-table-beautify .markdown-source-view tbody tr:hover {
+  background: #FBF8F1 !important;
+}
+
+/* 右侧列右对齐（Dataview 表格）：第一列保持左对齐，其余列右对齐 */
+.enable-table-right-align .markdown-preview-view .table-view-table th:not(:first-child),
+.enable-table-right-align .markdown-preview-view .table-view-table td:not(:first-child),
+.enable-table-right-align .markdown-source-view .table-view-table th:not(:first-child),
+.enable-table-right-align .markdown-source-view .table-view-table td:not(:first-child) {
+  text-align: right !important;
+  padding-right: 20px !important;
+  width: 1% !important;
+  white-space: nowrap !important;
+}
+
+/* 隐藏文件浏览器中的 desktop.ini */
+.nav-file-title[data-path="desktop.ini"],
+.tree-item.nav-file[data-path="desktop.ini"],
+.nav-file[data-path="desktop.ini"] {
+  display: none !important;
+}

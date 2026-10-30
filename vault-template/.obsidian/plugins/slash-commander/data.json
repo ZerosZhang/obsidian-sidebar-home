@@ -1,0 +1,136 @@
+{
+  "version": 2,
+  "confirmDeletion": true,
+  "showDescriptions": false,
+  "showSourcesForDuplicates": true,
+  "debug": false,
+  "mainTrigger": "/",
+  "extraTriggers": [
+    ""
+  ],
+  "useExtraTriggers": false,
+  "triggerOnlyOnNewLine": true,
+  "queryPattern": {},
+  "bindings": [
+    {
+      "id": "e372da1e-b3c0-43ee-896e-64c0bd743bea",
+      "icon": "code-2",
+      "name": "/dm",
+      "action": "editor:insert-codeblock",
+      "mode": "any",
+      "triggerMode": "newline",
+      "isGroup": false,
+      "children": []
+    },
+    {
+      "id": "11e00fd7-adf0-4baa-b4ef-6dc8e1e32b85",
+      "icon": "lucide-code-2",
+      "name": "hndm",
+      "action": "editor:toggle-code",
+      "mode": "any",
+      "triggerMode": "inline",
+      "isGroup": false,
+      "children": []
+    },
+    {
+      "id": "331ad093-3e8c-467a-80a0-d391b6bf9294",
+      "icon": "lucide-check-square",
+      "name": "todo",
+      "action": "editor:toggle-checklist-status",
+      "mode": "any",
+      "triggerMode": "newline",
+      "isGroup": false,
+      "children": []
+    },
+    {
+      "id": "bea495db-2a5e-4225-a5e8-fe1e3e7a123a",
+      "icon": "drama",
+      "name": "excalidraw",
+      "action": "obsidian-excalidraw-plugin:excalidraw-autocreate-and-embed-new-tab",
+      "mode": "any",
+      "triggerMode": "newline",
+      "isGroup": false,
+      "children": []
+    },
+    {
+      "id": "4a3b1649-cd99-4ebe-aa6b-bcfcd3997288",
+      "icon": "quote",
+      "name": "quote",
+      "action": "templater-obsidian:附件/Template/「Callout」Quote.md",
+      "mode": "any",
+      "triggerMode": "newline",
+      "isGroup": false,
+      "children": []
+    },
+    {
+      "id": "002a21f8-4e69-489c-87b3-15912bb65e76",
+      "icon": "air-vent",
+      "name": "abstract",
+      "action": "templater-obsidian:附件/Template/「Callout」Abstract.md",
+      "mode": "any",
+      "triggerMode": "newline",
+      "isGroup": false,
+      "children": []
+    },
+    {
+      "id": "cd09e0a2-9ef9-4695-87bb-701ab272c9b5",
+      "icon": "air-vent",
+      "name": "error",
+      "action": "templater-obsidian:附件/Template/「Callout」Error.md",
+      "mode": "any",
+      "triggerMode": "newline",
+      "isGroup": false,
+      "children": []
+    },
+    {
+      "id": "51cd7695-409d-4590-b76e-dd0cba9140b4",
+      "icon": "air-vent",
+      "name": "note",
+      "action": "templater-obsidian:附件/Template/「Callout」Note.md",
+      "mode": "any",
+      "triggerMode": "newline",
+      "isGroup": false,
+      "children": []
+    },
+    {
+      "id": "fff418f2-e70c-4f79-b591-707298a41717",
+      "icon": "lucide-quote",
+      "name": "callout",
+      "action": "editing-toolbar:insert-callout",
+      "mode": "any",
+      "triggerMode": "anywhere",
+      "isGroup": false,
+      "children": []
+    },
+    {
+      "id": "be760c7f-dc08-432c-85c3-9e9d9a939527",
+      "icon": "monitor-stop",
+      "name": "TopicHome",
+      "action": "templater-obsidian:附件/Template/「Page」TopicHome.md",
+      "mode": "any",
+      "triggerMode": "newline",
+      "isGroup": false,
+      "children": []
+    },
+    {
+      "id": "07b7c97a-6c83-4cfb-b4c2-b15947711f07",
+      "icon": "airplay",
+      "name": "FolderNote",
+      "action": "templater-obsidian:附件/Template/「Page」FolderNote.md",
+      "mode": "any",
+      "triggerMode": "newline",
+      "isGroup": false,
+      "children": []
+    },
+    {
+      "id": "41282c0f-ee85-46cf-a25f-44dc378b6392",
+      "icon": "columns",
+      "name": "MultiColumn",
+      "action": "templater-obsidian:附件/Template/「Callout」MultiColumn.md",
+      "mode": "any",
+      "triggerMode": "newline",
+      "isGroup": false,
+      "children": []
+    }
+  ]
+}

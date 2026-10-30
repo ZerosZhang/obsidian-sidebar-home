@@ -1,0 +1,9 @@
+{
+  "types": {
+    "别名": "aliases",
+    "cssclasses": "multitext",
+    "标签": "tags",
+    "aliases": "aliases",
+    "tags": "tags"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "data_version": 2,
+  "command_timeout": 5,
+  "templates_folder": "附件/Template",
+  "templates_pairs": [],
+  "trigger_on_file_creation_mode": "folder",
+  "auto_jump_to_cursor": true,
+  "jump_to_cursor_after_file_name": false,
+  "shell_path": "",
+  "user_scripts_folder": "附件/Template",
+  "folder_templates": [],
+  "file_templates": [],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [
+    "附件/Template/「Callout」Abstract.md",
+    "附件/Template/「Callout」Error.md",
+    "附件/Template/「Callout」Note.md",
+    "附件/Template/「Page」NewTopic.md",
+    "附件/Template/「Page」TopicHome.md",
+    "附件/Template/「Page」NewFile.md",
+    "附件/Template/「Page」FolderNote.md",
+    "附件/Template/「Callout」Quote.md",
+    "附件/Template/「Callout」MultiColumn.md",
+    "附件/Template/「Page」New初见.md",
+    "附件/Template/「Page」New往日.md",
+    "附件/Template/「Page」New案头.md",
+    "附件/Template/「Page」New拾语.md"
+  ],
+  "startup_templates": [],
+  "intellisense_render": "1",
+  "ignore_folders_on_creation": []
+}

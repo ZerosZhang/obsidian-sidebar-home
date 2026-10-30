@@ -1,0 +1,65 @@
+{
+    "plugins": {
+        "buttons": {
+            "id": "buttons",
+            "isApplied": true,
+            "pluginVersion": "0.9.13",
+            "translationVersion": "1.0.0"
+        },
+        "cmdr": {
+            "id": "cmdr",
+            "isApplied": true,
+            "pluginVersion": "0.5.4",
+            "translationVersion": "1.0.0"
+        },
+        "easy-typing-obsidian": {
+            "id": "easy-typing-obsidian",
+            "isApplied": true,
+            "pluginVersion": "6.0.7",
+            "translationVersion": "1.0.0"
+        },
+        "editing-toolbar": {
+            "id": "editing-toolbar",
+            "isApplied": true,
+            "pluginVersion": "4.0.2",
+            "translationVersion": "1.0.0"
+        },
+        "slash-commander": {
+            "id": "slash-commander",
+            "isApplied": true,
+            "pluginVersion": "0.3.8",
+            "translationVersion": "1.0.0"
+        },
+        "obsidian-style-settings": {
+            "id": "obsidian-style-settings",
+            "isApplied": true,
+            "pluginVersion": "1.0.9",
+            "translationVersion": "2.0.0"
+        },
+        "templater-obsidian": {
+            "id": "templater-obsidian",
+            "isApplied": true,
+            "pluginVersion": "2.18.1",
+            "translationVersion": "1.0.0"
+        },
+        "dataview": {
+            "id": "dataview",
+            "isApplied": true,
+            "pluginVersion": "0.5.68",
+            "translationVersion": "2.0.0"
+        },
+        "folder-notes": {
+            "id": "folder-notes",
+            "isApplied": true,
+            "pluginVersion": "1.8.19",
+            "translationVersion": "2.0.0"
+        },
+        "obsidian-quiet-outline": {
+            "id": "obsidian-quiet-outline",
+            "isApplied": true,
+            "pluginVersion": "0.5.12",
+            "translationVersion": "1.0.0"
+        }
+    },
+    "themes": {}
+}

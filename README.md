@@ -77,10 +77,19 @@ obsidian-sidebar-home/
 │   ├── tts/                # 语音朗读（Edge-TTS、分句、高亮）
 │   ├── preview/            # Excel 内嵌预览（解析、缓存、表格渲染、嵌入挂载）
 │   └── export/             # 文档导出（引用扫描、路径规划、链接重写、落盘）
+├── build/                  # 构建配置（esbuild、tsconfig、模板同步脚本）
+├── vault-template/         # 配套 Obsidian 模板库（内置插件，下载即用）
 ├── manifest.json           # 插件清单
 ├── styles.css              # 插件样式
 └── .github/workflows/      # CI 自动构建与发布
 ```
+
+## 配套模板库
+
+`vault-template/` 是一套开箱即用的 Obsidian 库模板，已内置本插件及模板用到的其他插件。下载仓库后把 `vault-template/` 目录用 Obsidian「打开文件夹作为库」打开，关闭受限模式即可使用。
+
+- 使用说明见 `vault-template/README.md`
+- 构建后执行 `npm run sync:template`，把 `main.js`、`manifest.json`、`styles.css` 同步进模板库，避免版本不一致
 
 ## 开发与构建
 
@@ -88,7 +97,10 @@ obsidian-sidebar-home/
 npm install        # 安装依赖
 npm run dev        # watch 模式（仅 esbuild，不做类型检查）
 npm run build      # 类型检查 + 生产打包（tsc --noEmit && esbuild）
+npm run sync:template  # 把构建产物同步进 vault-template
 ```
+
+构建相关配置放在 `build/` 目录（`esbuild.config.mjs`、`tsconfig.json`），产物仍然输出到根目录的 `main.js`。
 
 ## 自动发布
 

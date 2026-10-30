@@ -1,0 +1,579 @@
+{
+	"cacheFolder": "缓存",
+	"quickLinks": [
+		{
+			"id": "tmpl-topic",
+			"emoji": "🗂️",
+			"name": "主题",
+			"targetPath": "主题"
+		},
+		{
+			"id": "tmpl-time",
+			"emoji": "🕰️",
+			"name": "时光",
+			"targetPath": "主题/时光/时光"
+		},
+		{
+			"id": "tmpl-todo",
+			"emoji": "📥",
+			"name": "待办",
+			"targetPath": "附件/Todo/待办"
+		}
+	],
+	"quickLinkStyle": "square",
+	"clipPage": "附件/Todo/剪藏",
+	"todoPage": "附件/Todo/待办",
+	"unfinishPage": "附件/Todo/未完成",
+	"reuseExistingTab": true,
+	"doubleClickCloseTab": true,
+	"closeTabGoToPrev": true,
+	"menuSettings": {
+		"file-explorer": {
+			"enabled": false,
+			"items": []
+		},
+		"editor": {
+			"enabled": true,
+			"items": [
+				{
+					"id": "新增链接",
+					"title": "新增链接",
+					"hidden": true
+				},
+				{
+					"id": "新增外部链接",
+					"title": "新增外部链接",
+					"hidden": true
+				},
+				{
+					"id": "文本格式",
+					"title": "文本格式",
+					"hidden": false
+				},
+				{
+					"id": "段落设置",
+					"title": "段落设置",
+					"hidden": false
+				},
+				{
+					"id": "插入",
+					"title": "插入",
+					"hidden": false
+				},
+				{
+					"id": "剪切",
+					"title": "剪切",
+					"hidden": false
+				},
+				{
+					"id": "复制",
+					"title": "复制",
+					"hidden": false
+				},
+				{
+					"id": "粘贴",
+					"title": "粘贴",
+					"hidden": false
+				},
+				{
+					"id": "以纯文本形式粘贴",
+					"title": "以纯文本形式粘贴",
+					"hidden": true
+				},
+				{
+					"id": "全选",
+					"title": "全选",
+					"hidden": true
+				},
+				{
+					"id": "copy-link-to-block",
+					"title": "Copy link to block",
+					"hidden": false
+				},
+				{
+					"id": "copy-block-embed",
+					"title": "Copy block embed",
+					"hidden": false
+				},
+				{
+					"id": "添加命令",
+					"title": "添加命令",
+					"hidden": true
+				},
+				{
+					"id": "quiet-outline:-quiet-outline",
+					"title": "Quiet Outline: Quiet Outline",
+					"hidden": false
+				},
+				{
+					"id": "切换编辑/预览视图",
+					"title": "切换编辑/预览视图",
+					"hidden": false
+				},
+				{
+					"id": "editing-toolbar:-format-eraser",
+					"title": "Editing Toolbar: Format Eraser",
+					"hidden": true
+				},
+				{
+					"id": "insert-folder-overview",
+					"title": "Insert folder overview",
+					"hidden": true
+				},
+				{
+					"id": "重命名当前小标题",
+					"title": "重命名当前小标题",
+					"hidden": true
+				},
+				{
+					"id": "copy-link-to-heading",
+					"title": "Copy link to heading",
+					"hidden": false
+				},
+				{
+					"id": "copy-heading-embed",
+					"title": "Copy heading embed",
+					"hidden": false
+				},
+				{
+					"id": "复制当前文件绝对路径",
+					"title": "复制当前文件绝对路径",
+					"hidden": false
+				},
+				{
+					"id": "在新标签页中打开",
+					"title": "在新标签页中打开",
+					"hidden": false
+				},
+				{
+					"id": "在新标签组中打开",
+					"title": "在新标签组中打开",
+					"hidden": false
+				},
+				{
+					"id": "在新窗口中打开",
+					"title": "在新窗口中打开",
+					"hidden": false
+				},
+				{
+					"id": "编辑链接",
+					"title": "编辑链接",
+					"hidden": false
+				},
+				{
+					"id": "复制路径",
+					"title": "复制路径",
+					"hidden": false
+				},
+				{
+					"id": "重命名",
+					"title": "重命名",
+					"hidden": false
+				},
+				{
+					"id": "将文件移动到…",
+					"title": "将文件移动到…",
+					"hidden": false
+				},
+				{
+					"id": "文件夹笔记命令",
+					"title": "文件夹笔记命令",
+					"hidden": false
+				},
+				{
+					"id": "查看文件属性",
+					"title": "查看文件属性",
+					"hidden": false
+				},
+				{
+					"id": "使用默认应用打开",
+					"title": "使用默认应用打开",
+					"hidden": false
+				},
+				{
+					"id": "在系统资源管理器中显示",
+					"title": "在系统资源管理器中显示",
+					"hidden": false
+				},
+				{
+					"id": "在文件列表中显示当前文件",
+					"title": "在文件列表中显示当前文件",
+					"hidden": false
+				},
+				{
+					"id": "新建绘图文件",
+					"title": "新建绘图文件",
+					"hidden": false
+				},
+				{
+					"id": "重命名当前块-id",
+					"title": "重命名当前块 ID",
+					"hidden": false
+				},
+				{
+					"id": "导出为html",
+					"title": "导出为HTML",
+					"hidden": false
+				},
+				{
+					"id": "创建文件夹笔记",
+					"title": "创建文件夹笔记",
+					"hidden": false
+				},
+				{
+					"id": "创建此文件",
+					"title": "创建此文件",
+					"hidden": false
+				},
+				{
+					"id": "笔记历史",
+					"title": "笔记历史",
+					"hidden": false
+				},
+				{
+					"id": "分享笔记",
+					"title": "分享笔记",
+					"hidden": false
+				},
+				{
+					"id": "在默认浏览器打开",
+					"title": "在默认浏览器打开",
+					"hidden": false
+				},
+				{
+					"id": "复制链接",
+					"title": "复制链接",
+					"hidden": false
+				},
+				{
+					"id": "编辑链接(弹窗)",
+					"title": "编辑链接(弹窗)",
+					"hidden": false
+				},
+				{
+					"id": "行",
+					"title": "行",
+					"hidden": false
+				},
+				{
+					"id": "列",
+					"title": "列",
+					"hidden": false
+				},
+				{
+					"id": "按列升序-(a-z)",
+					"title": "按列升序 (A-Z)",
+					"hidden": false
+				},
+				{
+					"id": "按列降序-(z-a)",
+					"title": "按列降序 (Z-A)",
+					"hidden": false
+				},
+				{
+					"id": "文本工具",
+					"title": "文本工具",
+					"hidden": false
+				},
+				{
+					"id": "ai-工具",
+					"title": "AI 工具",
+					"hidden": false
+				}
+			]
+		},
+		"tab-header": {
+			"enabled": true,
+			"items": [
+				{
+					"id": "关闭",
+					"title": "关闭",
+					"hidden": true
+				},
+				{
+					"id": "锁定",
+					"title": "锁定",
+					"hidden": true
+				},
+				{
+					"id": "关联标签页…",
+					"title": "关联标签页…",
+					"hidden": true
+				},
+				{
+					"id": "移动至新窗口",
+					"title": "移动至新窗口",
+					"hidden": false
+				},
+				{
+					"id": "左右分屏",
+					"title": "左右分屏",
+					"hidden": false
+				},
+				{
+					"id": "上下分屏",
+					"title": "上下分屏",
+					"hidden": true
+				},
+				{
+					"id": "重命名",
+					"title": "重命名",
+					"hidden": true
+				},
+				{
+					"id": "删除文件",
+					"title": "删除文件",
+					"hidden": false
+				},
+				{
+					"id": "obsidian-url",
+					"title": "Obsidian URL",
+					"hidden": true
+				},
+				{
+					"id": "使用默认应用打开",
+					"title": "使用默认应用打开",
+					"hidden": true
+				},
+				{
+					"id": "将文件移动到…",
+					"title": "将文件移动到…",
+					"hidden": false
+				},
+				{
+					"id": "基于库的相对路径",
+					"title": "基于库的相对路径",
+					"hidden": true
+				},
+				{
+					"id": "绝对路径",
+					"title": "绝对路径",
+					"hidden": false
+				},
+				{
+					"id": "在系统资源管理器中显示",
+					"title": "在系统资源管理器中显示",
+					"hidden": false
+				},
+				{
+					"id": "在新窗口中打开",
+					"title": "在新窗口中打开",
+					"hidden": true
+				},
+				{
+					"id": "在文件列表中显示当前文件",
+					"title": "在文件列表中显示当前文件",
+					"hidden": true
+				},
+				{
+					"id": "在新标签页中打开反向链接列表",
+					"title": "在新标签页中打开反向链接列表",
+					"hidden": true
+				},
+				{
+					"id": "在标签页中显示反向链接",
+					"title": "在标签页中显示反向链接",
+					"hidden": true
+				},
+				{
+					"id": "打开笔记属性",
+					"title": "打开笔记属性",
+					"hidden": true
+				},
+				{
+					"id": "添加命令",
+					"title": "添加命令",
+					"hidden": true
+				},
+				{
+					"id": "格式化文件",
+					"title": "格式化文件",
+					"hidden": true
+				},
+				{
+					"id": "ignore-file-in-linter",
+					"title": "Ignore file in Linter",
+					"hidden": true
+				},
+				{
+					"id": "导出为html",
+					"title": "导出为HTML",
+					"hidden": false
+				},
+				{
+					"id": "新建绘图文件",
+					"title": "新建绘图文件",
+					"hidden": true
+				},
+				{
+					"id": "查看文件属性",
+					"title": "查看文件属性",
+					"hidden": true
+				},
+				{
+					"id": "阅读视图",
+					"title": "阅读视图",
+					"hidden": true
+				},
+				{
+					"id": "增加笔记属性",
+					"title": "增加笔记属性",
+					"hidden": true
+				},
+				{
+					"id": "查找…",
+					"title": "查找…",
+					"hidden": true
+				},
+				{
+					"id": "替换…",
+					"title": "替换…",
+					"hidden": true
+				},
+				{
+					"id": "导出为-pdf",
+					"title": "导出为 PDF",
+					"hidden": false
+				},
+				{
+					"id": "源码模式",
+					"title": "源码模式",
+					"hidden": false
+				},
+				{
+					"id": "复制路径",
+					"title": "复制路径",
+					"hidden": false
+				},
+				{
+					"id": "打开当前笔记的…",
+					"title": "打开当前笔记的…",
+					"hidden": true
+				},
+				{
+					"id": "关闭其他标签页",
+					"title": "关闭其他标签页",
+					"hidden": false
+				},
+				{
+					"id": "全部关闭",
+					"title": "全部关闭",
+					"hidden": false
+				},
+				{
+					"id": "文件夹笔记命令",
+					"title": "文件夹笔记命令",
+					"hidden": true
+				},
+				{
+					"id": "copy-block-link:-copy-link-to-current-block-or-heading",
+					"title": "Copy Block Link: Copy link to current block or heading",
+					"hidden": false
+				},
+				{
+					"id": "copy-block-link:-copy-embed-to-current-block-or-heading",
+					"title": "Copy Block Link: Copy embed to current block or heading",
+					"hidden": false
+				},
+				{
+					"id": "关闭右侧所有标签页",
+					"title": "关闭右侧所有标签页",
+					"hidden": false
+				},
+				{
+					"id": "打开为-markdown",
+					"title": "打开为 Markdown",
+					"hidden": false
+				},
+				{
+					"id": "导出为图片",
+					"title": "导出为图片",
+					"hidden": false
+				},
+				{
+					"id": "安装或更新-excalidraw-脚本",
+					"title": "安装或更新 Excalidraw 脚本",
+					"hidden": false
+				},
+				{
+					"id": "笔记历史",
+					"title": "笔记历史",
+					"hidden": false
+				},
+				{
+					"id": "分享笔记",
+					"title": "分享笔记",
+					"hidden": false
+				},
+				{
+					"id": "new-drawing",
+					"title": "New drawing",
+					"hidden": false
+				},
+				{
+					"id": "folder-note-commands",
+					"title": "Folder note commands",
+					"hidden": false
+				}
+			]
+		}
+	},
+	"hideHtmlFormatting": true,
+	"hideHtmlTags": "strong,del,font,mark,span",
+	"showWhitespace": false,
+	"ttsVoice": "Microsoft Yaoyao - Chinese (Simplified, PRC)",
+	"ttsEdgeVoice": "zh-CN-XiaoxiaoNeural",
+	"ttsSpeed": 1.5,
+	"ttsHighlightColor": "#FFFACD",
+	"excelPreviewEnabled": true,
+	"excelPreviewMaxRows": 100,
+	"excelPreviewMaxCols": 20,
+	"excelPreviewHeight": 400,
+	"exportTargetFolder": "",
+	"exportAssetsFolder": "assets",
+	"format": {
+		"protectSpanText": true,
+		"boldToStrong": true,
+		"strikethroughToDel": true,
+		"markdownLinkToWiki": false,
+		"smartQuotes": true,
+		"removeUnclosedTags": true,
+		"headerIncrement": true,
+		"headingsStartLine": true,
+		"cjkSpacing": true,
+		"codeFenceLanguage": true,
+		"codeFenceDefaultLanguage": "csharp",
+		"inlineCodeSpacing": true,
+		"spaceAfterListMarkers": true,
+		"unorderedListStyle": true,
+		"removeEmptyLinesBetweenListMarkers": true,
+		"blockquoteStyle": true,
+		"removeMultipleSpaces": true,
+		"removeSpaceAroundFullWidthChars": true,
+		"removeLinkSpacing": true,
+		"removeLeadingSpaces": true,
+		"addBlankLineAfterYaml": true,
+		"headingBlankLines": true,
+		"paragraphBlankLines": true,
+		"hrBlankLines": true,
+		"emptyLineAroundTables": true,
+		"consecutiveBlankLines": true,
+		"trailingSpaces": true,
+		"lineBreakAtDocumentEnd": true,
+		"yamlTimestamp": true,
+		"yamlDateFormat": "YYYY年MM月DD日 HH:mm:ss",
+		"yamlDateCreatedKey": "创建日期",
+		"yamlDateModifiedKey": "修改日期",
+		"yamlSkipTag": "no-format",
+		"formatOnSave": true,
+		"compactYaml": true
+	},
+	"hideBoldFormatting": true,
+	"hideItalicFormatting": true,
+	"hideHighlightFormatting": true,
+	"hideStrikethroughFormatting": true,
+	"hideCodeFormatting": false,
+	"hideEscapeFormatting": true,
+	"hideHeadingFormatting": false,
+	"timePage": "主题/时光/时光"
+}
