@@ -59,7 +59,7 @@ export class SidebarHomeView extends ItemView {
 		this.renderAudioControls(container);
 	}
 
-	// ========== 模块一：新建笔记 + 新建日记 ==========
+	// ========== 模块一：新建笔记 + 打开时光 ==========
 	renderCreateNoteSection(container: HTMLElement) {
 		const section = container.createDiv({ cls: 'sidebar-home-section sidebar-home-section--top' });
 		const row = section.createDiv({ cls: 'sidebar-home-create-row' });
@@ -85,25 +85,14 @@ export class SidebarHomeView extends ItemView {
 			}
 		});
 
-		// 新建日记按钮
-		const diaryBtn = row.createEl('button', {
+		// 打开时光按钮
+		const timeBtn = row.createEl('button', {
 			cls: 'sidebar-home-create-btn sidebar-home-create-btn--blue',
-			text: '📅 新建日记',
+			text: '📅 打开时光',
 		});
 
-		diaryBtn.addEventListener('click', async () => {
-			const originalText = diaryBtn.textContent || '📅 新建日记';
-			diaryBtn.setText('创建中…');
-			diaryBtn.disabled = true;
-			try {
-				await this.createDiaryEntry();
-			} catch (e) {
-				console.error('[SidebarHome] 创建日记失败:', e);
-				new Notice(`创建日记失败: ${(e as Error).message}`);
-			} finally {
-				diaryBtn.setText(originalText);
-				diaryBtn.disabled = false;
-			}
+		timeBtn.addEventListener('click', async () => {
+			await this.openTarget(this.plugin.settings.timePage);
 		});
 	}
 
@@ -145,45 +134,6 @@ export class SidebarHomeView extends ItemView {
 			type: 'markdown',
 			state: {
 				file: newFile.path,
-				mode: 'source',
-			},
-		});
-	}
-
-	async createDiaryEntry() {
-		const { diaryFolder } = this.plugin.settings;
-		const now = new Date();
-		const year = now.getFullYear();
-		const month = String(now.getMonth() + 1).padStart(2, '0');
-		const day = String(now.getDate()).padStart(2, '0');
-		const monthName = `${year}年${month}月`;
-		const dayHeading = `## ${year}年${month}月${day}日`;
-
-		// 确保文件夹存在
-		let folder = this.app.vault.getAbstractFileByPath(diaryFolder);
-		if (!folder) {
-			folder = await this.app.vault.createFolder(diaryFolder);
-		}
-
-		const filePath = `${diaryFolder}/${monthName}.md`;
-		const file = this.app.vault.getAbstractFileByPath(filePath);
-
-		if (file instanceof TFile) {
-			// 文件存在：追加今天的日期标题
-			const content = await this.app.vault.read(file);
-			const newContent = content.endsWith('\n') ? content + '\n' + dayHeading + '\n' : content + '\n\n' + dayHeading + '\n';
-			await this.app.vault.modify(file, newContent);
-		} else {
-			// 文件不存在：创建并写入日期标题
-			await this.app.vault.create(filePath, dayHeading + '\n');
-		}
-
-		// 在新标签页中以编辑模式打开
-		const leaf = this.app.workspace.getLeaf('tab');
-		await leaf.setViewState({
-			type: 'markdown',
-			state: {
-				file: filePath,
 				mode: 'source',
 			},
 		});

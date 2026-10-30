@@ -78,7 +78,7 @@ export function formatMarkdown(text: string, fileCreatedAt: number, settings: Fo
 	if (settings.removeEmptyLinesBetweenListMarkers) body = removeEmptyLinesBetweenListMarkers(body);
 	if (settings.blockquoteStyle) body = blockquoteStyle(body);
 	if (settings.addBlankLineAfterYaml) body = addBlankLineAfterYaml(body);
-	if (settings.compactYaml) body = compactYaml(body);
+	if (settings.hrBlankLines) body = hrBlankLines(body);
 	if (settings.headingBlankLines) body = headingBlankLines(body);
 	if (settings.paragraphBlankLines) body = paragraphBlankLines(body);
 	if (settings.emptyLineAroundTables) body = emptyLineAroundTables(body);
@@ -137,7 +137,7 @@ export interface FormatSettings {
 	removeLinkSpacing: boolean;
 	removeLeadingSpaces: boolean;
 	addBlankLineAfterYaml: boolean;
-	compactYaml: boolean;
+	hrBlankLines: boolean;
 	headingBlankLines: boolean;
 	paragraphBlankLines: boolean;
 	emptyLineAroundTables: boolean;
@@ -415,8 +415,28 @@ function addBlankLineAfterYaml(text: string): string {
 	return text;
 }
 
-function compactYaml(text: string): string {
-	return text.replace(/^---\n\n+/gm, '---\n');
+function hrBlankLines(text: string): string {
+	const lines = text.split('\n');
+	const result: string[] = [];
+	const isHr = (line: string) => /^(?:-{3,}|\*{3,}|_{3,})$/.test(line.trim());
+
+	for (let i = 0; i < lines.length; i++) {
+		const line = lines[i];
+		if (!isHr(line)) {
+			result.push(line);
+			continue;
+		}
+
+		// 上方空行（文档开头除外）
+		if (result.length > 0 && result[result.length - 1] !== '') result.push('');
+
+		result.push(line);
+
+		// 下方空行（文档末尾除外）
+		if (i + 1 < lines.length && lines[i + 1] !== '') result.push('');
+	}
+
+	return result.join('\n');
 }
 
 function headingBlankLines(text: string): string {

@@ -57,9 +57,9 @@ export interface FormatSettings {
 	removeLeadingSpaces: boolean;
 	// 空行管理
 	addBlankLineAfterYaml: boolean;
-	compactYaml: boolean;
 	headingBlankLines: boolean;
 	paragraphBlankLines: boolean;
+	hrBlankLines: boolean;
 	emptyLineAroundTables: boolean;
 	consecutiveBlankLines: boolean;
 	// 行尾
@@ -78,7 +78,7 @@ export interface FormatSettings {
 
 export interface SidebarHomeSettings {
 	cacheFolder: string;
-	diaryFolder: string;
+	timePage: string;
 	quickLinks: QuickLink[];
 	quickLinkStyle: QuickLinkStyle;
 	clipPage: string;
@@ -111,7 +111,7 @@ export interface SidebarHomeSettings {
 
 export const DEFAULT_SETTINGS: SidebarHomeSettings = {
 	cacheFolder: '缓存',
-	diaryFolder: '日记',
+	timePage: '主题/时光/时光',
 	quickLinks: [],
 	quickLinkStyle: 'horizontal',
 	clipPage: '剪藏',
@@ -164,9 +164,9 @@ export const DEFAULT_SETTINGS: SidebarHomeSettings = {
 		removeLinkSpacing: true,
 		removeLeadingSpaces: true,
 		addBlankLineAfterYaml: true,
-		compactYaml: true,
 		headingBlankLines: true,
 		paragraphBlankLines: true,
+		hrBlankLines: false,
 		emptyLineAroundTables: true,
 		consecutiveBlankLines: true,
 		trailingSpaces: true,

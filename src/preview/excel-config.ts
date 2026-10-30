@@ -15,7 +15,7 @@ export const excelConfig: SidebarHomeSettings = { ...DEFAULT_SETTINGS };
  *
  * 走 SheetJS 的 mini 构建，其中不含 BIFF / OOXML-bin 解析器，
  * 因此 .xls 与 .xlsb 不在此列 —— 它们保持 Obsidian 原生占位，点击仍可用 Excel 打开。
- * 详见 doc/开发记录-Excel预览功能.md。
+ * 详见 doc/开发记录-06-Excel预览.md。
  */
 export const SPREADSHEET_EXTENSIONS = ['xlsx', 'xlsm', 'ods', 'csv'];
 

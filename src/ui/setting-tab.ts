@@ -82,9 +82,9 @@ const FORMAT_SECTIONS: Array<{ title: string; desc?: string; items: FormatSectio
 		title: 'Phase 7: 空行管理',
 		items: [
 			{ kind: 'toggle', key: 'addBlankLineAfterYaml', label: 'YAML 后空行', desc: 'YAML frontmatter 后确保有空行' },
-			{ kind: 'toggle', key: 'compactYaml', label: '紧凑 YAML', desc: '移除 YAML 内多余空行' },
 			{ kind: 'toggle', key: 'headingBlankLines', label: '标题前后空行', desc: '标题前后各确保一个空行' },
 			{ kind: 'toggle', key: 'paragraphBlankLines', label: '段落空行', desc: '块级结构（标题/列表/表格等）后紧接段落时，补空行分隔' },
+			{ kind: 'toggle', key: 'hrBlankLines', label: '分隔线前后空行', desc: '--- 分隔线上下各确保一个空行' },
 			{ kind: 'toggle', key: 'emptyLineAroundTables', label: '表格前后空行', desc: '表格前后确保有空行' },
 			{ kind: 'toggle', key: 'consecutiveBlankLines', label: '合并连续空行', desc: '3个以上连续空行合并为2个' },
 		],
@@ -223,13 +223,13 @@ export class SidebarHomeSettingTab extends PluginSettingTab {
 				}));
 
 		new Setting(container)
-			.setName('日记文件夹')
-			.setDesc('日记文件的存储文件夹（相对库根目录）')
+			.setName('时光页面')
+			.setDesc('「打开时光」按钮跳转的笔记路径（相对库根目录，不含 .md）')
 			.addText(text => text
-				.setPlaceholder('日记')
-				.setValue(this.plugin.settings.diaryFolder)
+				.setPlaceholder('主题/时光/时光')
+				.setValue(this.plugin.settings.timePage)
 				.onChange(async (value) => {
-					this.plugin.settings.diaryFolder = value || '日记';
+					this.plugin.settings.timePage = value || '主题/时光/时光';
 					await this.plugin.saveSettings();
 				}));
 
