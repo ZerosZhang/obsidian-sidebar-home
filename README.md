@@ -31,10 +31,12 @@
 
 ### 通过 Releases 安装（推荐）
 
-1. 前往 [Releases](https://github.com/ZerosZhang/obsidian-sidebar-home/releases) 页面
-2. 下载 `main.js`、`manifest.json`、`styles.css` 三个文件
-3. 将它们放入 Obsidian 仓库的 `.obsidian/plugins/sidebar-home/` 目录
-4. 重启 Obsidian，在「设置 → 第三方插件」中启用
+每次 Release 提供两个压缩包（另附 `main.js`、`manifest.json`、`styles.css` 三个单文件，供 BRAT / 插件更新使用）：
+
+| 压缩包 | 内容 | 用法 |
+|--------|------|------|
+| `sidebar-home-<版本>.zip` | 插件本体（三个文件在压缩包根层） | 解压到 `.obsidian/plugins/sidebar-home/`，重启 Obsidian 后在「设置 → 第三方插件」启用 |
+| `vault-template-<版本>.zip` | 完整模板库（含 `vault-template/` 目录及内置插件） | 解压后用 Obsidian「打开文件夹作为库」选中 `vault-template` 目录，关闭受限模式即可 |
 
 ### 从源码构建
 
@@ -111,7 +113,7 @@ git tag v2.2.0
 git push origin v2.2.0
 ```
 
-Release 的 `manifest.json` 版本号会自动与 tag 同步。
+Release 的 `manifest.json` 版本号会自动与 tag 同步；构建产物会先同步进 `vault-template`，再打包成两个压缩包（`sidebar-home-<版本>.zip`、`vault-template-<版本>.zip`）随 Release 一起发布。
 
 ## 贡献
 

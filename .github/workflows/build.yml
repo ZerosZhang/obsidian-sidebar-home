@@ -42,6 +42,18 @@ jobs:
           TAG: ${{ github.ref_name }}
         run: node -e "const fs=require('fs');const m=JSON.parse(fs.readFileSync('manifest.json','utf8'));m.version=process.env.TAG.replace(/^v/,'');fs.writeFileSync('manifest.json',JSON.stringify(m,null,'\t')+'\n');"
 
+      - name: Sync plugin into template vault (tag)
+        if: github.ref_type == 'tag'
+        run: npm run sync:template
+
+      - name: Package release zips (tag)
+        if: github.ref_type == 'tag'
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          zip -q -r "sidebar-home-${VERSION}.zip" main.js manifest.json styles.css
+          zip -q -r "vault-template-${VERSION}.zip" vault-template
+          ls -lh ./*.zip
+
       - name: Create GitHub Release (tag)
         if: github.ref_type == 'tag'
         uses: softprops/action-gh-release@v2
@@ -50,3 +62,5 @@ jobs:
             main.js
             manifest.json
             styles.css
+            sidebar-home-*.zip
+            vault-template-*.zip
