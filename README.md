@@ -47,3 +47,12 @@ npm run build
 ```
 
 构建产物 `main.js` 位于项目根目录。
+
+## 配套模板库
+
+`vault-template/` 是一套开箱即用的 Obsidian 库模板，已内置本插件及模板用到的其他插件，下载后打开即可使用。
+
+- 获取方式：下载 Release 里的 `vault-template-<版本>.zip`，或直接克隆本仓库使用其中的 `vault-template/` 目录
+- 用法：解压后用 Obsidian「打开文件夹作为库」选中 `vault-template` 目录，关闭受限模式即可
+- 目录结构与各文件夹用途见 [`vault-template/README.md`](vault-template/README.md)
+- 开发本插件时，构建后执行 `npm run sync:template` 可把 `main.js`、`manifest.json`、`styles.css` 同步进模板库，避免版本不一致
