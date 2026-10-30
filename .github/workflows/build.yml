@@ -54,11 +54,17 @@ jobs:
           zip -q -r "vault-template-${VERSION}.zip" vault-template
           ls -lh ./*.zip
 
+      - name: Generate release notes (tag)
+        if: github.ref_type == 'tag'
+        env:
+          TAG: ${{ github.ref_name }}
+        run: node build/release-notes.mjs
+
       - name: Create GitHub Release (tag)
         if: github.ref_type == 'tag'
         uses: softprops/action-gh-release@v2
         with:
-          body_path: doc/CHANGELOG.md
+          body_path: RELEASE_NOTES.md
           files: |
             main.js
             manifest.json
