@@ -17,6 +17,7 @@ import { spaceConfig, createWhitespaceExtension } from './editor/whitespace-visi
 import { TtsPlayer } from './tts/tts-player';
 import { createTtsHighlightExtension, highlightColor } from './tts/tts-highlight';
 import { formatMarkdown } from './formatting/format';
+import { diffText } from './formatting/text-diff';
 import { patchOpenLinkText, registerFileExplorerHandler, patchCloseTabGoToPrev } from './workspace/tab-utils';
 import { excelConfig } from './preview/excel-config';
 import { refreshMountedPreviews, registerExcelPostProcessor } from './preview/excel-embed';
@@ -438,33 +439,33 @@ export default class SidebarHomePlugin extends Plugin {
 		const newText = formatMarkdown(oldText, file.stat.ctime, this.settings.format);
 		if (oldText === newText) return false;
 
-		const cm = (editor as any).cm;
+		const cm = (editor as any).cm as EditorView;
+
+		// 按行拆成多段小改动：跨度越小，光标映射和视口越不容易被带偏
+		const changes = diffText(oldText, newText);
+		if (changes.length === 0) return false;
+
+		const changeSet = cm.state.changes(changes);
+
+		// 让 CM 把当前视口按文档位置映射到新文档，避免按像素恢复造成错位
+		const snapshot = typeof (cm as any).scrollSnapshot === 'function' ? cm.scrollSnapshot() : null;
 		const scrollTop = cm.scrollDOM?.scrollTop ?? 0;
 
-		// 找首尾公共部分，只替换中间差异
-		let prefixLen = 0;
-		while (prefixLen < oldText.length && prefixLen < newText.length && oldText[prefixLen] === newText[prefixLen]) {
-			prefixLen++;
-		}
-		let oldEnd = oldText.length;
-		let newEnd = newText.length;
-		while (oldEnd > prefixLen && newEnd > prefixLen && oldText[oldEnd - 1] === newText[newEnd - 1]) {
-			oldEnd--;
-			newEnd--;
-		}
-		const insert = newText.slice(prefixLen, newEnd);
 		cm.dispatch({
-			changes: [{ from: prefixLen, to: oldEnd, insert }],
+			changes: changeSet,
+			effects: snapshot ? snapshot.map(changeSet) : undefined,
 			scrollIntoView: false,
 			filter: false,
 		});
 
-		// 双帧后恢复滚动（确保 DOM 完成布局和绘制）
-		requestAnimationFrame(() => {
+		// 旧版 CM 没有 scrollSnapshot 时退回按像素恢复
+		if (!snapshot) {
 			requestAnimationFrame(() => {
-				cm.scrollDOM.scrollTop = scrollTop;
+				requestAnimationFrame(() => {
+					cm.scrollDOM.scrollTop = scrollTop;
+				});
 			});
-		});
+		}
 
 		return true;
 	}

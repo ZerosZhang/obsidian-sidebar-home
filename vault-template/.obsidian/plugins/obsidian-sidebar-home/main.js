@@ -18940,6 +18940,148 @@ function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+// src/formatting/text-diff.ts
+var LCS_CELL_LIMIT = 1e6;
+function splitLines(text) {
+  const lines = [];
+  let from = 0;
+  for (; ; ) {
+    const nl = text.indexOf("\n", from);
+    if (nl === -1) {
+      lines.push({ raw: text.slice(from), from, to: text.length });
+      return lines;
+    }
+    lines.push({ raw: text.slice(from, nl + 1), from, to: nl + 1 });
+    from = nl + 1;
+  }
+}
+function lineStart(lines, index, textLength) {
+  return index < lines.length ? lines[index].from : textLength;
+}
+function lcsPairs(a, b) {
+  const n = a.length;
+  const m = b.length;
+  const width = m + 1;
+  const dp = new Int32Array((n + 1) * width);
+  for (let i2 = n - 1; i2 >= 0; i2--) {
+    const row = i2 * width;
+    const nextRow = row + width;
+    for (let j2 = m - 1; j2 >= 0; j2--) {
+      dp[row + j2] = a[i2] === b[j2] ? dp[nextRow + j2 + 1] + 1 : Math.max(dp[nextRow + j2], dp[row + j2 + 1]);
+    }
+  }
+  const pairs = [];
+  let i = 0;
+  let j = 0;
+  while (i < n && j < m) {
+    if (a[i] === b[j]) {
+      pairs.push([i, j]);
+      i++;
+      j++;
+    } else if (dp[(i + 1) * width + j] >= dp[i * width + j + 1]) {
+      i++;
+    } else {
+      j++;
+    }
+  }
+  return pairs;
+}
+function narrowSingleLine(from, oldRaw, newRaw) {
+  let prefix = 0;
+  while (prefix < oldRaw.length && prefix < newRaw.length && oldRaw[prefix] === newRaw[prefix])
+    prefix++;
+  let suffix = 0;
+  while (suffix < oldRaw.length - prefix && suffix < newRaw.length - prefix && oldRaw[oldRaw.length - 1 - suffix] === newRaw[newRaw.length - 1 - suffix])
+    suffix++;
+  const insert = newRaw.slice(prefix, newRaw.length - suffix);
+  const to = from + oldRaw.length - suffix;
+  const start = from + prefix;
+  if (start === to && insert === "")
+    return null;
+  return { from: start, to, insert };
+}
+function diffText(oldText, newText) {
+  if (oldText === newText)
+    return [];
+  const oldLines = splitLines(oldText);
+  const newLines = splitLines(newText);
+  let prefix = 0;
+  while (prefix < oldLines.length && prefix < newLines.length && oldLines[prefix].raw === newLines[prefix].raw)
+    prefix++;
+  let suffix = 0;
+  while (suffix < oldLines.length - prefix && suffix < newLines.length - prefix && oldLines[oldLines.length - 1 - suffix].raw === newLines[newLines.length - 1 - suffix].raw)
+    suffix++;
+  const oldStartLine = prefix;
+  const oldEndLine = oldLines.length - suffix;
+  const newStartLine = prefix;
+  const newEndLine = newLines.length - suffix;
+  const a = oldLines.slice(oldStartLine, oldEndLine).map((line) => line.raw);
+  const b = newLines.slice(newStartLine, newEndLine).map((line) => line.raw);
+  const pairs = a.length * b.length <= LCS_CELL_LIMIT ? lcsPairs(a, b) : [];
+  const changes = [];
+  let ai = 0;
+  let bi = 0;
+  const pushHunk = (aEnd, bEnd) => {
+    if (aEnd <= ai && bEnd <= bi)
+      return;
+    const oldFromLine = oldStartLine + ai;
+    const oldToLine = oldStartLine + aEnd;
+    const newFromLine = newStartLine + bi;
+    const newToLine = newStartLine + bEnd;
+    const oldCount = oldToLine - oldFromLine;
+    const newCount = newToLine - newFromLine;
+    if (pairs.length === 0) {
+      const common = Math.min(oldCount, newCount);
+      for (let i = 0; i < common; i++) {
+        const narrowed = narrowSingleLine(
+          oldLines[oldFromLine + i].from,
+          oldLines[oldFromLine + i].raw,
+          newLines[newFromLine + i].raw
+        );
+        if (narrowed)
+          changes.push(narrowed);
+      }
+      if (oldCount !== newCount) {
+        const from2 = lineStart(oldLines, oldFromLine + common, oldText.length);
+        const to2 = lineStart(oldLines, oldToLine, oldText.length);
+        const insert2 = newText.slice(
+          lineStart(newLines, newFromLine + common, newText.length),
+          lineStart(newLines, newToLine, newText.length)
+        );
+        if (from2 !== to2 || insert2 !== "")
+          changes.push({ from: from2, to: to2, insert: insert2 });
+      }
+      return;
+    }
+    if (oldCount === newCount && oldCount > 0) {
+      for (let i = 0; i < oldCount; i++) {
+        const narrowed = narrowSingleLine(
+          oldLines[oldFromLine + i].from,
+          oldLines[oldFromLine + i].raw,
+          newLines[newFromLine + i].raw
+        );
+        if (narrowed)
+          changes.push(narrowed);
+      }
+      return;
+    }
+    const from = lineStart(oldLines, oldFromLine, oldText.length);
+    const to = lineStart(oldLines, oldToLine, oldText.length);
+    const insert = newText.slice(
+      lineStart(newLines, newFromLine, newText.length),
+      lineStart(newLines, newToLine, newText.length)
+    );
+    changes.push({ from, to, insert });
+  };
+  for (const [pa, pb] of pairs) {
+    pushHunk(pa, pb);
+    ai = pa + 1;
+    bi = pb + 1;
+  }
+  pushHunk(a.length, b.length);
+  return changes;
+}
+
 // src/workspace/tab-utils.ts
 var import_obsidian9 = require("obsidian");
 var _origOpenLinkText = import_obsidian9.Workspace.prototype.openLinkText;
@@ -19461,28 +19603,25 @@ var SidebarHomePlugin = class extends import_obsidian11.Plugin {
     if (oldText === newText)
       return false;
     const cm = editor.cm;
+    const changes = diffText(oldText, newText);
+    if (changes.length === 0)
+      return false;
+    const changeSet = cm.state.changes(changes);
+    const snapshot = typeof cm.scrollSnapshot === "function" ? cm.scrollSnapshot() : null;
     const scrollTop = (_b = (_a = cm.scrollDOM) == null ? void 0 : _a.scrollTop) != null ? _b : 0;
-    let prefixLen = 0;
-    while (prefixLen < oldText.length && prefixLen < newText.length && oldText[prefixLen] === newText[prefixLen]) {
-      prefixLen++;
-    }
-    let oldEnd = oldText.length;
-    let newEnd = newText.length;
-    while (oldEnd > prefixLen && newEnd > prefixLen && oldText[oldEnd - 1] === newText[newEnd - 1]) {
-      oldEnd--;
-      newEnd--;
-    }
-    const insert = newText.slice(prefixLen, newEnd);
     cm.dispatch({
-      changes: [{ from: prefixLen, to: oldEnd, insert }],
+      changes: changeSet,
+      effects: snapshot ? snapshot.map(changeSet) : void 0,
       scrollIntoView: false,
       filter: false
     });
-    requestAnimationFrame(() => {
+    if (!snapshot) {
       requestAnimationFrame(() => {
-        cm.scrollDOM.scrollTop = scrollTop;
+        requestAnimationFrame(() => {
+          cm.scrollDOM.scrollTop = scrollTop;
+        });
       });
-    });
+    }
     return true;
   }
 };
