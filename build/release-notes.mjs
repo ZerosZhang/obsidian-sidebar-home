@@ -6,21 +6,24 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const version = (process.env.TAG || "").replace(/^v/, "");
 
 if (!version) {
-	console.error("缺少 TAG 环境变量，无法定位 CHANGELOG 中的版本小节");
+	console.error("缺少 TAG 环境变量，无法定位 doc/ChangeLog.md 中的版本小节");
 	process.exit(1);
 }
 
-const changelog = fs.readFileSync(path.join(root, "doc/CHANGELOG.md"), "utf8");
-const lines = changelog.split(/\r?\n/);
+const changelogPath = path.join(root, "doc/ChangeLog.md");
+const heading = new RegExp(`^##\\s+v?${version.replace(/\./g, "\\.")}(?:\\s|$)`);
 
-const start = lines.findIndex((line) => /^##\s/.test(line) && line.includes(version));
+const lines = fs.readFileSync(changelogPath, "utf8").split(/\r?\n/);
+const start = lines.findIndex((line) => heading.test(line));
+
+let body = "";
 if (start === -1) {
-	console.error(`doc/CHANGELOG.md 中没有 ${version} 的小节，请先在文件顶部补充该版本`);
-	process.exit(1);
+	console.warn(`doc/ChangeLog.md 中没有 ${version} 的小节，发布说明留空`);
+} else {
+	let end = lines.findIndex((line, index) => index > start && /^##\s/.test(line));
+	if (end === -1) end = lines.length;
+	body = lines.slice(start + 1, end).join("\n").trim();
 }
 
-const next = lines.findIndex((line, index) => index > start && /^##\s/.test(line));
-const body = lines.slice(start, next === -1 ? lines.length : next).join("\n").trim();
-
-fs.writeFileSync(path.join(root, "RELEASE_NOTES.md"), `${body}\n`);
-console.log(`已生成 RELEASE_NOTES.md（${version}，${body.split("\n").length} 行）`);
+fs.writeFileSync(path.join(root, "RELEASE_NOTES.md"), body ? `${body}\n` : "");
+console.log(body ? `已生成 RELEASE_NOTES.md（${version}，${body.split("\n").length} 行）` : "已生成空的 RELEASE_NOTES.md");

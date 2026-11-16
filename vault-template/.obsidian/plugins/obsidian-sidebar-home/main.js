@@ -18746,9 +18746,11 @@ function removeLinkSpacing(text) {
 }
 function removeLeadingSpaces(text) {
   const lines = text.split("\n");
+  const tableRows = collectTableRowIndices(lines);
   const result = [];
-  for (const line of lines) {
-    const isSpecial = /^\s*(?:[-*+]|\d+[.)])/.test(line) || /^\s*>/.test(line) || /^\s*#{1,6}\s/.test(line) || line.includes("|");
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const isSpecial = /^\s*(?:[-*+]|\d+[.)])/.test(line) || /^\s*>/.test(line) || /^\s*#{1,6}\s/.test(line) || tableRows.has(i);
     const m = line.match(/^ {1,3}(?=\S)/);
     if (!isSpecial && m) {
       result.push(line.slice(m[0].length));
@@ -18757,6 +18759,56 @@ function removeLeadingSpaces(text) {
     }
   }
   return result.join("\n");
+}
+var blockquotePrefixRe = /^(\s*(?:>[ \t]*)*)/;
+function splitLinePrefix(line) {
+  const m = line.match(blockquotePrefixRe);
+  const prefix = m ? m[1] : "";
+  return [prefix, line.slice(prefix.length)];
+}
+function isTableDelimiterRow(content) {
+  if (!content.includes("|"))
+    return false;
+  let s = content.trim();
+  if (s.startsWith("|"))
+    s = s.slice(1);
+  if (s.endsWith("|"))
+    s = s.slice(0, -1);
+  const cells = s.split("|");
+  return cells.every((cell) => /^[ \t]*:?-+:?[ \t]*$/.test(cell));
+}
+function findTableBlocks(lines) {
+  const blocks = [];
+  for (let i = 0; i < lines.length; i++) {
+    const [, content] = splitLinePrefix(lines[i]);
+    if (!isTableDelimiterRow(content.trim()))
+      continue;
+    let start = i;
+    if (i > 0) {
+      const [, prevContent] = splitLinePrefix(lines[i - 1]);
+      if (prevContent.trim() !== "" && prevContent.includes("|"))
+        start = i - 1;
+    }
+    let end = i;
+    while (end + 1 < lines.length) {
+      const [, nextContent] = splitLinePrefix(lines[end + 1]);
+      if (nextContent.trim() === "" || !nextContent.includes("|"))
+        break;
+      end++;
+    }
+    const [prefix] = splitLinePrefix(lines[start]);
+    blocks.push({ start, end, prefix: prefix.trimEnd() });
+    i = end;
+  }
+  return blocks;
+}
+function collectTableRowIndices(lines) {
+  const rows = /* @__PURE__ */ new Set();
+  for (const block of findTableBlocks(lines)) {
+    for (let i = block.start; i <= block.end; i++)
+      rows.add(i);
+  }
+  return rows;
 }
 function addBlankLineAfterYaml(text) {
   if (!text.startsWith("---"))
@@ -18812,8 +18864,9 @@ function headingBlankLines(text) {
 function paragraphBlankLines(text) {
   const lines = text.split("\n");
   const result = [];
+  const tableRows = collectTableRowIndices(lines);
+  let prevIsTableRow = false;
   let inYaml = false;
-  let yamlEnded = false;
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (i === 0 && line.startsWith("---")) {
@@ -18823,7 +18876,6 @@ function paragraphBlankLines(text) {
     }
     if (inYaml && line.startsWith("---")) {
       inYaml = false;
-      yamlEnded = true;
       result.push(line);
       continue;
     }
@@ -18836,38 +18888,44 @@ function paragraphBlankLines(text) {
     const isBlockquote = line.startsWith(">");
     const isListItem = /^\s*[-*+]\s/.test(line) || /^\s*\d+[.)]\s/.test(line);
     const isCodeFence = line.startsWith("```") || line.startsWith("~~~");
-    const isTableRow = line.includes("|");
+    const isTableRow = tableRows.has(i);
     if (isEmpty || isHeading || isBlockquote || isListItem || isCodeFence || isTableRow) {
       result.push(line);
+      prevIsTableRow = isTableRow;
       continue;
     }
     if (result.length > 0 && result[result.length - 1] !== "") {
       const prev = result[result.length - 1];
-      const prevIsSpecial = /^#{1,6}\s/.test(prev) || prev.startsWith(">") || /^\s*[-*+]\s/.test(prev) || prev.startsWith("```") || prev.includes("|");
-      if (!prevIsSpecial) {
-      } else {
+      const prevIsSpecial = /^#{1,6}\s/.test(prev) || prev.startsWith(">") || /^\s*[-*+]\s/.test(prev) || prev.startsWith("```") || prevIsTableRow;
+      if (prevIsSpecial)
         result.push("");
-      }
     }
     result.push(line);
+    prevIsTableRow = false;
   }
   return result.join("\n");
 }
 function emptyLineAroundTables(text) {
   const lines = text.split("\n");
-  const result = [];
-  for (let i = 0; i < lines.length; i++) {
-    const isTableLine = lines[i].includes("|");
-    const prevIsTable = i > 0 && lines[i - 1].includes("|");
-    const nextIsTable = i + 1 < lines.length && lines[i + 1].includes("|");
-    if (isTableLine && !prevIsTable && result.length > 0 && result[result.length - 1] !== "") {
-      result.push("");
+  const inserts = [];
+  for (const block of findTableBlocks(lines)) {
+    if (block.start > 0) {
+      const [, beforeContent] = splitLinePrefix(lines[block.start - 1]);
+      if (beforeContent.trim() !== "")
+        inserts.push({ at: block.start, blank: block.prefix });
     }
-    result.push(lines[i]);
-    if (isTableLine && !nextIsTable && i + 1 < lines.length && lines[i + 1] !== "") {
-      result.push("");
+    if (block.end + 1 < lines.length) {
+      const [, afterContent] = splitLinePrefix(lines[block.end + 1]);
+      if (afterContent.trim() !== "")
+        inserts.push({ at: block.end + 1, blank: block.prefix });
     }
   }
+  if (inserts.length === 0)
+    return text;
+  inserts.sort((a, b) => b.at - a.at);
+  const result = lines.slice();
+  for (const insert of inserts)
+    result.splice(insert.at, 0, insert.blank);
   return result.join("\n");
 }
 function consecutiveBlankLines(text) {

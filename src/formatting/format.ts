@@ -378,12 +378,14 @@ function removeLinkSpacing(text: string): string {
 
 function removeLeadingSpaces(text: string): string {
 	const lines = text.split('\n');
+	const tableRows = collectTableRowIndices(lines);
 	const result: string[] = [];
 
-	for (const line of lines) {
+	for (let i = 0; i < lines.length; i++) {
+		const line = lines[i];
 		// 列表/引用/标题/表格行保留行首缩进
 		const isSpecial = /^\s*(?:[-*+]|\d+[.)])/.test(line) ||
-			/^\s*>/.test(line) || /^\s*#{1,6}\s/.test(line) || line.includes('|');
+			/^\s*>/.test(line) || /^\s*#{1,6}\s/.test(line) || tableRows.has(i);
 		// 行首 1-3 个空格 + 非空白
 		const m = line.match(/^ {1,3}(?=\S)/);
 		if (!isSpecial && m) {
@@ -399,6 +401,66 @@ function removeLeadingSpaces(text: string): string {
 // ============================================================
 // Phase 8: 空行管理
 // ============================================================
+
+// 表格判定：以表头分隔行为锚点，支持引用/缩进前缀（链接文字或正文里的 | 不会被误判）
+const blockquotePrefixRe = /^(\s*(?:>[ \t]*)*)/;
+
+function splitLinePrefix(line: string): [string, string] {
+	const m = line.match(blockquotePrefixRe);
+	const prefix = m ? m[1] : '';
+	return [prefix, line.slice(prefix.length)];
+}
+
+function isTableDelimiterRow(content: string): boolean {
+	if (!content.includes('|')) return false;
+	let s = content.trim();
+	if (s.startsWith('|')) s = s.slice(1);
+	if (s.endsWith('|')) s = s.slice(0, -1);
+	const cells = s.split('|');
+	return cells.every((cell) => /^[ \t]*:?-+:?[ \t]*$/.test(cell));
+}
+
+interface TableBlock {
+	start: number;
+	end: number;
+	prefix: string;
+}
+
+function findTableBlocks(lines: string[]): TableBlock[] {
+	const blocks: TableBlock[] = [];
+	for (let i = 0; i < lines.length; i++) {
+		const [, content] = splitLinePrefix(lines[i]);
+		if (!isTableDelimiterRow(content.trim())) continue;
+
+		// 表头行：分隔行的上一行且含 |
+		let start = i;
+		if (i > 0) {
+			const [, prevContent] = splitLinePrefix(lines[i - 1]);
+			if (prevContent.trim() !== '' && prevContent.includes('|')) start = i - 1;
+		}
+
+		// 数据行：分隔行之后连续的非空含 | 行
+		let end = i;
+		while (end + 1 < lines.length) {
+			const [, nextContent] = splitLinePrefix(lines[end + 1]);
+			if (nextContent.trim() === '' || !nextContent.includes('|')) break;
+			end++;
+		}
+
+		const [prefix] = splitLinePrefix(lines[start]);
+		blocks.push({ start, end, prefix: prefix.trimEnd() });
+		i = end;
+	}
+	return blocks;
+}
+
+function collectTableRowIndices(lines: string[]): Set<number> {
+	const rows = new Set<number>();
+	for (const block of findTableBlocks(lines)) {
+		for (let i = block.start; i <= block.end; i++) rows.add(i);
+	}
+	return rows;
+}
 
 function addBlankLineAfterYaml(text: string): string {
 	if (!text.startsWith('---')) return text;
@@ -469,8 +531,9 @@ function headingBlankLines(text: string): string {
 function paragraphBlankLines(text: string): string {
 	const lines = text.split('\n');
 	const result: string[] = [];
+	const tableRows = collectTableRowIndices(lines);
+	let prevIsTableRow = false;
 	let inYaml = false;
-	let yamlEnded = false;
 
 	for (let i = 0; i < lines.length; i++) {
 		const line = lines[i];
@@ -482,7 +545,6 @@ function paragraphBlankLines(text: string): string {
 		}
 		if (inYaml && line.startsWith('---')) {
 			inYaml = false;
-			yamlEnded = true;
 			result.push(line);
 			continue;
 		}
@@ -496,10 +558,11 @@ function paragraphBlankLines(text: string): string {
 		const isBlockquote = line.startsWith('>');
 		const isListItem = /^\s*[-*+]\s/.test(line) || /^\s*\d+[.)]\s/.test(line);
 		const isCodeFence = line.startsWith('```') || line.startsWith('~~~');
-		const isTableRow = line.includes('|');
+		const isTableRow = tableRows.has(i);
 
 		if (isEmpty || isHeading || isBlockquote || isListItem || isCodeFence || isTableRow) {
 			result.push(line);
+			prevIsTableRow = isTableRow;
 			continue;
 		}
 
@@ -507,15 +570,12 @@ function paragraphBlankLines(text: string): string {
 		if (result.length > 0 && result[result.length - 1] !== '') {
 			const prev = result[result.length - 1];
 			const prevIsSpecial = /^#{1,6}\s/.test(prev) || prev.startsWith('>') ||
-				/^\s*[-*+]\s/.test(prev) || prev.startsWith('```') || prev.includes('|');
-			if (!prevIsSpecial) {
-				// 连续段落，不加空行
-			} else {
-				result.push('');
-			}
+				/^\s*[-*+]\s/.test(prev) || prev.startsWith('```') || prevIsTableRow;
+			if (prevIsSpecial) result.push('');
 		}
 
 		result.push(line);
+		prevIsTableRow = false;
 	}
 
 	return result.join('\n');
@@ -523,25 +583,28 @@ function paragraphBlankLines(text: string): string {
 
 function emptyLineAroundTables(text: string): string {
 	const lines = text.split('\n');
-	const result: string[] = [];
+	const inserts: Array<{ at: number; blank: string }> = [];
 
-	for (let i = 0; i < lines.length; i++) {
-		const isTableLine = lines[i].includes('|');
-		const prevIsTable = i > 0 && lines[i - 1].includes('|');
-		const nextIsTable = i + 1 < lines.length && lines[i + 1].includes('|');
-
-		// 表格第一行：上方插入空行
-		if (isTableLine && !prevIsTable && result.length > 0 && result[result.length - 1] !== '') {
-			result.push('');
+	for (const block of findTableBlocks(lines)) {
+		// 上方空行：复用表格所在引用层级（引用内插入 “>” 而不是裸空行，避免截断 callout）
+		if (block.start > 0) {
+			const [, beforeContent] = splitLinePrefix(lines[block.start - 1]);
+			if (beforeContent.trim() !== '') inserts.push({ at: block.start, blank: block.prefix });
 		}
 
-		result.push(lines[i]);
-
-		// 表格最后一行：下方插入空行
-		if (isTableLine && !nextIsTable && i + 1 < lines.length && lines[i + 1] !== '') {
-			result.push('');
+		// 下方空行（文档末尾除外）
+		if (block.end + 1 < lines.length) {
+			const [, afterContent] = splitLinePrefix(lines[block.end + 1]);
+			if (afterContent.trim() !== '') inserts.push({ at: block.end + 1, blank: block.prefix });
 		}
 	}
+
+	if (inserts.length === 0) return text;
+
+	// 从后往前插入，避免下标偏移
+	inserts.sort((a, b) => b.at - a.at);
+	const result = lines.slice();
+	for (const insert of inserts) result.splice(insert.at, 0, insert.blank);
 
 	return result.join('\n');
 }
